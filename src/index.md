@@ -12,7 +12,7 @@ image: /imgs/hero.png
 
 <div class="features">
   <div class="feature">
-    <h2>⚓️ 쿠버네티스가 처음인가요?</h2>
+    <h2>⚓️ 쿠버네티스 처음이에요</h2>
     <p><a href="/prepare">준비하기</a> 페이지를 먼저 읽고 <a href="/guide">가이드</a>를 진행해주세요.</p>
   </div>
   <div class="feature">
