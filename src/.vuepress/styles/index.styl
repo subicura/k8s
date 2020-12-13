@@ -1,0 +1,35 @@
+/**
+ * Custom Styles here.
+ *
+ * ref：https://v1.vuepress.vuejs.org/config/#index-styl
+ */
+
+.home .hero img
+  max-width 450px!important
+
+.home .hero h1
+  background -webkit-linear-gradient(-70deg, #9867f0, #ed4e50)
+  -webkit-background-clip text
+  background-clip text
+  -webkit-text-fill-color transparent
+  -webkit-box-decoration-break clone
+  font-weight bold
+
+body
+  font-family "Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  
+.usage-msg
+  font-family Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace
+  padding .5rem 1.0rem
+  border 1px solid #ddd
+  border-radius 4px
+  text-align center
+  font-size 14px
+
+.theme-container .home .hero img
+  max-width 100%
+  max-height 350px
+  display block
+  margin 1rem auto 1.5rem
+  @media (max-width: $MQMobileNarrow)
+    max-height 300px

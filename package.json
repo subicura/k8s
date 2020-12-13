@@ -1,0 +1,23 @@
+{
+  "name": "k8s",
+  "version": "0.1.0",
+  "description": "A Beginner's Guide to Kubernetes",
+  "main": "index.js",
+  "authors": {
+    "name": "subicura",
+    "email": "subicura@subicura.com"
+  },
+  "repository": "https://github.com/subicura/k8s",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.7.1",
+    "@vuepress/plugin-google-analytics": "^1.7.1",
+    "@vuepress/plugin-medium-zoom": "^1.7.1",
+    "vuepress": "^1.7.1",
+    "vuepress-plugin-autometa": "^0.1.13",
+    "vuepress-plugin-mermaidjs": "^1.8.1"
+  }
+}

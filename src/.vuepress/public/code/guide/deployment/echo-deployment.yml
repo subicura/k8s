@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: echo
+        tier: app
+    spec:
+      containers:
+        - name: echo
+          image: ghcr.io/subicura/echo:v1
