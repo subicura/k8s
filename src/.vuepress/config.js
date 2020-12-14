@@ -165,12 +165,6 @@ module.exports = {
         },
       },
     ],
-    [
-      "@vuepress/google-analytics",
-      {
-        ga: "UA-43194822-1",
-      },
-    ],
     ["autometa", autometa_options],
     [
       "mermaidjs",
