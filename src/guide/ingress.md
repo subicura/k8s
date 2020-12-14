@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # Ingress
 
-::: tip 배울점
+::: tip ⚡️ 목표
 도메인을 이용하여 서로 다른 서비스에 접근하는 방법을 알아봅니다.
 :::
 

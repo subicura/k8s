@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # Deployment
 
-::: tip 배울점
+::: tip ⚡️ 목표
 Deployment(배포)를 이용하여 Pod을 새로운 버전으로 업데이트하고 롤백하는 방법을 알아봅니다.
 :::
 

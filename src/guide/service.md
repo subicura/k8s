@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # Service
 
-::: tip 배울점
+::: tip ⚡️ 목표
 Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.
 :::
 

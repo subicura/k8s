@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # 웹 애플리케이션 배포
 
-::: tip 배울점
+::: tip ⚡️ 목표
 Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리케이션을 배포합니다.
 :::
 

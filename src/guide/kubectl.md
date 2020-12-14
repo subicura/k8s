@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # 기본 명령어
 
-::: tip 배울점
+::: tip ⚡️ 목표
 kubectl의 기본적인 사용법을 익힙니다.
 :::
 

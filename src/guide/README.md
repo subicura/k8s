@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # 시작하기
 
-::: tip 배울점
+::: tip ⚡️ 목표
 쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.
 :::
 

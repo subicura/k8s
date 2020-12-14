@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # kubectl 설치
 
-::: tip 배울점
+::: tip ⚡️ 목표
 쿠버네티스에 명령을 전달하기 위한 `kubectl` 프로그램을 설치합니다.
 :::
 

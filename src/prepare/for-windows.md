@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # windows 환경
 
-::: tip 배울점
+::: tip ⚡️ 목표
 windows 환경에서 실습할 경우 필요한 프로그램을 설치합니다.
 :::
 

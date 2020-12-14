@@ -5,7 +5,7 @@ image: /imgs/hero.png
 
 # Pod
 
-::: tip 배울점
+::: tip ⚡️ 목표
 Pod이 무엇인지 알아보고 기본적인 사용법을 익힙니다. YAML을 이용하여 설정파일을 작성합니다.
 :::
 
