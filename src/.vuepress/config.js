@@ -172,13 +172,13 @@ module.exports = {
         sequence: {
           mirrorActors: false,
           actorFontFamily:
-            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, 'Spoqa Han Sans Neo'",
           actorFontWeight: "bold",
           noteFontFamily:
-            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, 'Spoqa Han Sans Neo'",
           noteFontWeight: "normal",
           messageFontFamily:
-            '"Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+            '"Spoqa Han Sans Neo", "Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
           messageFontWeight: "normal",
         },
       },

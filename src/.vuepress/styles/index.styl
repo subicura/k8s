@@ -4,6 +4,8 @@
  * ref：https://v1.vuepress.vuejs.org/config/#index-styl
  */
 
+ @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 .home .hero img
   max-width 450px!important
 
@@ -16,10 +18,26 @@
   font-weight bold
 
 body
-  font-family "Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-family "Spoqa Han Sans Neo", "Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-weight 400
+  letter-spacing -0.02em
+
+strong
+  font-weight 500
+
+.custom-block 
+  font-size 15px
+
+.theme-container
+  .home .hero h1, .home .hero .description
+    margin 0.8rem auto
+  .home .hero .action
+    margin 1.8rem auto
+  code, kbd, .line-number
+    font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace, "Spoqa Han Sans Neo"
   
 .usage-msg
-  font-family Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace
+  font-family Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, "Spoqa Han Sans Neo"
   padding .5rem 1.0rem
   border 1px solid #ddd
   border-radius 4px
