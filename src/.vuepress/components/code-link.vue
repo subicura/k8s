@@ -1,6 +1,6 @@
 <template>
   <div style="text-align: center">
-    <a :href="url" target="_blank" rel="noopener noreferrer" class="external">
+    <a :href="url" target="_blank" rel="noopener noreferrer" class="external code-link">
       {{ filename }}
       <span
         ><svg

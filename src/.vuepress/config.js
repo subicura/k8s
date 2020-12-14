@@ -105,11 +105,11 @@ module.exports = {
     lastUpdated: true,
     nav: [
       {
-        text: "가이드",
+        text: "📔 가이드",
         link: "/guide/",
       },
       {
-        text: "준비하기",
+        text: "👨‍💻 준비하기",
         link: "/prepare/",
       },
       {
