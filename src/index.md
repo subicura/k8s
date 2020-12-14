@@ -16,11 +16,11 @@ image: /imgs/hero.png
     <p><a href="/prepare">준비하기</a> 페이지를 먼저 읽고 <a href="/guide">가이드</a>를 진행해주세요.</p>
   </div>
   <div class="feature">
-    <h2>🤷‍♀️ 너무 어려워요 ㅠ_ㅠ 🤷</h2>
+    <h2>🤷 너무 어려워요 ㅠ_ㅠ</h2>
     <p>초보자도 이해하기 쉬운 내용과 흐름으로 구성했어요.</p>
   </div>
   <div class="feature">
     <h2>💌 문의하기</h2>
-    <p>문의하실 내용은 subicura(at)subicura(dot)com으로 연락주세요.</p>
+    <p>subicura(at)subicura(dot)com으로 연락주세요.</p>
   </div>
 </div>
