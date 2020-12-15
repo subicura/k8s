@@ -1,6 +1,6 @@
 ---
 description: ReplicaSet(복제셋)이 무엇인지 알아보고 ReplicaSet을 이용하여 Pod을 관리하는 방법을 살펴봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # ReplicaSet

@@ -1,6 +1,6 @@
 ---
 description: 쿠버네티스 실습을 위해 클러스터를 설치합니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 쿠버네티스 설치

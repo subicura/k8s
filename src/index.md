@@ -7,7 +7,7 @@ actionLink: /guide/
 footer: ⓒ 2020 by subicura
 
 description: 초보를 위한 쿠버네티스 안내서 - 실습편
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 <div class="features">

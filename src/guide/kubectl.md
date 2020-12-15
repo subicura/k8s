@@ -1,6 +1,6 @@
 ---
 description: kubectl의 기본적인 사용법을 익힙니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 기본 명령어

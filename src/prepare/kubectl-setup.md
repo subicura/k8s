@@ -1,6 +1,6 @@
 ---
 description: 쿠버네티스에 명령을 전달하기 위한 kubectl 프로그램을 설치합니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # kubectl 설치

@@ -1,6 +1,6 @@
 ---
 description: 쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 시작하기

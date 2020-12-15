@@ -1,6 +1,6 @@
 ---
 description: 도메인을 이용하여 서로 다른 서비스에 접근하는 방법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # Ingress

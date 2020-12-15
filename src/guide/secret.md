@@ -1,6 +1,6 @@
 ---
 description: 쿠버네티스에서 비밀번호, SSH 인증, TLS Secret과 같은 보안 정보를 관리하는 방법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # Secret

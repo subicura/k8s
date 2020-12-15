@@ -1,6 +1,6 @@
 ---
 description: Deployment(배포)를 이용하여 Pod을 새로운 버전으로 업데이트하고 롤백하는 방법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # Deployment

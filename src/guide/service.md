@@ -1,6 +1,6 @@
 ---
 description: Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # Service

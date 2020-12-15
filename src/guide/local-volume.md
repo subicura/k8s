@@ -1,6 +1,6 @@
 ---
 description: Pod 안의 컨테이너 간 디렉토리를 공유하는 방법과 컨테이너의 특정 디렉토리를 호스트 디렉토리와 연결하는 방법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # Volume (local)

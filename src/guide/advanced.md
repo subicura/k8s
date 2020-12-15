@@ -1,6 +1,6 @@
 ---
 description: Coming soon!
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 고급 가이드

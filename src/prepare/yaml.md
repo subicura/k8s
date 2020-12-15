@@ -1,6 +1,6 @@
 ---
 description: YAML 문법에 대해 전반적으로 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # YAML 문법

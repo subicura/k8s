@@ -1,6 +1,6 @@
 ---
 description: Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리케이션을 배포합니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 웹 애플리케이션 배포

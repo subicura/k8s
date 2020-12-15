@@ -1,6 +1,6 @@
 ---
 description: 가이드 안내
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 앞으로

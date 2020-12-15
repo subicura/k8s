@@ -1,6 +1,6 @@
 ---
 description: 쿠버네티스에서 설정파일과 환경변수를 관리하는 방법을 알아봅니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # ConfigMap

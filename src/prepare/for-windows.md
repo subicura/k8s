@@ -1,6 +1,6 @@
 ---
 description: windows 환경에서 실습할 경우 필요한 프로그램을 설치합니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # windows 환경

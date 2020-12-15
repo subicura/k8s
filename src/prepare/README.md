@@ -1,6 +1,6 @@
 ---
 description: 쿠버네티스 실습을 위해 필요한 개발환경을 준비합니다.
-image: /imgs/hero.png
+image: /imgs/share.png
 ---
 
 # 개발환경 준비
