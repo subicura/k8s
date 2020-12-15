@@ -18,5 +18,8 @@
     "vuepress": "^1.7.1",
     "vuepress-plugin-autometa": "^0.1.13",
     "vuepress-plugin-mermaidjs": "^1.8.1"
+  },
+  "dependencies": {
+    "vuepress-plugin-sitemap": "^2.3.1"
   }
 }
