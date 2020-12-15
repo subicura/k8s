@@ -23,4 +23,4 @@ image: /imgs/hero.png
 
 인프런은 온라인 강의 플랫폼입니다. 실습 영상과 자세한 설명을 들어보세요.
 
-- [인프런 강의 바로가기](https://www.inflearn.com/instructors/209928/courses)
+- [인프런 강의 바로가기](https://bit.ly/inflearn-k8s-link)

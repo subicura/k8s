@@ -114,7 +114,7 @@ module.exports = {
       },
       {
         text: "영상강의",
-        link: "https://www.inflearn.com/instructors/209928/courses",
+        link: "https://bit.ly/inflearn-k8s-link",
       },
     ],
     sidebar: {
