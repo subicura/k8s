@@ -56,6 +56,16 @@ Windows 10 Enterprise, Pro, or Education에서 Hyper-V를 지원합니다. 그 �
 DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 ```
 
+활성화 후 사용 유/무 설정하기
+
+```sh
+# 끄기
+bcdedit /set hypervisorlaunchtype off
+
+# 켜기
+bcdedit /set hypervisorlaunchtype auto
+```
+
 **기본 명령어**
 
 ```sh
