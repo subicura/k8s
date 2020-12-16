@@ -85,6 +85,41 @@ minikube ssh
 minikube ip
 ```
 
+**Docker Desktop**
+
+::: warning 설치버전
+Docker Desktop 3.0.0 + WSL2 환경에서 테스트하였습니다.
+:::
+
+Docker Dekstop이 설치되어 있으면 minikube가 기본으로 `docker` driver를 사용합니다. docker 드라이브러를 사용할 경우 서비스 노출 방법입니다.
+
+샘플로 테스트한 wordpress의 쿠버네티스의 노출 포트는 31428이지만 접근하기 위해서는 `minikube service`명령어를 입력하고 프록시를 통해 접속해야 합니다.
+
+```sh
+# 쿠버네티스 서비스 이름이 wordpress라면..
+minikube service wordpress
+```
+
+**실행 결과**
+
+```
+|-----------|-----------|-------------|---------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |            URL            |
+|-----------|-----------|-------------|---------------------------|
+| default   | wordpress |          80 | http://192.168.49.2:31428 |
+|-----------|-----------|-------------|---------------------------|
+   Starting tunnel for service wordpress.
+|-----------|-----------|-------------|------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |          URL           |
+|-----------|-----------|-------------|------------------------|
+| default   | wordpress |             | http://127.0.0.1:58969 |
+|-----------|-----------|-------------|------------------------|
+   Opening service default/wordpress in default browser...
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+```
+
+`minikube service`를 실행한 상태에서 ~~127.0.0.1:31428~~이 아닌 127.0.0.1:58969로 접속합니다.
+
 ### macOS
 
 **설치**
