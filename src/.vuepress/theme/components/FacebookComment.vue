@@ -41,9 +41,10 @@ export default {
 
 <style lang="stylus">
 .fb-comment-wrapper
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
   margin 0 auto
-  max-width 740px
-  padding: 1rem 2.5rem;
   @media (max-width: $MQNarrow)
     padding 2rem
   @media (max-width: $MQMobileNarrow)
