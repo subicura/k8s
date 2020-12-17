@@ -12,8 +12,7 @@
 			</li>
 		</ul>
 		<div v-if="!yuu.disableDarkTheme" class="dark-theme-options toggle-option">
-			<label for="dark-theme-toggle">Enable Dark Theme?</label>
-			<input id="dark-theme-toggle" v-model="darkTheme" type="checkbox" @change="toggleDarkTheme" />
+			<DarkModeSwitch @switched="onSwitched" :initialState="darkMode" />
 		</div>
 		<div v-if="yuu.hasThemes && !yuu.disableThemeIgnore" class="force-theme-options toggle-option">
 			<label for="force-theme-toggle">Ignore Forced Themes?</label>
@@ -29,15 +28,39 @@
 import yuuConfig from '@theme/mixins/yuuConfig.js';
 import themeHandler from '@theme/mixins/themeHandler.js';
 import darkThemeHandler from '@theme/mixins/darkThemeHandler.js';
+import DarkModeSwitch from 'vue-dark-mode-switch'
+import 'vue-dark-mode-switch/dist/vue-dark-mode-switch.css'
 
 export default {
 	name: 'ThemeOptions',
+	data() {
+		return {
+			darkMode: typeof localStorage === 'undefined' ? false : localStorage.getItem("dark-theme") === "true"
+		}
+	},
+	components: {
+		DarkModeSwitch
+	},
 	mixins: [yuuConfig, themeHandler, darkThemeHandler],
+	methods: {
+		onSwitched(isSwitched) {
+			this.darkTheme = isSwitched;
+			this.toggleDarkTheme();
+		}
+	}
 };
 </script>
 
 <style lang="stylus">
 @import '../../styles/variables.styl';
+
+.dark-theme-options.toggle-option {
+	line-height: 1.5em;
+
+	.toggleWrapper {
+		margin: 10px auto 0;
+	}
+}
 
 .color-theme-options {
 	display: flex;

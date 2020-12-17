@@ -141,6 +141,9 @@ module.exports = {
         },
       ],
     },
+    yuu: {
+      disableThemeIgnore: true,
+    },
   },
 
   /**
