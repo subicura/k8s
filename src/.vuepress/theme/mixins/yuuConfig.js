@@ -5,7 +5,7 @@ export default {
     };
   },
 
-  beforeMount() {
+  mounted() {
     const { yuu = {} } = this.$site.themeConfig;
     const { labels = {} } = yuu;
 
