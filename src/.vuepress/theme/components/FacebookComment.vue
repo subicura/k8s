@@ -1,6 +1,8 @@
 <template>
 <div class="fb-comment-wrapper">
-  <div class="fb-comments" :data-href="commentLink" data-num-posts="5" data-order-by="social" data-width="100%"></div>
+  <div class="fb-comment-inner">
+    <div class="fb-comments" :data-href="commentLink" data-num-posts="5" data-order-by="social" data-width="100%"></div>
+  </div>
 </div>
 </template>
 
@@ -41,12 +43,19 @@ export default {
 
 <style lang="stylus">
 .fb-comment-wrapper
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 2rem 2.5rem;
+  max-width: 920px
+  margin: 0 auto
+  padding: 1.5rem 2rem
   margin 0 auto
   @media (max-width: $MQNarrow)
-    padding 2rem
-  @media (max-width: $MQMobileNarrow)
     padding 1.5rem
+  @media (max-width: $MQMobileNarrow)
+    padding 1rem
+.fb-comment-inner
+  border-radius: 6px
+  padding: 0.5rem
+.yuu-theme-dark
+  .fb-comment-inner
+    background-color: #f3f3f3
+
 </style>
