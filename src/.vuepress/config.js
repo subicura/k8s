@@ -156,6 +156,14 @@ module.exports = {
       },
     ],
     [
+      "container",
+      {
+        type: "mermaid",
+        before: '<pre class="mermaid-container"><code>',
+        after: "</code></pre>",
+      },
+    ],
+    [
       "@vuepress/last-updated",
       {
         transformer: (timestamp, _lang) => {

@@ -124,6 +124,8 @@ echo-v2   <none>   v2.echo.192.168.64.5.sslip.io   192.168.64.5   80      48s
 
 Ingress가 어떻게 동작하는지 알아봅니다.
 
+::: mermaid
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -139,6 +141,8 @@ sequenceDiagram
 
   Note right of N: 설정 변경시<br />자동 적용
 ```
+
+:::
 
 1. `Ingress Controller`는 `Ingress` 변화를 체크
 2. `Ingress Controller`는 변경된 내용을 `Nginx`에 설정하고 프로세스 재시작

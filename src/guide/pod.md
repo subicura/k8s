@@ -84,6 +84,8 @@ Pod은 다음과 같이 구성되어있습니다. minikube 클러스터 안에 P
 
 `kubectl run`을 실행하고 Pod이 생성되는 과정을 살펴봅니다.
 
+::: mermaid
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -106,6 +108,8 @@ sequenceDiagram
     K->>A: Pod 상태 전달
   end
 ```
+
+:::
 
 1. `Scheduler`는 API서버를 감시하면서 할당되지 않은<sup>unassigned</sup> `Pod`이 있는지 체크
 2. `Scheduler`는 할당되지 않은 `Pod`을 감지하고 적절한 `노드`<sup>node</sup>에 할당 (minikube는 단일 노드)

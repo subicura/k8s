@@ -122,6 +122,8 @@ echo-rs-kv4mh   0/1     Terminating   0          2m19s   app=echo,tier=app
 
 ReplicaSet이 어떻게 동작하는지 살펴봅니다.
 
+::: mermaid
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -144,6 +146,8 @@ sequenceDiagram
 
   Note right of S: Kubelet,<br>Container,<br>..(생략)..
 ```
+
+:::
 
 1. `ReplicaSet Controller`는 ReplicaSet조건을 감시하면서 현재 상태와 원하는 상태가 다른 것을 체크
 2. `ReplicaSet Controller`가 원하는 상태가 되도록 `Pod`을 생성하거나 제거

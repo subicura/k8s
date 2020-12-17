@@ -110,6 +110,8 @@ Service를 통해 Pod과 성공적으로 연결되었습니다.
 
 Service는 각 Pod를 바라보는 로드밸런서 역할을 하면서 내부 도메인서버에 새로운 도메인을 생성합니다. Service가 어떻게 동작하는지 살펴봅니다.
 
+::: mermaid
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -136,6 +138,8 @@ sequenceDiagram
 
   Note right of D: Service 변경시<br />CoreDNS 설정
 ```
+
+:::
 
 1. `Endpoint Controller`는 `Service`와 `Pod`을 감시하면서 조건에 맞는 Pod의 IP를 수집
 2. `Endpoint Controller`가 수집한 IP를 가지고 `Endpoint` 생성
