@@ -159,8 +159,7 @@ module.exports = {
           {
             id: "news",
             dirname: "_news",
-            path: "/news",
-            itemPermalink: "/news/:year/:month/:day/:slug",
+            path: "/news/",
             layout: "LayoutNews",
             itemLayout: "LayoutNews",
             pagination: {
@@ -170,8 +169,7 @@ module.exports = {
           {
             id: "archive",
             dirname: "_archive",
-            path: "/archive",
-            itemPermalink: "/archive/:slug",
+            path: "/archive/",
             layout: "LayoutArchive",
             itemLayout: "LayoutArchive",
             pagination: {
