@@ -4,12 +4,13 @@
 		
 		<TagList />
 
-		<ul id="default-layout">
-			<li v-for="page in $pagination.pages">
-				<router-link class="page-link" :to="page.path">{{ page.title }}</router-link>
-				<TitleTagList :page="page" />
-			</li>
-		</ul>
+		<div class="archive-list">  
+			<div class="archive-link-wrapper" v-for="page in $pagination.pages">
+				<router-link class="archive-link" :to="page.path">{{ page.title }}</router-link>
+				<TitleInfo :page="page" />
+			</div>
+		</div>
+
 		<div id="pagination">
 			<router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
 			<router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
@@ -19,9 +20,18 @@
 
 <script>
 import TagList from '@theme/components/TagList'
-import TitleTagList from '@theme/components/TitleTagList'
+import TitleInfo from '@theme/components/TitleInfo'
 
 export default {
-  components: { TagList, TitleTagList }
+	components: { TagList, TitleInfo },
 }
 </script>
+
+<style lang="stylus">
+.archive-list
+  padding-top 1.5em
+.archive-link
+  font-size 18px
+.archive-link-wrapper
+  padding-bottom 1.5em
+</style>

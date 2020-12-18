@@ -7,7 +7,7 @@
 		<ul id="default-layout">
 			<li v-for="page in $pagination.pages">
 				<router-link class="page-link" :to="page.path">{{ page.title }}</router-link>
-				<TitleTagList :page="page" />
+				<TitleInfo :page="page" />
 			</li>
 		</ul>
 		<div id="pagination">
@@ -19,9 +19,9 @@
 
 <script>
 import TagList from '@theme/components/TagList'
-import TitleTagList from '@theme/components/TitleTagList'
+import TitleInfo from '@theme/components/TitleInfo'
 
 export default {
-  components: { TagList, TitleTagList }
+  components: { TagList, TitleInfo }
 }
 </script>

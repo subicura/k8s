@@ -113,6 +113,10 @@ module.exports = {
         link: "/prepare/",
       },
       {
+        text: "🕶 Archive",
+        link: "/archive/",
+      },
+      {
         text: "영상강의",
         link: "https://bit.ly/inflearn-k8s-link",
       },

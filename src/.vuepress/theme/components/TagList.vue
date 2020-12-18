@@ -1,9 +1,19 @@
 <template>
   <div>
-    <span v-for="tag in $tag.list" style="margin-right: 5px;">
-      <router-link class="page-link" :to="tag.path">
+    <span v-for="tag in $tag.list">
+      <router-link class="tag-link" :to="tag.path">
         {{ tag.name }} ({{ tag.pages.length }})
       </router-link>
     </span>
   </div>
 </template>
+
+<style lang="stylus">
+.tag-link
+  background-color rgba(200, 200, 200, .3)
+  border-radius 5px
+  font-size 14px;
+  padding 5px 7px
+  display inline-block
+  margin-right 7px
+</style>
