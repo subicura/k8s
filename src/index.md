@@ -1,14 +1,20 @@
 ---
 home: true
 heroImage: /imgs/hero.png
-tagline: 초보를 위한 쿠버네티스 안내서 <실습편>
+tagline: 설치부터 배포까지 <실습편>
 actionText: 시작하기 →
 actionLink: /guide/
 footer: ⓒ 2020 by subicura
 
-description: 초보를 위한 쿠버네티스 안내서 - 실습편
+description: 쿠버네티스 안내서 - 실습편
 image: /imgs/share.png
 ---
+
+::: tip 💡 쿠버네티스는 인프라/서버를 지탱하는 최신 기술입니다.
+
+컨테이너를 쉽고 빠르게 배포/확장하고 관리를 자동화해주는 오픈소스 플랫폼으로 구글이 만들어서 현재 수많은 기업에서 사용중입니다.<br />
+설치부터 배포까지 하나하나 알아볼까요?
+:::
 
 <div class="features">
   <div class="feature">

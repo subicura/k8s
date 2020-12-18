@@ -1,13 +1,13 @@
 const autometa_options = {
-  title: "쿠버네티스 따라하기",
-  description: "초보를 위한 쿠버네티스 안내서 - 실습편",
+  title: "쿠버네티스 안내서",
+  description: "쿠버네티스 안내서 - 설치부터 배포까지",
   canonical_base: "https://subicura.com/k8s",
   author: {
     name: "subicura",
     twitter: "subicura",
   },
   site: {
-    name: "초보를 위한 쿠버네티스 안내서",
+    name: "쿠버네티스 안내서",
     twitter: "subicura",
   },
   description_sources: ["frontmatter"],
@@ -19,11 +19,11 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "쿠버네티스 따라하기",
+  title: "쿠버네티스 안내서",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: "초보를 위한 쿠버네티스 안내서 - 실습편",
+  description: "쿠버네티스 안내서 - 설치부터 배포까지",
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -152,6 +152,48 @@ module.exports = {
   plugins: [
     "@vuepress/back-to-top",
     "@vuepress/medium-zoom",
+    [
+      "@vuepress/blog",
+      {
+        directories: [
+          {
+            id: "news",
+            dirname: "_news",
+            path: "/news",
+            itemPermalink: "/news/:year/:month/:day/:slug",
+            layout: "LayoutNews",
+            itemLayout: "LayoutNews",
+            pagination: {
+              perPagePosts: 2,
+            },
+          },
+          {
+            id: "archive",
+            dirname: "_archive",
+            path: "/archive",
+            itemPermalink: "/archive/:slug",
+            layout: "LayoutArchive",
+            itemLayout: "LayoutArchive",
+            pagination: {
+              perPagePosts: 2,
+            },
+          },
+        ],
+        frontmatters: [
+          {
+            id: "tag",
+            keys: ["tag", "tags"],
+            path: "/tag/",
+            frontmatter: { title: "Tag" },
+            layout: "LayoutTag",
+            scopeLayout: "LayoutTag",
+            pagination: {
+              perPagePosts: 3,
+            },
+          },
+        ],
+      },
+    ],
     [
       "sitemap",
       {

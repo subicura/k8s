@@ -38,6 +38,12 @@ image: /imgs/share.png
 
 이러한 설치를 쉽고 빠르게 하기 위한 도구가 [minikube](https://github.com/kubernetes/minikube)입니다. minikube는 windows, macOS, linux에서 사용할 수 있고 다양한 가상 환경(Hyperkit, Hyper-V, Docker, VirtualBox등)을 지원하여 대부분의 환경에서 문제없이 동작합니다.
 
+**준비**
+
+- 2 CPUs or more
+- 2GB of free memory
+- 20GB of free disk space
+
 ### windows
 
 **설치**
