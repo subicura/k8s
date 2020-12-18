@@ -24,3 +24,9 @@ Terraform으로 EKS클러스터를 만들고 필수 애플리케이션을 별도
 - terraform에서 yaml 설정파일 동적으로 관리하기
 
 <youtube video-id="mzdFK8re_ig" />
+
+### 참고링크
+
+- [terraform-aws-eks](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest)
+- [terraform-provider-kubernetes](https://registry.terraform.io/providers/hashicorp/kubernetes/latest)
+- [terraform-provider-helm](https://registry.terraform.io/providers/hashicorp/helm/latest)
