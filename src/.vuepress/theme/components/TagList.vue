@@ -16,4 +16,5 @@
   padding 5px 7px
   display inline-block
   margin-right 7px
+  margin-bottom 5px
 </style>
