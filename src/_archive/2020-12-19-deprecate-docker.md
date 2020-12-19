@@ -5,6 +5,8 @@ category: 관리
 tags:
   - Docker
   - CRI
+description: 쿠버네티스에서 도커 지원을 중단한다고 발표했습니다. 사용자와 관리자에게 미치는 영향을 알아봅니다.
+image: /imgs/share.png
 ---
 
 # 쿠버네티스, 도커 지원 중단

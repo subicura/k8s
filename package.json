@@ -18,12 +18,18 @@
     "@vuepress/plugin-blog": "^1.9.3",
     "@vuepress/plugin-medium-zoom": "^1.7.1",
     "vuepress": "^1.7.1",
-    "vuepress-plugin-autometa": "^0.1.13",
     "vuepress-plugin-mermaidjs": "^1.8.1"
   },
   "dependencies": {
     "vue-click-outside": "^1.1.0",
     "vue-dark-mode-switch": "^1.0.6",
-    "vuepress-plugin-sitemap": "^2.3.1"
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "lodash.defaultsdeep": "4.6.1",
+    "lodash.findindex": "4.6.0",
+    "lodash.isempty": "4.4.0",
+    "lodash.trimend": "^4.5.1",
+    "lodash.trimstart": "^4.5.1",
+    "remove-markdown": "0.3.0",
+    "striptags": "3.1.1"
   }
 }

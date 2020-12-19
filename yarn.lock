@@ -8234,19 +8234,6 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-autometa@^0.1.13:
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-autometa/-/vuepress-plugin-autometa-0.1.13.tgz#44a63e9fefb4feff88c00678d4d2b3d8e413209d"
-  integrity sha512-yhd8smLhbCO0+gc3FRNjOyffdGl12gUkv60UqdtEUCojEy4s7APDJ2pt85cSLASMdnWaY7EcMibMRkqeUOVAKg==
-  dependencies:
-    lodash.defaultsdeep "4.6.1"
-    lodash.findindex "4.6.0"
-    lodash.isempty "4.4.0"
-    lodash.trimend "^4.5.1"
-    lodash.trimstart "^4.5.1"
-    remove-markdown "0.3.0"
-    striptags "3.1.1"
-
 vuepress-plugin-container@^2.0.2:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-container/-/vuepress-plugin-container-2.1.5.tgz#37fff05662fedbd63ffd3a5463b2592c7a7f3133"

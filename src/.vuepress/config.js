@@ -226,7 +226,7 @@ module.exports = {
         },
       },
     ],
-    ["autometa", autometa_options],
+    [require("./plugins/vuepress-plugin-autometa.js"), autometa_options],
     [
       "mermaidjs",
       {
