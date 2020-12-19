@@ -1,13 +1,29 @@
 <template>
-  <div class="theme-default-content">
-    <a class="archive-back-btn" @click="$router.go(-1)">← 돌아가기</a>
+  <div>
+    <div class="theme-default-content">
+      <a class="archive-back-btn" @click="$router.go(-1)">← 돌아가기</a>
 
-    <Content/>
-    <div class="archive-bottom" />
+      <Content/>
+      <div class="archive-bottom" />
+      <a class="archive-back-btn" @click="$router.go(-1)">← 돌아가기</a>
+    </div>
 
-    <a class="archive-back-btn" @click="$router.go(-1)">← 돌아가기</a>
+    <FacebookComment />
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v9.0&appId=1611862309129685&autoLogAppEvents=1" nonce="0khzBnEU"></script>
   </div>
 </template>
+
+<script>
+import FacebookComment from '@theme/components/FacebookComment.vue'
+
+export default {
+  name: 'archive',
+  components: {
+    FacebookComment
+  }  
+}
+</script>
 
 <style lang="stylus">
 .archive-back-btn

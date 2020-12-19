@@ -49,7 +49,7 @@ export default {
     Sidebar,
     Navbar,
     IndexArchive,
-    Archive
+    Archive,
 	},
 	
 	mixins: [yuuConfig, themeHandler],

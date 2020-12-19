@@ -35,7 +35,15 @@ export default {
   },
   computed: {
     commentLink() {
-      return 'https://subicura.com/k8s/' + this.$page.relativePath.replace('.md', '.html')
+      var relativePath = this.$page.relativePath;
+      var path = relativePath.replace('.md', '.html');
+      
+      // blog(_archive, _news) 일때 처리
+      if (relativePath.indexOf("_archive") > -1 || path.indexOf("_news") > -1) {
+        path = this.$page.path.substring(1);
+      }
+
+      return 'https://subicura.com/k8s/' + this.$page.relativePath.replace('.md', '.html');
     }
   },
 }

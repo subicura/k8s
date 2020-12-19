@@ -229,14 +229,13 @@ PLUGIN.get_canonical_url = ($page, options) => {
     var path = $page.path;
     // blog(_archive, _news) 일때 처리
     if (path.indexOf("_archive") > -1 || path.indexOf("_news") > -1) {
-      var relativePath = path.split("/")[2];
-      var yyyymmdd = relativePath.substring(0, 10);
-      path = `/${yyyymmdd.replace(/-/g, "/")}/${relativePath.substring(
+      var subPath = path.split("/")[2];
+      var yyyymmdd = subPath.substring(0, 10);
+      path = `/${yyyymmdd.replace(/-/g, "/")}/${subPath.substring(
         11,
-        relativePath.length - 5
+        subPath.length - 5
       )}/`;
     }
-    console.log(path);
     return resolveURL(options.canonical_base, path);
   }
 };
