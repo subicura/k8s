@@ -37,7 +37,7 @@ kubectl의 명령어를 익히고 앞으로 실습할 각종 오브젝트(Pod, R
 alias k='kubectl'
 
 # shell 설정 추가
-echo "alias k='kubectl'" > ~/.bashrc
+echo "alias k='kubectl'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
