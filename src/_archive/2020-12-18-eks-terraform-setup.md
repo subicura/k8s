@@ -1,7 +1,7 @@
 ---
 title: k8s 필수 애플리케이션, 테라폼으로 한번에 설치하기
 date: 2020-12-18
-category: 관리
+category: 설치
 tags:
   - EKS
   - Terraform
