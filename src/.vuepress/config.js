@@ -160,16 +160,16 @@ module.exports = {
       "@vuepress/blog",
       {
         directories: [
-          {
-            id: "news",
-            dirname: "_news",
-            path: "/news/",
-            layout: "LayoutNews",
-            itemLayout: "LayoutNews",
-            pagination: {
-              perPagePosts: 2,
-            },
-          },
+          // {
+          //   id: "news",
+          //   dirname: "_news",
+          //   path: "/news/",
+          //   layout: "LayoutNews",
+          //   itemLayout: "LayoutNews",
+          //   pagination: {
+          //     perPagePosts: 2,
+          //   },
+          // },
           {
             id: "archive",
             dirname: "_archive",

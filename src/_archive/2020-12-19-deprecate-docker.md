@@ -68,7 +68,7 @@ Dockershim은 2021년 말에 최종 deprecated 될 예정이지만, [Mirantis에
 
 도커는 여전히 개발용, 이미지 빌드 역할로 많이 사용될 것입니다.
 
-### 참고링크
+## 참고
 
 - [Don't Panic: Kubernetes and Docker](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/)
 - [The myths of deprecating docker in kubernetes](https://www.slideshare.net/JoHoon1/the-myths-of-deprecating-docker-in-kubernetes)

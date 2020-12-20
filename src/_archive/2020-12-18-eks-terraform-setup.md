@@ -16,7 +16,7 @@ Terraform의 kubernetes, helm 프로바이더에 대해 알아봅니다.
 
 Terraform으로 EKS클러스터를 만들고 필수 애플리케이션을 별도 kubectl, helm 명령어 없이 설치합니다.
 
-### 주요 내용
+## 주요 내용
 
 - terraform으로 EKS 클러스터 구성하기
 - terraform에서 kubenetes provider 사용하기
@@ -25,7 +25,7 @@ Terraform으로 EKS클러스터를 만들고 필수 애플리케이션을 별도
 
 <youtube video-id="mzdFK8re_ig" />
 
-### 참고링크
+## 참고
 
 - [terraform-aws-eks](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest)
 - [terraform-provider-kubernetes](https://registry.terraform.io/providers/hashicorp/kubernetes/latest)
