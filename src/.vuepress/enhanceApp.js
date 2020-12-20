@@ -17,6 +17,12 @@ export default ({
   router, // the router instance for the app
   siteData, // site metadata
 }) => {
+  // Add History State
+  router.afterEach(function(_to, from) {
+    if (from.name && typeof window !== "undefined") {
+      window.__HAS_HISTORY_STATE = true;
+    }
+  });
   // Google analytics integration
   var GA_ID = "UA-43194822-1";
   if (

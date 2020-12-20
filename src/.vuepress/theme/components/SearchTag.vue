@@ -1,6 +1,6 @@
 <template>
 	<div class="theme-default-content">
-		<a class="search-back-btn" @click="$router.go(-1)">← 돌아가기</a>
+		<a class="search-back-btn" @click="handleBackClick()">← 돌아가기</a>
 
 		<h1 :id="$page.frontmatter.title">
 			<a :href="'#' + $page.frontmatter.title" class="header-anchor">#</a>
@@ -24,9 +24,15 @@
 <script>
 import TagList from '@theme/components/TagList'
 import TitleInfo from '@theme/components/TitleInfo'
+import { goBack } from '@theme/utils/nav'
 
 export default {
-  components: { TagList, TitleInfo }
+	components: { TagList, TitleInfo },
+	methods: {
+    handleBackClick() {
+      goBack(this.$router, '/archive');
+    }
+  }
 }
 </script>
 
