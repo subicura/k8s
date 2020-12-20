@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     handleBackClick() {
-      goBack(this.$router, '/archive');
+      goBack(this.$router, '/k8s/archive');
     }
   }
 }
