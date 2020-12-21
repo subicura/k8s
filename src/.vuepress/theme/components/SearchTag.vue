@@ -8,7 +8,7 @@
 		</h1>
 
 		<div class="search-list">
-			<div v-for="page in $pagination.pages">
+			<div class="search-link-wrapper" v-for="page in $pagination.pages">
 				<router-link class="search-link" :to="page.path">{{ page.title }}</router-link>
 				<TitleInfo :page="page" />
 			</div>
@@ -41,6 +41,8 @@ export default {
   padding-top 1.5em
 .search-link
   font-size 18px
+.search-link-wrapper
+  padding-bottom 1.5em
 .search-back-btn
   cursor: pointer
   font-size 14px;
