@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span v-for="tag in $tag.list">
+    <span v-for="tag in $tag.list.sort((a,b) => a.pages.length < b.pages.length ? 1 : -1)">
       <router-link class="tag-link" :to="tag.path">
         {{ tag.name }} ({{ tag.pages.length }})
       </router-link>
