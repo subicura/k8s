@@ -116,10 +116,10 @@ module.exports = {
         text: "🕶 Archive",
         link: "/archive/",
       },
-      {
-        text: "영상강의",
-        link: "https://bit.ly/inflearn-k8s-link",
-      },
+      // {
+      //   text: "영상강의",
+      //   link: "https://bit.ly/inflearn-k8s-link",
+      // },
     ],
     sidebar: {
       "/guide/": getGuideSidebar("기본 가이드", "고급 가이드"),

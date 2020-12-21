@@ -34,7 +34,7 @@
 import AlgoliaSearchBox from '@AlgoliaSearchBox';
 import SearchBox from '@SearchBox';
 import SidebarButton from '@parent-theme/components/SidebarButton.vue';
-import NavLinks from '@parent-theme/components/NavLinks.vue';
+import NavLinks from '@theme/components/NavLinks.vue';
 import UserSettings from '@theme/components/settings/UserSettings.vue';
 import yuuConfig from '@theme/mixins/yuuConfig.js';
 
