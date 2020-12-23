@@ -103,6 +103,10 @@ module.exports = {
     docsDir: "src",
     editLinkText: "",
     lastUpdated: true,
+    algolia: {
+      apiKey: "6b02d4c7b823f2f9dd607f57d047175e",
+      indexName: "subicura",
+    },
     nav: [
       {
         text: "📔 가이드",
