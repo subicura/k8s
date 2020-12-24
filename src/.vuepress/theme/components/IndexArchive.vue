@@ -8,6 +8,7 @@
 			<div class="archive-link-wrapper" v-for="page in $pagination.pages">
 				<router-link class="archive-link" :to="page.path">{{ page.title }}</router-link>
 				<TitleInfo :page="page" />
+				<div class="archive-desc">{{ page.frontmatter.description }}</div>
 			</div>
 		</div>
 
@@ -33,5 +34,7 @@ export default {
 .archive-link
   font-size 18px
 .archive-link-wrapper
-  padding-bottom 1.5em
+  padding-bottom 2.5em
+.archive-desc
+	margin-top 0.5em
 </style>
