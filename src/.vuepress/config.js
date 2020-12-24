@@ -143,6 +143,7 @@ module.exports = {
             "yaml",
             "for-windows",
             "kubernetes-setup",
+            "minikube",
             "kubectl-setup",
             "etc",
           ],
