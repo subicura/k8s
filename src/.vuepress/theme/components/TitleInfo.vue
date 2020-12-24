@@ -1,12 +1,16 @@
 <template>
   <div class="title-info">
-    {{ toDateString(page.frontmatter.date) }} / {{ page.frontmatter.category }} / 
-    <ul class="title-tag" >
-      <li v-for="tag in page.frontmatter.tags">
-        <router-link class="page-link" :to="'/tag/' + tag + '/'">{{ tag }}</router-link>
-        <span v-if="tag !== page.frontmatter.tags[page.frontmatter.tags.length -1]">,</span>
-      </li>
-    </ul>
+    <span class="title-info-value calendar-dates-value"><i class="gg-calendar-dates"></i> {{ toDateString(page.frontmatter.date) }}</span>
+    <span class="title-info-value folder-value"><i class="gg-folder"></i> {{ page.frontmatter.category }}</span>
+    <span class="title-info-value tag-value">
+      <i class="gg-tag"></i>
+      <ul class="title-tag" >
+        <li v-for="tag in page.frontmatter.tags">
+          <router-link class="page-link" :to="'/tag/' + tag + '/'">{{ tag }}</router-link>
+          <span v-if="tag !== page.frontmatter.tags[page.frontmatter.tags.length -1]">,</span>
+        </li>
+      </ul>
+    </span>
   </div>
 </template>
 
@@ -32,7 +36,26 @@ export default {
 <style lang="stylus">
 .title-info
   margin-top 5px
-  font-size 13px
+  font-size 14px
+  color #777
+  i
+    position absolute
+    left 0
+    top 0
+    --ggs 0.7
+  .gg-calendar-dates
+    top -1px
+  .gg-tag
+    top 1px
+.title-info-value
+  position relative
+  margin-right 5px
+.calendar-dates-value
+  padding-left 21px
+.folder-value
+  padding-left 23px
+.tag-value
+  padding-left 25px
 .title-tag
   list-style none
   display inline-block
@@ -44,9 +67,9 @@ export default {
     display inline-block
     padding 0
     padding-left 0
-    margin-right 5px
+    margin-right 3px
     a
-      color #2c3e50
+      color #777
 
 .yuu-theme-dark
   .title-tag li a
