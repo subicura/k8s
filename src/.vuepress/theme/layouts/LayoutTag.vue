@@ -88,12 +88,19 @@ export default {
     },
 
     sidebarItems () {
-      return resolveSidebarItems(
-        this.$page,
-        this.$page.regularPath,
-        this.$site,
-        this.$localePath
-      )
+      var children = this.$tag.list.sort((a,b) => a.pages.length < b.pages.length ? 1 : -1).map(tag => ({
+        title: tag.name + '(' + tag.pages.length +')',
+        regularPath: tag.path,
+        path: tag.path,
+        type: 'page'
+      }));
+      return [{
+        children: children,
+        collapsable: false,
+        title: "Archive",
+        type: "group",
+        path: "/archive/",
+      }]
     },
 
     pageClasses () {

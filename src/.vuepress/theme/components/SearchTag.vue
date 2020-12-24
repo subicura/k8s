@@ -1,24 +1,26 @@
 <template>
-	<div class="theme-default-content">
-		<a class="search-back-btn" @click="handleBackClick()">← 돌아가기</a>
+	<main class="page">
+		<div class="theme-default-content">
+			<a class="search-back-btn" @click="handleBackClick()">← 돌아가기</a>
 
-		<h1 :id="$page.frontmatter.title">
-			<a :href="'#' + $page.frontmatter.title" class="header-anchor">#</a>
-			{{ $page.frontmatter.title }}
-		</h1>
+			<h1 :id="$page.frontmatter.title">
+				<a :href="'#' + $page.frontmatter.title" class="header-anchor">#</a>
+				{{ $page.frontmatter.title }}
+			</h1>
 
-		<div class="search-list">
-			<div class="search-link-wrapper" v-for="page in $pagination.pages">
-				<router-link class="search-link" :to="page.path">{{ page.title }}</router-link>
-				<TitleInfo :page="page" />
+			<div class="search-list">
+				<div class="search-link-wrapper" v-for="page in $pagination.pages">
+					<router-link class="search-link" :to="page.path">{{ page.title }}</router-link>
+					<TitleInfo :page="page" />
+				</div>
+			</div>
+
+			<div id="pagination">
+				<router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
+				<router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
 			</div>
 		</div>
-
-		<div id="pagination">
-			<router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
-			<router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
-		</div>
-	</div>
+	</main>
 </template>
 
 <script>

@@ -1,22 +1,20 @@
 <template>
-	<div class="theme-default-content">
-		<h1 id="Archive"><a href="#Archive" class="header-anchor">#</a> Archive</h1>
-		
-		<TagList />
+	<main class="page">
+		<div class="theme-default-content">
+			<div class="archive-list">  
+				<div class="archive-link-wrapper" v-for="page in $pagination.pages">
+					<router-link class="archive-link" :to="page.path">{{ page.title }}</router-link>
+					<TitleInfo :page="page" />
+					<div class="archive-desc">{{ page.frontmatter.description }}</div>
+				</div>
+			</div>
 
-		<div class="archive-list">  
-			<div class="archive-link-wrapper" v-for="page in $pagination.pages">
-				<router-link class="archive-link" :to="page.path">{{ page.title }}</router-link>
-				<TitleInfo :page="page" />
-				<div class="archive-desc">{{ page.frontmatter.description }}</div>
+			<div id="pagination">
+				<router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
+				<router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
 			</div>
 		</div>
-
-		<div id="pagination">
-			<router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
-			<router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
-		</div>
-	</div>
+	</main>
 </template>
 
 <script>
@@ -29,8 +27,6 @@ export default {
 </script>
 
 <style lang="stylus">
-.archive-list
-  padding-top 1.5em
 .archive-link
   font-size 18px
 .archive-link-wrapper
