@@ -45,8 +45,6 @@ export default {
     --ggs 0.7
   .gg-calendar-dates
     top -1px
-  .gg-tag
-    top 1px
 .blog-title-info-value
   position relative
   margin-right 5px
