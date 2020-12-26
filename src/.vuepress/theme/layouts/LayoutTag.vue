@@ -99,7 +99,6 @@ export default {
         collapsable: false,
         title: "Archive",
         type: "group",
-        path: "/archive/",
       }]
     },
 
