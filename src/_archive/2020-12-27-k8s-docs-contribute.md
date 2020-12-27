@@ -6,7 +6,7 @@ tags:
   - Contribute
   - Document
 description: 쿠버네티스 문서 한글화를 위한 가이드를 알아봅니다.
-image: /imgs/archive/2020-12-26-line-shopping-k8s/share.png
+image: /imgs/archive/2020-12-27-k8s-docs-contribute/share.png
 ---
 
 # 쿠버네티스 문서 한글화 가이드
