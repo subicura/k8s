@@ -193,7 +193,7 @@ module.exports = {
             layout: "LayoutArchive",
             itemLayout: "LayoutArchive",
             pagination: {
-              perPagePosts: 2,
+              lengthPerPage: 20,
             },
           },
         ],
@@ -206,7 +206,7 @@ module.exports = {
             layout: "LayoutTag",
             scopeLayout: "LayoutTag",
             pagination: {
-              perPagePosts: 3,
+              lengthPerPage: 20,
             },
           },
         ],
