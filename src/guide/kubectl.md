@@ -152,7 +152,7 @@ kubectl logs -f wordpress-5f59577d4d-8t2dg
 
 컨테이너에 접속하는 명령어는 다음과 같습니다.
 
-<usage text="kubectl exec [-it] [POD_NAME] -- [COMMADN]" />
+<usage text="kubectl exec [-it] [POD_NAME] -- [COMMAND]" />
 
 쉘로 접속하여 컨테이너 상태를 확인하는 경우에 `-it` 옵션을 사용하고 여러 개의 컨테이너가 있는 경우엔 `-c` 옵션으로 컨테이너를 지정합니다. 워드프레스 컨테이너에 접속해봅니다.
 
