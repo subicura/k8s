@@ -38,7 +38,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      영상강의 <span class="discount">30% 할인</span>
+      영상강의
       <OutboundLink />
     </a>
   </nav>
