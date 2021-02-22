@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sidecar
+spec:
+  containers:
+    - name: app
+      image: busybox
+      args:
+        - /bin/sh
+        - -c
+        - >
+          while true;
+          do
+            echo "$(date)\n" >> /var/log/example.log;
+            sleep 1;
+          done
+      volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+    - name: sidecar
+      image: busybox
+      args: [/bin/sh, -c, "tail -f /var/log/example.log"]
+      volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+  volumes:
+    - name: varlog
+      emptyDir: {}

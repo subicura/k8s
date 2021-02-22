@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Autoscaler | 쿠버네티스 안내서</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/k8s/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/k8s/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/k8s/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/k8s/manifest.json">
+    <link rel="mask-icon" href="/k8s/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://css.gg/css?=|calendar-dates|folder|tag" rel="stylesheet">
+    <meta name="description" content="metrics server
+  HPA
+  부하 테스트">
+    <meta name="twitter:title" content="Autoscaler">
+    <meta name="twitter:description" content="metrics server
+  HPA
+  부하 테스트">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://subicura.com/k8s/advanced/scaleout.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Autoscaler">
+    <meta property="og:description" content="metrics server
+  HPA
+  부하 테스트">
+    <meta property="og:url" content="https://subicura.com/k8s/advanced/scaleout.html">
+    <meta property="og:site_name" content="쿠버네티스 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="Autoscaler">
+    <meta itemprop="description" content="metrics server
+  HPA
+  부하 테스트">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/k8s/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/k8s/assets/css/0.styles.f159e1d6.css" as="style"><link rel="preload" href="/k8s/assets/js/app.2df3b1d3.js" as="script"><link rel="preload" href="/k8s/assets/js/8.b1485824.js" as="script"><link rel="preload" href="/k8s/assets/js/2.62b225b8.js" as="script"><link rel="preload" href="/k8s/assets/js/1.b20a9cf3.js" as="script"><link rel="preload" href="/k8s/assets/js/45.6c1850c1.js" as="script"><link rel="prefetch" href="/k8s/assets/js/10.f8281e9c.js"><link rel="prefetch" href="/k8s/assets/js/11.10dcf451.js"><link rel="prefetch" href="/k8s/assets/js/12.5efa2074.js"><link rel="prefetch" href="/k8s/assets/js/13.5933a42c.js"><link rel="prefetch" href="/k8s/assets/js/14.2b670af4.js"><link rel="prefetch" href="/k8s/assets/js/15.b27509d5.js"><link rel="prefetch" href="/k8s/assets/js/16.4c71ae1c.js"><link rel="prefetch" href="/k8s/assets/js/17.c7f9b883.js"><link rel="prefetch" href="/k8s/assets/js/18.0d42165a.js"><link rel="prefetch" href="/k8s/assets/js/19.8fcf3199.js"><link rel="prefetch" href="/k8s/assets/js/20.96b3f223.js"><link rel="prefetch" href="/k8s/assets/js/21.fb7cb467.js"><link rel="prefetch" href="/k8s/assets/js/22.a4a832c1.js"><link rel="prefetch" href="/k8s/assets/js/23.5a27b39b.js"><link rel="prefetch" href="/k8s/assets/js/24.08cf8d5a.js"><link rel="prefetch" href="/k8s/assets/js/25.a5a619be.js"><link rel="prefetch" href="/k8s/assets/js/26.ced0e171.js"><link rel="prefetch" href="/k8s/assets/js/27.024ebe2f.js"><link rel="prefetch" href="/k8s/assets/js/28.54adb795.js"><link rel="prefetch" href="/k8s/assets/js/29.6f81ecd5.js"><link rel="prefetch" href="/k8s/assets/js/30.e4422e30.js"><link rel="prefetch" href="/k8s/assets/js/31.8d92e4a8.js"><link rel="prefetch" href="/k8s/assets/js/32.d51b85e6.js"><link rel="prefetch" href="/k8s/assets/js/33.8d87a767.js"><link rel="prefetch" href="/k8s/assets/js/34.031dd6a4.js"><link rel="prefetch" href="/k8s/assets/js/35.6e648e62.js"><link rel="prefetch" href="/k8s/assets/js/36.4d5c0d10.js"><link rel="prefetch" href="/k8s/assets/js/37.1f3151e3.js"><link rel="prefetch" href="/k8s/assets/js/38.ba21b32f.js"><link rel="prefetch" href="/k8s/assets/js/39.f87810bb.js"><link rel="prefetch" href="/k8s/assets/js/40.428d2178.js"><link rel="prefetch" href="/k8s/assets/js/41.4e6c7b67.js"><link rel="prefetch" href="/k8s/assets/js/42.8f50c31f.js"><link rel="prefetch" href="/k8s/assets/js/43.1f4632fb.js"><link rel="prefetch" href="/k8s/assets/js/44.7c2da3cd.js"><link rel="prefetch" href="/k8s/assets/js/46.d51613fa.js"><link rel="prefetch" href="/k8s/assets/js/47.62eabb11.js"><link rel="prefetch" href="/k8s/assets/js/48.a1c6ebd8.js"><link rel="prefetch" href="/k8s/assets/js/49.50bb3af2.js"><link rel="prefetch" href="/k8s/assets/js/5.e175883c.js"><link rel="prefetch" href="/k8s/assets/js/50.9d035674.js"><link rel="prefetch" href="/k8s/assets/js/51.5f9b5738.js"><link rel="prefetch" href="/k8s/assets/js/52.6b9a6cee.js"><link rel="prefetch" href="/k8s/assets/js/53.f2ffe762.js"><link rel="prefetch" href="/k8s/assets/js/54.212a7a07.js"><link rel="prefetch" href="/k8s/assets/js/55.ddbddb04.js"><link rel="prefetch" href="/k8s/assets/js/56.493976e7.js"><link rel="prefetch" href="/k8s/assets/js/6.a2f30769.js"><link rel="prefetch" href="/k8s/assets/js/7.bb896b87.js"><link rel="prefetch" href="/k8s/assets/js/9.7eeca4ac.js"><link rel="prefetch" href="/k8s/assets/js/vendors~docsearch.ca607f2e.js">
+    <link rel="stylesheet" href="/k8s/assets/css/0.styles.f159e1d6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/k8s/" class="home-link router-link-active"><!----> <span class="site-name">쿠버네티스 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-04cefa17><input type="checkbox" id="themeSwitch" data-v-04cefa17><label for="themeSwitch" class="toggle" data-v-04cefa17><span class="toggle__handler" data-v-04cefa17><span class="crater crater--1" data-v-04cefa17></span><span class="crater crater--2" data-v-04cefa17></span><span class="crater crater--3" data-v-04cefa17></span></span><span class="star star--1" data-v-04cefa17></span><span class="star star--2" data-v-04cefa17></span><span class="star star--3" data-v-04cefa17></span><span class="star star--4" data-v-04cefa17></span><span class="star star--5" data-v-04cefa17></span><span class="star star--6" data-v-04cefa17></span></label></div></div> <!----> <!----></div></div></div> <!----> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/k8s/guide/" class="nav-link">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/k8s/guide/" class="nav-link">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>고급편</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/advanced/" aria-current="page" class="sidebar-link">고급편</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="autoscaler"><a href="#autoscaler" class="header-anchor">#</a> Autoscaler</h1> <ul><li>ScaleOut (HorizontalPodAutoscaler)
+<ul><li>metrics server</li> <li>HPA</li> <li>부하 테스트</li></ul></li></ul> <h2 id="부하-테스트"><a href="#부하-테스트" class="header-anchor">#</a> 부하 테스트</h2> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example<span class="token punctuation">-</span>deploy
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">type</span><span class="token punctuation">:</span> app
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> app
+        <span class="token key atrule">service</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example
+          <span class="token key atrule">image</span><span class="token punctuation">:</span> k8s.gcr.io/hpa<span class="token punctuation">-</span>example
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+      <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> app
+    <span class="token key atrule">service</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> autoscaling/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> HorizontalPodAutoscaler
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">maxReplicas</span><span class="token punctuation">:</span> <span class="token number">4</span>
+  <span class="token key atrule">minReplicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">scaleTargetRef</span><span class="token punctuation">:</span>
+    <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+    <span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> hpa<span class="token punctuation">-</span>example<span class="token punctuation">-</span>deploy
+  <span class="token key atrule">targetCPUUtilizationPercentage</span><span class="token punctuation">:</span> <span class="token number">30</span>
+</code></pre></div><p><code>guide/scaleout/hpa-example.yml</code></p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ kubectl run -it load-generator --image<span class="token operator">=</span>busybox /bin/sh
+<span class="token comment"># while true; do wget -q -O- http://hpa-example; done</span>
+
+$ kubectl <span class="token builtin class-name">exec</span> -it load-generator -- <span class="token function">sh</span>
+<span class="token comment"># while true; do wget -q -O- http://hpa-example; done</span>
+
+$ kubectl get pods -w
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/k8s/edit/master/src/advanced/scaleout.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2020-12-14</span></div></footer> <!----> <div class="fb-comment-wrapper"><div class="fb-comment-inner"><div data-href="https://subicura.com/k8s/advanced/scaleout.html" data-num-posts="5" data-order-by="social" data-width="100%" class="fb-comments"></div></div></div> <div id="fb-root"></div> <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&amp;version=v9.0&amp;appId=1611862309129685&amp;autoLogAppEvents=1" nonce="0khzBnEU"></script></main></div><div class="global-ui"><!----></div></div>
+    <script src="/k8s/assets/js/app.2df3b1d3.js" defer></script><script src="/k8s/assets/js/8.b1485824.js" defer></script><script src="/k8s/assets/js/2.62b225b8.js" defer></script><script src="/k8s/assets/js/1.b20a9cf3.js" defer></script><script src="/k8s/assets/js/45.6c1850c1.js" defer></script>
+  </body>
+</html>

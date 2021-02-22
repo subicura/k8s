@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>쿠버네티스 설치 | 쿠버네티스 안내서</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/k8s/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/k8s/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/k8s/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/k8s/manifest.json">
+    <link rel="mask-icon" href="/k8s/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://css.gg/css?=|calendar-dates|folder|tag" rel="stylesheet">
+    <meta name="description" content="쿠버네티스 실습을 위해 클러스터를 설치합니다.">
+    <meta name="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:title" content="쿠버네티스 설치">
+    <meta name="twitter:description" content="쿠버네티스 실습을 위해 클러스터를 설치합니다.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/k8s/prepare/kubernetes-setup.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="쿠버네티스 설치">
+    <meta property="og:description" content="쿠버네티스 실습을 위해 클러스터를 설치합니다.">
+    <meta property="og:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/k8s/prepare/kubernetes-setup.html">
+    <meta property="og:site_name" content="쿠버네티스 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="쿠버네티스 설치">
+    <meta itemprop="description" content="쿠버네티스 실습을 위해 클러스터를 설치합니다.">
+    <meta itemprop="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/k8s/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/k8s/assets/css/0.styles.f159e1d6.css" as="style"><link rel="preload" href="/k8s/assets/js/app.2df3b1d3.js" as="script"><link rel="preload" href="/k8s/assets/js/8.b1485824.js" as="script"><link rel="preload" href="/k8s/assets/js/2.62b225b8.js" as="script"><link rel="preload" href="/k8s/assets/js/1.b20a9cf3.js" as="script"><link rel="preload" href="/k8s/assets/js/9.7eeca4ac.js" as="script"><link rel="prefetch" href="/k8s/assets/js/10.f8281e9c.js"><link rel="prefetch" href="/k8s/assets/js/11.10dcf451.js"><link rel="prefetch" href="/k8s/assets/js/12.5efa2074.js"><link rel="prefetch" href="/k8s/assets/js/13.5933a42c.js"><link rel="prefetch" href="/k8s/assets/js/14.2b670af4.js"><link rel="prefetch" href="/k8s/assets/js/15.b27509d5.js"><link rel="prefetch" href="/k8s/assets/js/16.4c71ae1c.js"><link rel="prefetch" href="/k8s/assets/js/17.c7f9b883.js"><link rel="prefetch" href="/k8s/assets/js/18.0d42165a.js"><link rel="prefetch" href="/k8s/assets/js/19.8fcf3199.js"><link rel="prefetch" href="/k8s/assets/js/20.96b3f223.js"><link rel="prefetch" href="/k8s/assets/js/21.fb7cb467.js"><link rel="prefetch" href="/k8s/assets/js/22.a4a832c1.js"><link rel="prefetch" href="/k8s/assets/js/23.5a27b39b.js"><link rel="prefetch" href="/k8s/assets/js/24.08cf8d5a.js"><link rel="prefetch" href="/k8s/assets/js/25.a5a619be.js"><link rel="prefetch" href="/k8s/assets/js/26.ced0e171.js"><link rel="prefetch" href="/k8s/assets/js/27.024ebe2f.js"><link rel="prefetch" href="/k8s/assets/js/28.54adb795.js"><link rel="prefetch" href="/k8s/assets/js/29.6f81ecd5.js"><link rel="prefetch" href="/k8s/assets/js/30.e4422e30.js"><link rel="prefetch" href="/k8s/assets/js/31.8d92e4a8.js"><link rel="prefetch" href="/k8s/assets/js/32.d51b85e6.js"><link rel="prefetch" href="/k8s/assets/js/33.8d87a767.js"><link rel="prefetch" href="/k8s/assets/js/34.031dd6a4.js"><link rel="prefetch" href="/k8s/assets/js/35.6e648e62.js"><link rel="prefetch" href="/k8s/assets/js/36.4d5c0d10.js"><link rel="prefetch" href="/k8s/assets/js/37.1f3151e3.js"><link rel="prefetch" href="/k8s/assets/js/38.ba21b32f.js"><link rel="prefetch" href="/k8s/assets/js/39.f87810bb.js"><link rel="prefetch" href="/k8s/assets/js/40.428d2178.js"><link rel="prefetch" href="/k8s/assets/js/41.4e6c7b67.js"><link rel="prefetch" href="/k8s/assets/js/42.8f50c31f.js"><link rel="prefetch" href="/k8s/assets/js/43.1f4632fb.js"><link rel="prefetch" href="/k8s/assets/js/44.7c2da3cd.js"><link rel="prefetch" href="/k8s/assets/js/45.6c1850c1.js"><link rel="prefetch" href="/k8s/assets/js/46.d51613fa.js"><link rel="prefetch" href="/k8s/assets/js/47.62eabb11.js"><link rel="prefetch" href="/k8s/assets/js/48.a1c6ebd8.js"><link rel="prefetch" href="/k8s/assets/js/49.50bb3af2.js"><link rel="prefetch" href="/k8s/assets/js/5.e175883c.js"><link rel="prefetch" href="/k8s/assets/js/50.9d035674.js"><link rel="prefetch" href="/k8s/assets/js/51.5f9b5738.js"><link rel="prefetch" href="/k8s/assets/js/52.6b9a6cee.js"><link rel="prefetch" href="/k8s/assets/js/53.f2ffe762.js"><link rel="prefetch" href="/k8s/assets/js/54.212a7a07.js"><link rel="prefetch" href="/k8s/assets/js/55.ddbddb04.js"><link rel="prefetch" href="/k8s/assets/js/56.493976e7.js"><link rel="prefetch" href="/k8s/assets/js/6.a2f30769.js"><link rel="prefetch" href="/k8s/assets/js/7.bb896b87.js"><link rel="prefetch" href="/k8s/assets/js/vendors~docsearch.ca607f2e.js">
+    <link rel="stylesheet" href="/k8s/assets/css/0.styles.f159e1d6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/k8s/" class="home-link router-link-active"><!----> <span class="site-name">쿠버네티스 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-04cefa17><input type="checkbox" id="themeSwitch" data-v-04cefa17><label for="themeSwitch" class="toggle" data-v-04cefa17><span class="toggle__handler" data-v-04cefa17><span class="crater crater--1" data-v-04cefa17></span><span class="crater crater--2" data-v-04cefa17></span><span class="crater crater--3" data-v-04cefa17></span></span><span class="star star--1" data-v-04cefa17></span><span class="star star--2" data-v-04cefa17></span><span class="star star--3" data-v-04cefa17></span><span class="star star--4" data-v-04cefa17></span><span class="star star--5" data-v-04cefa17></span><span class="star star--6" data-v-04cefa17></span></label></div></div> <!----> <!----></div></div></div> <!----> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/k8s/guide/" class="nav-link">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link router-link-active">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/k8s/guide/" class="nav-link">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link router-link-active">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>준비하기</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/prepare/" aria-current="page" class="sidebar-link">개발환경 준비</a></li><li><a href="/k8s/prepare/yaml.html" class="sidebar-link">YAML 문법</a></li><li><a href="/k8s/prepare/for-windows.html" class="sidebar-link">windows 환경</a></li><li><a href="/k8s/prepare/kubernetes-setup.html" aria-current="page" class="active sidebar-link">쿠버네티스 설치</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/k8s/prepare/kubernetes-setup.html#개발-vs-운영" class="sidebar-link">개발 vs 운영</a></li><li class="sidebar-sub-header"><a href="/k8s/prepare/kubernetes-setup.html#minikube" class="sidebar-link">minikube</a></li><li class="sidebar-sub-header"><a href="/k8s/prepare/kubernetes-setup.html#k3s" class="sidebar-link">k3s</a></li><li class="sidebar-sub-header"><a href="/k8s/prepare/kubernetes-setup.html#그외" class="sidebar-link">그외</a></li><li class="sidebar-sub-header"><a href="/k8s/prepare/kubernetes-setup.html#운영환경" class="sidebar-link">운영환경</a></li></ul></li><li><a href="/k8s/prepare/minikube.html" class="sidebar-link">minikube 고급기능</a></li><li><a href="/k8s/prepare/kubectl-setup.html" class="sidebar-link">kubectl 설치</a></li><li><a href="/k8s/prepare/etc.html" class="sidebar-link">그외</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="쿠버네티스-설치"><a href="#쿠버네티스-설치" class="header-anchor">#</a> 쿠버네티스 설치</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>쿠버네티스 실습을 위해 클러스터를 설치합니다.</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#개발-vs-운영">개발 vs 운영</a></li><li><a href="#minikube">minikube</a><ul><li><a href="#windows">windows</a></li><li><a href="#macos">macOS</a></li><li><a href="#linux">linux</a></li><li><a href="#virtualbox-설치">VirtualBox 설치</a></li></ul></li><li><a href="#k3s">k3s</a></li><li><a href="#그외">그외</a><ul><li><a href="#docker-for-desktop">docker for desktop</a></li><li><a href="#kind">kind</a></li></ul></li><li><a href="#운영환경">운영환경</a></li></ul></div><p></p> <h2 id="개발-vs-운영"><a href="#개발-vs-운영" class="header-anchor">#</a> 개발 vs 운영</h2> <p>쿠버네티스를 운영환경에 설치하기 위해선 최소 3대의 마스터 서버와 컨테이너 배포를 위한 n개의 노드 서버가 필요합니다.</p> <p><img src="/k8s/assets/img/prod-arch.a85a8475.png" alt="운영환경 아키텍처"></p> <p>이러한 설치는 과정이 복잡하고 배포 환경(AWS, Google Cloud, Azure, Bare Metal, ...)에 따라 방법이 다르기 때문에 처음 공부할 때 바로 구축하기는 적합하지 않습니다.</p> <p>여기선 개발 환경을 위해 마스터와 노드를 하나의 서버에 설치하여 손쉽게 관리하는 방법을 사용합니다.</p> <p><img src="/k8s/assets/img/dev-arch.8b35f7e2.png" alt="운영환경 아키텍처"></p> <p>대표적인 개발 환경 구축 방법으로 <a href="/k8s/prepare/kubernetes-setup.html#minikube">minikube</a>, <a href="/k8s/prepare/kubernetes-setup.html#k3s">k3s</a>, <a href="/k8s/prepare/kubernetes-setup.html#docker-for-desktop">docker for desktop</a>, <a href="/k8s/prepare/kubernetes-setup.html#kind">kind</a>가 있습니다.</p> <p>대부분의 환경에서 사용할 수 있고 간편하며, 무료인 <a href="/k8s/prepare/kubernetes-setup.html#minikube">minikube</a>를 추천하지만 설치할 수 없거나 사양이 낮은 경우엔 저렴한 비용으로 테스트할 수 있는(1,000원 이하) <a href="/k8s/prepare/kubernetes-setup.html#k3s">k3s</a>를 추천합니다.</p> <div class="custom-block warning"><p class="custom-block-title">주의</p> <p>개발환경과 운영환경의 가장 큰 차이점은 개발환경은 단일 노드로 여러 노드에 스케줄링하는 테스트가 어렵고 LoadBalancer와 Persistent Local Storage 또한 가상으로 만들어야 합니다.
+이러한 실습을 정확하게 하려면 운영환경(멀티노드)에서 진행해야 합니다.</p></div> <h2 id="minikube"><a href="#minikube" class="header-anchor">#</a> minikube</h2> <p>쿠버네티스 클러스터를 실행하려면 최소한 scheduler, controller, api-server, etcd, kubelet, kube-proxy를 설치해야 하고 필요에 따라 dns, ingress controller, storage class등을 설치해야 합니다. 쿠버네티스는 설치 또한 중요한 과정이지만 처음 공부할 땐 설치보단 실질적인 사용법을 익히는 게 중요합니다.</p> <p>이러한 설치를 쉽고 빠르게 하기 위한 도구가 <a href="https://github.com/kubernetes/minikube" target="_blank" rel="noopener noreferrer">minikube<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>입니다. minikube는 windows, macOS, linux에서 사용할 수 있고 다양한 가상 환경(Hyperkit, Hyper-V, Docker, VirtualBox등)을 지원하여 대부분의 환경에서 문제없이 동작합니다.</p> <p><strong>준비</strong></p> <ul><li>2 CPUs or more</li> <li>2GB of free memory</li> <li>20GB of free disk space</li></ul> <h3 id="windows"><a href="#windows" class="header-anchor">#</a> windows</h3> <p><strong>설치</strong></p> <p><a href="https://github.com/kubernetes/minikube/releases/latest/download/minikube-installer.exe" target="_blank" rel="noopener noreferrer">minikube-installer.exe<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>파일을 다운로드합니다.</p> <p><strong>Hyper-V 활성화</strong></p> <p>관리자 권한으로 <code>CMD(명령프롬프트)</code> 실행후 다음 명령어를 입력합니다.</p> <div class="custom-block warning"><p class="custom-block-title">지원확인</p> <p>Windows 10 Enterprise, Pro, or Education에서 Hyper-V를 지원합니다. 그 외에는 virtual box를 이용해주세요.</p></div> <div class="language-sh extra-class"><pre class="language-sh"><code>DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
+</code></pre></div><p>활성화 후 사용 유/무 설정하기</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 끄기</span>
+bcdedit /set hypervisorlaunchtype off
+
+<span class="token comment"># 켜기</span>
+bcdedit /set hypervisorlaunchtype auto
+</code></pre></div><p><strong>기본 명령어</strong></p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 버전확인</span>
+minikube version
+
+<span class="token comment"># 가상머신 시작 (반드시 관리자권한으로 실행)</span>
+minikube start --driver<span class="token operator">=</span>hyperv
+<span class="token comment"># driver 에러가 발생한다면 virtual box를 사용</span>
+minikube start --driver<span class="token operator">=</span>virtualbox
+<span class="token comment"># 특정 k8s 버전 실행</span>
+minikube start --kubernetes-version<span class="token operator">=</span>v1.20.0
+
+<span class="token comment"># 상태확인</span>
+minikube status
+
+<span class="token comment"># 정지</span>
+minikube stop
+
+<span class="token comment"># 삭제</span>
+minikube delete
+
+<span class="token comment"># ssh 접속</span>
+minikube <span class="token function">ssh</span>
+
+<span class="token comment"># ip 확인</span>
+minikube <span class="token function">ip</span>
+</code></pre></div><p><strong>Docker Desktop</strong></p> <div class="custom-block warning"><p class="custom-block-title">설치버전</p> <p>Docker Desktop 3.0.0 + WSL2 환경에서 테스트하였습니다.</p></div> <p>Docker Dekstop이 설치되어 있으면 minikube가 기본으로 <code>docker</code> driver를 사용합니다. docker 드라이브러를 사용할 경우 서비스 노출 방법입니다.</p> <p>샘플로 테스트한 wordpress의 쿠버네티스의 노출 포트는 31428이지만 접근하기 위해서는 <code>minikube service</code>명령어를 입력하고 프록시를 통해 접속해야 합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 쿠버네티스 서비스 이름이 wordpress라면..</span>
+minikube <span class="token function">service</span> wordpress
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><pre class="language-text"><code>|-----------|-----------|-------------|---------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |            URL            |
+|-----------|-----------|-------------|---------------------------|
+| default   | wordpress |          80 | http://192.168.49.2:31428 |
+|-----------|-----------|-------------|---------------------------|
+   Starting tunnel for service wordpress.
+|-----------|-----------|-------------|------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |          URL           |
+|-----------|-----------|-------------|------------------------|
+| default   | wordpress |             | http://127.0.0.1:58969 |
+|-----------|-----------|-------------|------------------------|
+   Opening service default/wordpress in default browser...
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+</code></pre></div><p><code>minikube service</code>를 실행한 상태에서 <s>127.0.0.1:31428</s>이 아닌 127.0.0.1:58969로 접속합니다.</p> <h3 id="macos"><a href="#macos" class="header-anchor">#</a> macOS</h3> <p><strong>설치</strong></p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># homebrew를 사용하고 있다면..</span>
+brew <span class="token function">install</span> minikube
+
+<span class="token comment"># homebrew를 사용하지 않는다면, 직접 binary 다운로드</span>
+<span class="token function">curl</span> -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 <span class="token punctuation">\</span>
+  <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> +x minikube
+</code></pre></div><p><strong>기본 명령어</strong></p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 버전확인</span>
+minikube version
+
+<span class="token comment"># 가상머신 시작</span>
+minikube start --driver<span class="token operator">=</span>hyperkit
+<span class="token comment"># driver 에러가 발생한다면 virtual box를 사용</span>
+minikube start --driver<span class="token operator">=</span>virtualbox
+<span class="token comment"># 특정 k8s 버전 실행</span>
+minikube start --kubernetes-version<span class="token operator">=</span>v1.20.0
+
+<span class="token comment"># 상태확인</span>
+minikube status
+
+<span class="token comment"># 정지</span>
+minikube stop
+
+<span class="token comment"># 삭제</span>
+minikube delete
+
+<span class="token comment"># ssh 접속</span>
+minikube <span class="token function">ssh</span>
+
+<span class="token comment"># ip 확인</span>
+minikube <span class="token function">ip</span>
+</code></pre></div><h3 id="linux"><a href="#linux" class="header-anchor">#</a> linux</h3> <p><strong>설치</strong></p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># docker 사용시 설치 필요, docker를 사용하지 않는 경우 virtual box 설치</span>
+<span class="token function">curl</span> -fsSL https://get.docker.com/ <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">sh</span>
+<span class="token function">sudo</span> <span class="token function">usermod</span> -aG docker <span class="token environment constant">$USER</span>
+
+<span class="token comment"># docker 대신 virtual box 설치</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> virtualbox
+
+<span class="token comment"># install minikube</span>
+<span class="token function">curl</span> -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 <span class="token punctuation">\</span>
+  <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> +x minikube
+<span class="token function">sudo</span> <span class="token function">mkdir</span> -p /usr/local/bin/
+<span class="token function">sudo</span> <span class="token function">install</span> minikube /usr/local/bin/
+</code></pre></div><p><strong>기본 명령어</strong></p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 버전확인</span>
+minikube version
+
+<span class="token comment"># 가상머신 시작</span>
+minikube start --driver<span class="token operator">=</span>docker
+<span class="token comment"># driver 에러가 발생한다면 virtual box를 사용</span>
+minikube start --driver<span class="token operator">=</span>virtualbox
+<span class="token comment"># 특정 k8s 버전 실행</span>
+minikube start --kubernetes-version<span class="token operator">=</span>v1.20.0
+
+<span class="token comment"># 상태확인</span>
+minikube status
+
+<span class="token comment"># 정지</span>
+minikube stop
+
+<span class="token comment"># 삭제</span>
+minikube delete
+
+<span class="token comment"># ssh 접속</span>
+minikube <span class="token function">ssh</span>
+
+<span class="token comment"># ip 확인</span>
+minikube <span class="token function">ip</span>
+</code></pre></div><h3 id="virtualbox-설치"><a href="#virtualbox-설치" class="header-anchor">#</a> VirtualBox 설치</h3> <p>OS에서 지원하는 가상화 기능을 사용할 수 없는 경우 <code>VirtualBox</code>를 설치합니다.</p> <p><img src="/k8s/assets/img/virtualbox.4208bcbe.png" alt="virtualbox.org"></p> <p><code>Download</code>버튼을 눌러서 설치합니다.</p> <h2 id="k3s"><a href="#k3s" class="header-anchor">#</a> k3s</h2> <p>minikube를 사용할 수 없거나 네트워크등 여러가지 이슈로 실습이 어려운 경우, 별도 클라우드 서버에 k3s를 설치하여 원격으로 실습할 수 있습니다.</p> <p>여기선 <a href="https://aws.amazon.com/ko/free/compute/lightsail" target="_blank" rel="noopener noreferrer">AWS Lightsail<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>에 설치하는 법을 소개하며 한 달 동안 가상머신을 사용했을 때 $20, 하루 동안 실습할 경우 1,000원 이하의 비용이 발생합니다.</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>설치스크립트에 브라우저 기반 터미널 프로그램인 <a href="https://github.com/butlerx/wetty" target="_blank" rel="noopener noreferrer">wetty<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>를 포함하여 별도의 프로그램 없이 브라우저로 실습 할 수 있습니다.
+<code>vi</code>, <code>nano</code>와 같은 리눅스용 에디터에 익숙하지 않다면 웹 기반 <a href="https://github.com/subicura/workshop-init/blob/master/99_code_server.md" target="_blank" rel="noopener noreferrer">Visual Studio를 설치<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>해 주세요.</p></div> <ol><li>AWS 로그인 후, Lightsail 메뉴를 선택</li></ol> <p><img src="/k8s/assets/img/aws-lightsail.0775e2b3.png" alt="lightsail menu"></p> <ol start="2"><li>새로운 인스턴스 생성 - Create instance 선택</li></ol> <p><img src="/k8s/assets/img/create-instance.ae8cd557.png" alt="Create instance"></p> <ol start="3"><li>Linux / Ubuntu 20.04 선택</li></ol> <p><img src="/k8s/assets/img/pick-instance.f54157b1.png" alt="Pick instance"></p> <ol start="4"><li>Add launch script를 선택 후 다음 명령어 입력</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">sed</span> -i <span class="token string">'s/PasswordAuthentication no/PasswordAuthentication yes/'</span> /etc/ssh/sshd_config
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;ubuntu:1q2w3e4r!!&quot;</span> <span class="token operator">|</span> chpasswd
+<span class="token function">service</span> sshd reload
+<span class="token function">curl</span> -sL https://deb.nodesource.com/setup_14.x <span class="token operator">|</span> <span class="token function">bash</span> -
+<span class="token function">apt-get</span> -y update
+<span class="token assign-left variable">DEBIAN_FRONTEND</span><span class="token operator">=</span>noninteractive <span class="token function">apt-get</span> -y <span class="token function">install</span> nodejs build-essential
+<span class="token function">npm</span> <span class="token function">install</span> -g wetty --unsafe
+<span class="token function">ln</span> -s /usr/bin/wetty /usr/local/bin/wetty
+<span class="token function">curl</span> https://gist.githubusercontent.com/subicura/9058671c16e2abd36533fea2798886b0/raw/e5d249612711b14c9c8f44798dea1368395e86a9/wetty.service -o /lib/systemd/system/wetty.service
+systemctl start wetty
+systemctl <span class="token builtin class-name">enable</span> wetty
+</code></pre></div><ol start="5"><li>2 vCPUs / 4 GB 또는 더 나은 사양 선택</li></ol> <p><img src="/k8s/assets/img/choose-plan.704e0f6b.png" alt="Choose plan"></p> <ol start="6"><li>가상 서버 생성이 완료되면 이름 선택</li></ol> <p><img src="/k8s/assets/img/instance-detail.362861c7.png" alt="Instance detail"></p> <ol start="7"><li>Networking 탭 선택후 방화벽 허용 (4000-65000) <strong>SSH(22)는 반드시 제거</strong></li></ol> <p><img src="/k8s/assets/img/firewall.f5383587.png" alt="Firewall"></p> <ol start="8"><li>방화벽 설정 결과</li></ol> <p><img src="/k8s/assets/img/firewall-result.9ffb8c3a.png" alt="Firewall 결과"></p> <ol start="9"><li>Public IP 주소와 4200 port로 접속 (아이디/패스워드 - ubuntu/1q2w3e4r!!)</li></ol> <p><img src="/k8s/assets/img/wetty.e76db53b.png" alt="wetty"></p> <ol start="10"><li>k3s 설치</li></ol> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">curl</span> -sfL https://get.k3s.io <span class="token operator">|</span> <span class="token function">sh</span> -
+<span class="token function">sudo</span> <span class="token function">chown</span> ubuntu:ubuntu /etc/rancher/k3s/k3s.yaml
+
+<span class="token comment"># 확인</span>
+kubectl get nodes
+
+<span class="token comment"># 설정 복사</span>
+<span class="token function">cp</span> /etc/rancher/k3s/k3s.yaml ~/.kube/config
+</code></pre></div><h2 id="그외"><a href="#그외" class="header-anchor">#</a> 그외</h2> <h3 id="docker-for-desktop"><a href="#docker-for-desktop" class="header-anchor">#</a> docker for desktop</h3> <p>docker for desktop에서 쿠버네티스 클러스터를 활성화할 수 있습니다.</p> <p><img src="/k8s/assets/img/docker-for-desktop.2b1b439e.png" alt="Docker for desktop"></p> <p>docker for desktop은 리소스(CPU, 메모리)를 많이 차지하기 때문에 가급적 실습할 때 껐다 켜기 쉬운 minikube를 추천합니다.</p> <h3 id="kind"><a href="#kind" class="header-anchor">#</a> kind</h3> <p>도커 컨테이너 기반 다중 노드 테스트</p> <ul><li><a href="https://kind.sigs.k8s.io/" target="_blank" rel="noopener noreferrer">kind<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h2 id="운영환경"><a href="#운영환경" class="header-anchor">#</a> 운영환경</h2> <ul><li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/" target="_blank" rel="noopener noreferrer">kubeadm<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/kubernetes-sigs/kubespray" target="_blank" rel="noopener noreferrer">kubespray<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://aws.amazon.com/ko/eks" target="_blank" rel="noopener noreferrer">Amazon EKS<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://cloud.google.com/kubernetes-engine" target="_blank" rel="noopener noreferrer">Google Kubernetes Engine<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://docs.microsoft.com/ko-kr/azure/aks/" target="_blank" rel="noopener noreferrer">Azure Kubernetes Service<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/k8s/edit/master/src/prepare/kubernetes-setup.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2020-12-18</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/k8s/prepare/for-windows.html" class="prev">
+        windows 환경
+      </a></span> <span class="next"><a href="/k8s/prepare/minikube.html">
+        minikube 고급기능
+      </a>
+      →
+    </span></p></div> <div class="fb-comment-wrapper"><div class="fb-comment-inner"><div data-href="https://subicura.com/k8s/prepare/kubernetes-setup.html" data-num-posts="5" data-order-by="social" data-width="100%" class="fb-comments"></div></div></div> <div id="fb-root"></div> <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&amp;version=v9.0&amp;appId=1611862309129685&amp;autoLogAppEvents=1" nonce="0khzBnEU"></script></main></div><div class="global-ui"><!----></div></div>
+    <script src="/k8s/assets/js/app.2df3b1d3.js" defer></script><script src="/k8s/assets/js/8.b1485824.js" defer></script><script src="/k8s/assets/js/2.62b225b8.js" defer></script><script src="/k8s/assets/js/1.b20a9cf3.js" defer></script><script src="/k8s/assets/js/9.7eeca4ac.js" defer></script>
+  </body>
+</html>

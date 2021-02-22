@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Service | 쿠버네티스 안내서</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/k8s/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/k8s/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/k8s/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/k8s/manifest.json">
+    <link rel="mask-icon" href="/k8s/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://css.gg/css?=|calendar-dates|folder|tag" rel="stylesheet">
+    <meta name="description" content="Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.">
+    <meta name="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:title" content="Service">
+    <meta name="twitter:description" content="Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/k8s/guide/service.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Service">
+    <meta property="og:description" content="Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.">
+    <meta property="og:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/k8s/guide/service.html">
+    <meta property="og:site_name" content="쿠버네티스 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="Service">
+    <meta itemprop="description" content="Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.">
+    <meta itemprop="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/k8s/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/k8s/assets/css/0.styles.f159e1d6.css" as="style"><link rel="preload" href="/k8s/assets/js/app.2df3b1d3.js" as="script"><link rel="preload" href="/k8s/assets/js/8.b1485824.js" as="script"><link rel="preload" href="/k8s/assets/js/2.62b225b8.js" as="script"><link rel="preload" href="/k8s/assets/js/1.b20a9cf3.js" as="script"><link rel="preload" href="/k8s/assets/js/13.5933a42c.js" as="script"><link rel="preload" href="/k8s/assets/js/15.b27509d5.js" as="script"><link rel="prefetch" href="/k8s/assets/js/10.f8281e9c.js"><link rel="prefetch" href="/k8s/assets/js/11.10dcf451.js"><link rel="prefetch" href="/k8s/assets/js/12.5efa2074.js"><link rel="prefetch" href="/k8s/assets/js/14.2b670af4.js"><link rel="prefetch" href="/k8s/assets/js/16.4c71ae1c.js"><link rel="prefetch" href="/k8s/assets/js/17.c7f9b883.js"><link rel="prefetch" href="/k8s/assets/js/18.0d42165a.js"><link rel="prefetch" href="/k8s/assets/js/19.8fcf3199.js"><link rel="prefetch" href="/k8s/assets/js/20.96b3f223.js"><link rel="prefetch" href="/k8s/assets/js/21.fb7cb467.js"><link rel="prefetch" href="/k8s/assets/js/22.a4a832c1.js"><link rel="prefetch" href="/k8s/assets/js/23.5a27b39b.js"><link rel="prefetch" href="/k8s/assets/js/24.08cf8d5a.js"><link rel="prefetch" href="/k8s/assets/js/25.a5a619be.js"><link rel="prefetch" href="/k8s/assets/js/26.ced0e171.js"><link rel="prefetch" href="/k8s/assets/js/27.024ebe2f.js"><link rel="prefetch" href="/k8s/assets/js/28.54adb795.js"><link rel="prefetch" href="/k8s/assets/js/29.6f81ecd5.js"><link rel="prefetch" href="/k8s/assets/js/30.e4422e30.js"><link rel="prefetch" href="/k8s/assets/js/31.8d92e4a8.js"><link rel="prefetch" href="/k8s/assets/js/32.d51b85e6.js"><link rel="prefetch" href="/k8s/assets/js/33.8d87a767.js"><link rel="prefetch" href="/k8s/assets/js/34.031dd6a4.js"><link rel="prefetch" href="/k8s/assets/js/35.6e648e62.js"><link rel="prefetch" href="/k8s/assets/js/36.4d5c0d10.js"><link rel="prefetch" href="/k8s/assets/js/37.1f3151e3.js"><link rel="prefetch" href="/k8s/assets/js/38.ba21b32f.js"><link rel="prefetch" href="/k8s/assets/js/39.f87810bb.js"><link rel="prefetch" href="/k8s/assets/js/40.428d2178.js"><link rel="prefetch" href="/k8s/assets/js/41.4e6c7b67.js"><link rel="prefetch" href="/k8s/assets/js/42.8f50c31f.js"><link rel="prefetch" href="/k8s/assets/js/43.1f4632fb.js"><link rel="prefetch" href="/k8s/assets/js/44.7c2da3cd.js"><link rel="prefetch" href="/k8s/assets/js/45.6c1850c1.js"><link rel="prefetch" href="/k8s/assets/js/46.d51613fa.js"><link rel="prefetch" href="/k8s/assets/js/47.62eabb11.js"><link rel="prefetch" href="/k8s/assets/js/48.a1c6ebd8.js"><link rel="prefetch" href="/k8s/assets/js/49.50bb3af2.js"><link rel="prefetch" href="/k8s/assets/js/5.e175883c.js"><link rel="prefetch" href="/k8s/assets/js/50.9d035674.js"><link rel="prefetch" href="/k8s/assets/js/51.5f9b5738.js"><link rel="prefetch" href="/k8s/assets/js/52.6b9a6cee.js"><link rel="prefetch" href="/k8s/assets/js/53.f2ffe762.js"><link rel="prefetch" href="/k8s/assets/js/54.212a7a07.js"><link rel="prefetch" href="/k8s/assets/js/55.ddbddb04.js"><link rel="prefetch" href="/k8s/assets/js/56.493976e7.js"><link rel="prefetch" href="/k8s/assets/js/6.a2f30769.js"><link rel="prefetch" href="/k8s/assets/js/7.bb896b87.js"><link rel="prefetch" href="/k8s/assets/js/9.7eeca4ac.js"><link rel="prefetch" href="/k8s/assets/js/vendors~docsearch.ca607f2e.js">
+    <link rel="stylesheet" href="/k8s/assets/css/0.styles.f159e1d6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/k8s/" class="home-link router-link-active"><!----> <span class="site-name">쿠버네티스 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-04cefa17><input type="checkbox" id="themeSwitch" data-v-04cefa17><label for="themeSwitch" class="toggle" data-v-04cefa17><span class="toggle__handler" data-v-04cefa17><span class="crater crater--1" data-v-04cefa17></span><span class="crater crater--2" data-v-04cefa17></span><span class="crater crater--3" data-v-04cefa17></span></span><span class="star star--1" data-v-04cefa17></span><span class="star star--2" data-v-04cefa17></span><span class="star star--3" data-v-04cefa17></span><span class="star star--4" data-v-04cefa17></span><span class="star star--5" data-v-04cefa17></span><span class="star star--6" data-v-04cefa17></span></label></div></div> <!----> <!----></div></div></div> <!----> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/k8s/guide/" class="nav-link router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/k8s/guide/" class="nav-link router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>기본 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/" aria-current="page" class="sidebar-link">시작하기</a></li><li><a href="/k8s/guide/kubectl.html" class="sidebar-link">기본 명령어</a></li><li><a href="/k8s/guide/pod.html" class="sidebar-link">Pod</a></li><li><a href="/k8s/guide/replicaset.html" class="sidebar-link">ReplicaSet</a></li><li><a href="/k8s/guide/deployment.html" class="sidebar-link">Deployment</a></li><li><a href="/k8s/guide/service.html" aria-current="page" class="active sidebar-link">Service</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#service-clusterip-만들기" class="sidebar-link">Service(ClusterIP) 만들기</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#service-생성-흐름" class="sidebar-link">Service 생성 흐름</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#service-nodeport-만들기" class="sidebar-link">Service(NodePort) 만들기</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#service-loadbalancer-만들기" class="sidebar-link">Service(LoadBalancer) 만들기</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#마무리" class="sidebar-link">마무리</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#참고" class="sidebar-link">참고</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/service.html#문제" class="sidebar-link">문제</a></li></ul></li><li><a href="/k8s/guide/sample.html" class="sidebar-link">웹 애플리케이션 배포</a></li><li><a href="/k8s/guide/ingress.html" class="sidebar-link">Ingress</a></li><li><a href="/k8s/guide/local-volume.html" class="sidebar-link">Volume (local)</a></li><li><a href="/k8s/guide/configmap.html" class="sidebar-link">ConfigMap</a></li><li><a href="/k8s/guide/secret.html" class="sidebar-link">Secret</a></li><li><a href="/k8s/guide/next.html" class="sidebar-link">앞으로</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>고급 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/advanced.html" class="sidebar-link">고급 가이드</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="service"><a href="#service" class="header-anchor">#</a> Service</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서 접근할 수 있는 방법을 알아봅니다.</p></div> <p>Pod은 자체 IP를 가지고 다른 Pod과 통신할 수 있지만, 쉽게 사라지고 생성되는 특징 때문에 직접 통신하는 방법은 권장하지 않습니다. 쿠버네티스는 Pod과 직접 통신하는 방법 대신, 별도의 고정된 IP를 가진 서비스를 만들고 그 서비스를 통해 Pod에 접근하는 방식을 사용합니다.</p> <div style="text-align:center;"><img src="/k8s/assets/img/pod-service.1c328260.png" alt="Service" style="width:420px;max-width:100%;"></div> <p>이러한 개념은 <s>도커에 익숙할수록</s> 처음 접하면 참 어렵습니다. 개념도 생소한데 노출 범위에 따라 CluterIP, NodePort, LoadBalancer 타입으로 나누어져 더욱 헷갈립니다. 하나씩 차근차근 알아봅시다.</p> <p></p><div class="table-of-contents"><ul><li><a href="#service-clusterip-만들기">Service(ClusterIP) 만들기</a></li><li><a href="#service-생성-흐름">Service 생성 흐름</a></li><li><a href="#service-nodeport-만들기">Service(NodePort) 만들기</a></li><li><a href="#service-loadbalancer-만들기">Service(LoadBalancer) 만들기</a><ul><li><a href="#minikube에-가상-loadbalancer-만들기">minikube에 가상 LoadBalancer 만들기</a></li></ul></li><li><a href="#마무리">마무리</a></li><li><a href="#참고">참고</a></li><li><a href="#문제">문제</a></li></ul></div><p></p> <div class="custom-block warning"><p class="custom-block-title">서비스 종류</p> <p>서비스 종류 중에 <code>ExternalName</code>도 있지만 여기서는 다루지 않습니다.</p></div> <h2 id="service-clusterip-만들기"><a href="#service-clusterip-만들기" class="header-anchor">#</a> Service(ClusterIP) 만들기</h2> <p>ClusterIP는 클러스터 내부에 새로운 IP를 할당하고 여러 개의 Pod을 바라보는 로드밸런서 기능을 제공합니다. 그리고 서비스 이름을 내부 도메인 서버에 등록하여 Pod 간에 서비스 이름으로 통신할 수 있습니다.</p> <p>그럼, <a href="/k8s/guide/pod.html#다중-컨테이너">다중 컨테이너</a>를 설명할 때 만들었던, counter 앱 중에 redis를 서비스로 노출해보겠습니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> redis
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+      <span class="token key atrule">tier</span><span class="token punctuation">:</span> db
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+        <span class="token key atrule">tier</span><span class="token punctuation">:</span> db
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> redis
+          <span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+          <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">6379</span>
+              <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> redis
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">6379</span>
+      <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+    <span class="token key atrule">tier</span><span class="token punctuation">:</span> db
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/service/counter-redis-svc.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/service/counter-redis-svc.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <div class="custom-block tip"><p class="custom-block-title">구분자</p> <p>하나의 YAML파일에 여러 개의 리소스를 정의할 땐 &quot;---&quot;를 구분자로 사용합니다.</p></div> <p>redis를 먼저 만들어 봅니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl apply -f counter-redis-svc.yml
+
+<span class="token comment"># Pod, ReplicaSet, Deployment, Service 상태 확인</span>
+kubectl get all
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br></div><pre class="language-text"><code>NAME                         READY   STATUS    RESTARTS   AGE
+pod/redis-57d787df44-mf5w5   1/1     Running   0          10s
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP    3d19h
+service/redis        ClusterIP   10.103.50.102   &lt;none&gt;        6379/TCP   10s
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/redis   1/1     1            1           10s
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/redis-57d787df44   1         1         1       10s
+</code></pre></div><p>redis Deployment와 Service가 생성된 것을 볼 수 있습니다.</p> <div style="text-align:center;"><img src="/k8s/assets/img/clusterip.2e0bd0bf.png" alt="ClusterIp" style="width:170px;max-width:100%;"></div> <p>같은 클러스터에서 생성된 Pod이라면 <code>redis</code>라는 도메인으로 redis Pod에 접근 할 수 있습니다. (<code>redis.default.svc.cluster.local</code>로도 접근가능 합니다. 서로 다른 namespace와 cluster를 구분할 수 있습니다.)</p> <p>CluterIP 서비스의 설정을 살펴봅니다.</p> <table><thead><tr><th>정의</th> <th>설명</th></tr></thead> <tbody><tr><td><code>spec.ports.port</code></td> <td>서비스가 생성할 Port</td></tr> <tr><td><code>spec.ports.targetPort</code></td> <td>서비스가 접근할 Pod의 Port (기본: port랑 동일)</td></tr> <tr><td><code>spec.selector</code></td> <td>서비스가 접근할 Pod의 label 조건</td></tr></tbody></table> <p>redis Service의 selector는 redis Deployment에 정의한 label을 사용했기 때문에 해당 Pod을 가리킵니다. 그리고 해당 Pod의 6379 포트로 연결하였습니다.</p> <p>이제 redis에 접근할 counter 앱을 Deployment로 만듭니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> counter
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+      <span class="token key atrule">tier</span><span class="token punctuation">:</span> app
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+        <span class="token key atrule">tier</span><span class="token punctuation">:</span> app
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> counter
+          <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/counter<span class="token punctuation">:</span>latest
+          <span class="token key atrule">env</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> REDIS_HOST
+              <span class="token key atrule">value</span><span class="token punctuation">:</span> <span class="token string">&quot;redis&quot;</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> REDIS_PORT
+              <span class="token key atrule">value</span><span class="token punctuation">:</span> <span class="token string">&quot;6379&quot;</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/service/counter-app.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/service/counter-app.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p>counter app Pod에서 redis Pod으로 접근이 되는지 테스트 해보겠습니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl apply -f counter-app.yml
+
+<span class="token comment"># counter app에 접근</span>
+kubectl get po
+kubectl <span class="token builtin class-name">exec</span> -it counter-<span class="token operator">&lt;</span>xxxxx<span class="token operator">&gt;</span> -- <span class="token function">sh</span>
+
+<span class="token comment"># apk add curl busybox-extras # install telnet</span>
+<span class="token comment"># curl localhost:3000</span>
+<span class="token comment"># curl localhost:3000</span>
+<span class="token comment"># telnet redis 6379</span>
+  dbsize
+  KEYS *
+  GET count
+  quit
+</code></pre></div><p>Service를 통해 Pod과 성공적으로 연결되었습니다.</p> <h2 id="service-생성-흐름"><a href="#service-생성-흐름" class="header-anchor">#</a> Service 생성 흐름</h2> <p>Service는 각 Pod를 바라보는 로드밸런서 역할을 하면서 내부 도메인서버에 새로운 도메인을 생성합니다. Service가 어떻게 동작하는지 살펴봅니다.</p> <pre class="mermaid-container"><code><div class="spinner" style="background:rgb(66, 185, 131);" data-v-1bbcb91a></div></code></pre><ol><li><code>Endpoint Controller</code>는 <code>Service</code>와 <code>Pod</code>을 감시하면서 조건에 맞는 Pod의 IP를 수집</li> <li><code>Endpoint Controller</code>가 수집한 IP를 가지고 <code>Endpoint</code> 생성</li> <li><code>Kube-Proxy</code>는 <code>Endpoint</code> 변화를 감시하고 노드의 iptables을 설정</li> <li><code>CoreDNS</code>는 <code>Service</code>를 감시하고 서비스 이름과 IP를 <code>CoreDNS</code>에 추가</li></ol> <p><code>iptables</code>는 커널<sup>kernel</sup> 레벨의 네트워크 도구이고 <code>CoreDNS</code>는 빠르고 편리하게 사용할 수 있는 클러스터 내부용 도메인 네임 서버 입니다. 각각의 역할은 <code>iptables</code> 설정으로 여러 IP에 트래픽을 전달하고 <code>CoreDNS</code>를 이용하여 IP 대신 도메인 이름을 사용합니다.</p> <div class="custom-block tip"><p class="custom-block-title">iptables</p> <p>iptables는 규칙이 많아지면 성능이 느려지는 이슈가 있어, <code>ipvs</code>를 사용하는 옵션도 있습니다.</p></div> <div class="custom-block tip"><p class="custom-block-title">CoreDNS</p> <p>CoreDNS는 클러스터에서 호환성을 위해 <code>kube-dns</code>라는 이름으로 생성됩니다.</p></div> <p>갑자기 Endpoint가 나왔습니다. Endpoint는 서비스의 접속 정보를 가지고 있습니다. Endpoint의 상태를 확인해 보겠습니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl get endpoints
+kubectl get ep <span class="token comment">#줄여서</span>
+
+<span class="token comment"># redis Endpoint 확인</span>
+kubectl describe ep/redis
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-text"><code>Name:         redis
+Namespace:    default
+Labels:       &lt;none&gt;
+Annotations:  endpoints.kubernetes.io/last-change-trigger-time: ...
+Subsets:
+  Addresses:          172.17.0.2
+  NotReadyAddresses:  &lt;none&gt;
+  Ports:
+    Name     Port  Protocol
+    ----     ----  --------
+    &lt;unset&gt;  6379  TCP
+
+Events:  &lt;none&gt;
+</code></pre></div><p>Endpoint Addresses 정보에 Redis Pod의 IP가 보입니다. (Replicas가 여러개였다면 여러 IP가 보입니다.)</p> <h2 id="service-nodeport-만들기"><a href="#service-nodeport-만들기" class="header-anchor">#</a> Service(NodePort) 만들기</h2> <p>CluterIP는 클러스터 내부에서만 접근할 수 있습니다. 클러스터 외부(노드)에서 접근할 수 있도록 NodePort 서비스를 만들어봅니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> counter<span class="token punctuation">-</span>np
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3000</span>
+      <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">31000</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+    <span class="token key atrule">tier</span><span class="token punctuation">:</span> app
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/service/counter-nodeport.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/service/counter-nodeport.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <table><thead><tr><th>정의</th> <th>설명</th></tr></thead> <tbody><tr><td><code>spec.ports.nodePort</code></td> <td>노드에 오픈할 Port (미지정시 30000-32768 중에 자동 할당)</td></tr></tbody></table> <p>counter app을 해당 노드의 31000으로 오픈합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl apply -f counter-nodeport.yml
+
+<span class="token comment"># 서비스 상태 확인</span>
+kubectl get svc
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br><br><br></div><pre class="language-text"><code>NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+counter-np   NodePort    10.101.168.165   &lt;none&gt;        3000:31000/TCP   13s
+kubernetes   ClusterIP   10.96.0.1        &lt;none&gt;        443/TCP          3d19h
+redis        ClusterIP   10.103.50.102    &lt;none&gt;        6379/TCP         30m
+</code></pre></div><p><code>minikube ip</code>로 테스트 클러스터의 노드 IP를 구하고 31000으로 접근해봅니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">curl</span> <span class="token number">192.168</span>.64.4:31000 <span class="token comment"># 또는 브라우저에서 접근</span>
+</code></pre></div><div style="text-align:center;"><img src="/k8s/assets/img/nodeport.8677d87b.png" alt="NodePort" style="width:350px;max-width:100%;"></div> <p>NodePort는 클러스터의 모든 노드에 포트를 오픈합니다. 지금은 테스트라서 하나의 노드밖에 없지만 여러 개의 노드가 있다면 아무 노드로 접근해도 지정한 Pod으로 쏘옥 접근할 수 있습니다.</p> <div style="text-align:center;"><img src="/k8s/assets/img/nodeport-multi.8a7b8dce.png" alt="NodePort" style="width:550px;max-width:100%;"></div> <div class="custom-block tip"><p class="custom-block-title">NodePort와 ClusterIP</p> <p>NodePort는 CluterIP의 기능을 기본으로 포함합니다.</p></div> <h2 id="service-loadbalancer-만들기"><a href="#service-loadbalancer-만들기" class="header-anchor">#</a> Service(LoadBalancer) 만들기</h2> <p>NodePort의 단점은 노드가 사라졌을 때 자동으로 다른 노드를 통해 접근이 불가능하다는 점입니다. 예를 들어, 3개의 노드가 있다면 3개 중에 아무 노드로 접근해도 NodePort로 연결할 수 있지만 어떤 노드가 살아 있는지는 알 수가 없습니다.</p> <div style="text-align:center;"><img src="/k8s/assets/img/lb.1dff4c9d.png" alt="Load Balancer" style="width:460px;max-width:100%;"></div> <p>자동으로 살아 있는 노드에 접근하기 위해 모든 노드를 바라보는 <code>Load Balancer</code>가 필요합니다. 브라우저는 NodePort에 직접 요청을 보내는 것이 아니라 Load Balancer에 요청하고 Load Balancer가 알아서 살아 있는 노드에 접근하면 NodePort의 단점을 없앨 수 있습니다.</p> <p>Load Balancer를 생성해 봅니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> counter<span class="token punctuation">-</span>lb
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">30000</span>
+      <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">3000</span>
+      <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+    <span class="token key atrule">tier</span><span class="token punctuation">:</span> app
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/service/counter-lb.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/service/counter-lb.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl apply -f counter-lb.yml
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-text"><code>NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE
+counter-lb   LoadBalancer   10.109.133.129   &lt;pending&gt;     30000:31535/TCP   9s
+counter-np   NodePort       10.101.168.165   &lt;none&gt;        3000:31000/TCP    34m
+kubernetes   ClusterIP      10.96.0.1        &lt;none&gt;        443/TCP           3d20h
+redis        ClusterIP      10.103.50.102    &lt;none&gt;        6379/TCP          65m
+</code></pre></div><p>counter-lb가 생성되었지만, <code>EXTERNAL-IP</code>가 <code>&lt;pending&gt;</code>인 것을 확인할 수 있습니다. 사실 Load Balancer는 AWS, Google Cloud, Azure 같은 클라우드 환경이 아니면 사용이 제한적입니다. 특정 서버(노드)를 가리키는 무언가(Load Balancer)가 필요한데 이런 <code>무언가</code>가 가상머신이나 로컬 서버에는 존재하지 않습니다.</p> <h3 id="minikube에-가상-loadbalancer-만들기"><a href="#minikube에-가상-loadbalancer-만들기" class="header-anchor">#</a> minikube에 가상 LoadBalancer 만들기</h3> <p>Load Balancer를 사용할 수 없는 환경에서 가상 환경을 만들어 주는 것이 <code>MetalLB</code>라는 것입니다. minikube에서는 현재 떠 있는 노드를 Load Balancer로 설정합니다. minikube의 <code>addons</code> 명령어로 활성화합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>minikube addons <span class="token builtin class-name">enable</span> metallb
+</code></pre></div><p>그리고 <code>minikube ip</code>명령어로 확인한 ip를 ConfigMap으로 지정해야 합니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> metallb<span class="token punctuation">-</span>system
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> config
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.64.4/32 # minikube ip</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/service/metallb-cm.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/service/metallb-cm.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl apply -f metallb-cm.yml
+
+<span class="token comment"># 다시 서비스 확인</span>
+kubectl get svc
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-text"><code>NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE
+counter-lb   LoadBalancer   10.109.133.129   192.168.64.4  30000:31535/TCP   1m
+counter-np   NodePort       10.101.168.165   &lt;none&gt;        3000:31000/TCP    35m
+kubernetes   ClusterIP      10.96.0.1        &lt;none&gt;        443/TCP           3d20h
+redis        ClusterIP      10.103.50.102    &lt;none&gt;        6379/TCP          66m
+</code></pre></div><p>이제 <code>192.168.64.4:30000</code>으로 접근해봅니다.</p> <div class="custom-block tip"><p class="custom-block-title">LoadBalancer와 NodePort</p> <p>LoadBalancer는 NodePort의 기능을 기본으로 포함합니다.</p></div> <h2 id="마무리"><a href="#마무리" class="header-anchor">#</a> 마무리</h2> <p>서비스는 로우레벨<sup>low level</sup> 수준의 네트워크를 이해하고 성능, 보안 이슈를 신경 써야 합니다. 파고들면 한없이 복잡하고 어려운 부분으로 일단 그렇구나.. 하고 넘어갑니다. 😭</p> <p>실전에선 NodePort와 LoadBalancer를 제한적으로 사용합니다. 보통 웹 애플리케이션을 배포하면 80 또는 443 포트를 사용하고 하나의 포트에서 여러 개의 서비스를 도메인이나 경로에 따라 다르게 연결하기 때문입니다. 이 부분은 뒤에 Ingress에서 자세히 알아봅니다.</p> <h2 id="참고"><a href="#참고" class="header-anchor">#</a> 참고</h2> <p><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#service-v1-core" target="_blank" rel="noopener noreferrer">Service v1 core<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-networking-guide-beginners.html" target="_blank" rel="noopener noreferrer">네트워크 통신 시각화<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="문제"><a href="#문제" class="header-anchor">#</a> 문제</h2> <p><strong>문제1. echo 서비스를 NodePort로 32000 포트로 오픈합니다.</strong></p> <table><thead><tr><th>키</th> <th>값</th></tr></thead> <tbody><tr><td><code>Deployment 이름</code></td> <td>echo</td></tr> <tr><td><code>Deployment Label</code></td> <td>app: echo</td></tr> <tr><td><code>Deployment 복제수</code></td> <td>3</td></tr> <tr><td><code>Container 이름</code></td> <td>echo</td></tr> <tr><td><code>Container 이미지</code></td> <td>ghcr.io/subicura/echo:v1</td></tr> <tr><td><code>NodePort 이름</code></td> <td>echo</td></tr> <tr><td><code>NodePort Port</code></td> <td>3000</td></tr> <tr><td><code>NodePort NodePort</code></td> <td>32000</td></tr></tbody></table> <details class="custom-block details"><summary>정답</summary> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> echo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> echo
+          <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/echo<span class="token punctuation">:</span>v1
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> echo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3000</span>
+      <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">32000</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/service/exam1.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/service/exam1.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div></details></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/k8s/edit/master/src/guide/service.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2021-01-14</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/k8s/guide/deployment.html" class="prev">
+        Deployment
+      </a></span> <span class="next"><a href="/k8s/guide/sample.html">
+        웹 애플리케이션 배포
+      </a>
+      →
+    </span></p></div> <div class="fb-comment-wrapper"><div class="fb-comment-inner"><div data-href="https://subicura.com/k8s/guide/service.html" data-num-posts="5" data-order-by="social" data-width="100%" class="fb-comments"></div></div></div> <div id="fb-root"></div> <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&amp;version=v9.0&amp;appId=1611862309129685&amp;autoLogAppEvents=1" nonce="0khzBnEU"></script></main></div><div class="global-ui"><!----></div></div>
+    <script src="/k8s/assets/js/app.2df3b1d3.js" defer></script><script src="/k8s/assets/js/8.b1485824.js" defer></script><script src="/k8s/assets/js/2.62b225b8.js" defer></script><script src="/k8s/assets/js/1.b20a9cf3.js" defer></script><script src="/k8s/assets/js/13.5933a42c.js" defer></script><script src="/k8s/assets/js/15.b27509d5.js" defer></script>
+  </body>
+</html>

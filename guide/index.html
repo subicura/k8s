@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>시작하기 | 쿠버네티스 안내서</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/k8s/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/k8s/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/k8s/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/k8s/manifest.json">
+    <link rel="mask-icon" href="/k8s/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://css.gg/css?=|calendar-dates|folder|tag" rel="stylesheet">
+    <meta name="description" content="쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.">
+    <meta name="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:title" content="시작하기">
+    <meta name="twitter:description" content="쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/k8s/guide/">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="시작하기">
+    <meta property="og:description" content="쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.">
+    <meta property="og:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/k8s/guide/">
+    <meta property="og:site_name" content="쿠버네티스 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="시작하기">
+    <meta itemprop="description" content="쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.">
+    <meta itemprop="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/k8s/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/k8s/assets/css/0.styles.f159e1d6.css" as="style"><link rel="preload" href="/k8s/assets/js/app.2df3b1d3.js" as="script"><link rel="preload" href="/k8s/assets/js/8.b1485824.js" as="script"><link rel="preload" href="/k8s/assets/js/2.62b225b8.js" as="script"><link rel="preload" href="/k8s/assets/js/1.b20a9cf3.js" as="script"><link rel="preload" href="/k8s/assets/js/17.c7f9b883.js" as="script"><link rel="preload" href="/k8s/assets/js/15.b27509d5.js" as="script"><link rel="prefetch" href="/k8s/assets/js/10.f8281e9c.js"><link rel="prefetch" href="/k8s/assets/js/11.10dcf451.js"><link rel="prefetch" href="/k8s/assets/js/12.5efa2074.js"><link rel="prefetch" href="/k8s/assets/js/13.5933a42c.js"><link rel="prefetch" href="/k8s/assets/js/14.2b670af4.js"><link rel="prefetch" href="/k8s/assets/js/16.4c71ae1c.js"><link rel="prefetch" href="/k8s/assets/js/18.0d42165a.js"><link rel="prefetch" href="/k8s/assets/js/19.8fcf3199.js"><link rel="prefetch" href="/k8s/assets/js/20.96b3f223.js"><link rel="prefetch" href="/k8s/assets/js/21.fb7cb467.js"><link rel="prefetch" href="/k8s/assets/js/22.a4a832c1.js"><link rel="prefetch" href="/k8s/assets/js/23.5a27b39b.js"><link rel="prefetch" href="/k8s/assets/js/24.08cf8d5a.js"><link rel="prefetch" href="/k8s/assets/js/25.a5a619be.js"><link rel="prefetch" href="/k8s/assets/js/26.ced0e171.js"><link rel="prefetch" href="/k8s/assets/js/27.024ebe2f.js"><link rel="prefetch" href="/k8s/assets/js/28.54adb795.js"><link rel="prefetch" href="/k8s/assets/js/29.6f81ecd5.js"><link rel="prefetch" href="/k8s/assets/js/30.e4422e30.js"><link rel="prefetch" href="/k8s/assets/js/31.8d92e4a8.js"><link rel="prefetch" href="/k8s/assets/js/32.d51b85e6.js"><link rel="prefetch" href="/k8s/assets/js/33.8d87a767.js"><link rel="prefetch" href="/k8s/assets/js/34.031dd6a4.js"><link rel="prefetch" href="/k8s/assets/js/35.6e648e62.js"><link rel="prefetch" href="/k8s/assets/js/36.4d5c0d10.js"><link rel="prefetch" href="/k8s/assets/js/37.1f3151e3.js"><link rel="prefetch" href="/k8s/assets/js/38.ba21b32f.js"><link rel="prefetch" href="/k8s/assets/js/39.f87810bb.js"><link rel="prefetch" href="/k8s/assets/js/40.428d2178.js"><link rel="prefetch" href="/k8s/assets/js/41.4e6c7b67.js"><link rel="prefetch" href="/k8s/assets/js/42.8f50c31f.js"><link rel="prefetch" href="/k8s/assets/js/43.1f4632fb.js"><link rel="prefetch" href="/k8s/assets/js/44.7c2da3cd.js"><link rel="prefetch" href="/k8s/assets/js/45.6c1850c1.js"><link rel="prefetch" href="/k8s/assets/js/46.d51613fa.js"><link rel="prefetch" href="/k8s/assets/js/47.62eabb11.js"><link rel="prefetch" href="/k8s/assets/js/48.a1c6ebd8.js"><link rel="prefetch" href="/k8s/assets/js/49.50bb3af2.js"><link rel="prefetch" href="/k8s/assets/js/5.e175883c.js"><link rel="prefetch" href="/k8s/assets/js/50.9d035674.js"><link rel="prefetch" href="/k8s/assets/js/51.5f9b5738.js"><link rel="prefetch" href="/k8s/assets/js/52.6b9a6cee.js"><link rel="prefetch" href="/k8s/assets/js/53.f2ffe762.js"><link rel="prefetch" href="/k8s/assets/js/54.212a7a07.js"><link rel="prefetch" href="/k8s/assets/js/55.ddbddb04.js"><link rel="prefetch" href="/k8s/assets/js/56.493976e7.js"><link rel="prefetch" href="/k8s/assets/js/6.a2f30769.js"><link rel="prefetch" href="/k8s/assets/js/7.bb896b87.js"><link rel="prefetch" href="/k8s/assets/js/9.7eeca4ac.js"><link rel="prefetch" href="/k8s/assets/js/vendors~docsearch.ca607f2e.js">
+    <link rel="stylesheet" href="/k8s/assets/css/0.styles.f159e1d6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/k8s/" class="home-link router-link-active"><!----> <span class="site-name">쿠버네티스 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-04cefa17><input type="checkbox" id="themeSwitch" data-v-04cefa17><label for="themeSwitch" class="toggle" data-v-04cefa17><span class="toggle__handler" data-v-04cefa17><span class="crater crater--1" data-v-04cefa17></span><span class="crater crater--2" data-v-04cefa17></span><span class="crater crater--3" data-v-04cefa17></span></span><span class="star star--1" data-v-04cefa17></span><span class="star star--2" data-v-04cefa17></span><span class="star star--3" data-v-04cefa17></span><span class="star star--4" data-v-04cefa17></span><span class="star star--5" data-v-04cefa17></span><span class="star star--6" data-v-04cefa17></span></label></div></div> <!----> <!----></div></div></div> <!----> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/k8s/guide/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/k8s/guide/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div><div class="nav-item"><a href="https://k8sforum.subicura.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  🏖 Q&amp;A
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>기본 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/" aria-current="page" class="active sidebar-link">시작하기</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/k8s/guide/#가이드" class="sidebar-link">가이드</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/#준비" class="sidebar-link">준비</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/#minikube" class="sidebar-link">minikube</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/#워드프레스-배포" class="sidebar-link">워드프레스 배포</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/#마무리" class="sidebar-link">마무리</a></li></ul></li><li><a href="/k8s/guide/kubectl.html" class="sidebar-link">기본 명령어</a></li><li><a href="/k8s/guide/pod.html" class="sidebar-link">Pod</a></li><li><a href="/k8s/guide/replicaset.html" class="sidebar-link">ReplicaSet</a></li><li><a href="/k8s/guide/deployment.html" class="sidebar-link">Deployment</a></li><li><a href="/k8s/guide/service.html" class="sidebar-link">Service</a></li><li><a href="/k8s/guide/sample.html" class="sidebar-link">웹 애플리케이션 배포</a></li><li><a href="/k8s/guide/ingress.html" class="sidebar-link">Ingress</a></li><li><a href="/k8s/guide/local-volume.html" class="sidebar-link">Volume (local)</a></li><li><a href="/k8s/guide/configmap.html" class="sidebar-link">ConfigMap</a></li><li><a href="/k8s/guide/secret.html" class="sidebar-link">Secret</a></li><li><a href="/k8s/guide/next.html" class="sidebar-link">앞으로</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>고급 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/advanced.html" class="sidebar-link">고급 가이드</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="시작하기"><a href="#시작하기" class="header-anchor">#</a> 시작하기</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>쿠버네티스 실습을 위해 minikube, kubectl을 설치하고 기본적인 사용법을 알아봅니다.</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#가이드">가이드</a></li><li><a href="#준비">준비</a></li><li><a href="#minikube">minikube</a></li><li><a href="#워드프레스-배포">워드프레스 배포</a></li><li><a href="#마무리">마무리</a></li></ul></div><p></p> <h2 id="가이드"><a href="#가이드" class="header-anchor">#</a> 가이드</h2> <p>쿠버네티스는 설치부터 운영, 각종 고급 기능까지 다양한 부분을 알아야 하고 그 과정은 험난하고 처음 접하는 사람을 지치게 합니다. <s>이 길은 내 길이 아니여..</s></p> <p>본 가이드는 꼭 알아야 할 최소한의 기능을 배우고 동작 원리를 이해하는 것에 초점을 맞춰 자연스럽게 고급 기능을 익히고 나머지 설정을 찾아볼 수 있도록 구성하였습니다.</p> <div class="custom-block warning"><p class="custom-block-title">주의</p> <p>실습은 쿠버네티스 <code>v1.20</code>에서 진행하였습니다. 특정 버전(하위 버전)에서 실습할 때 오류가 발생할 수 있습니다.</p></div> <h2 id="준비"><a href="#준비" class="header-anchor">#</a> 준비</h2> <p>실습을 위한 쿠버네티스 클러스터와 kubectl을 설치합니다.</p> <ul><li><a href="/k8s/prepare/kubernetes-setup.html">쿠버네티스(minikube) 설치</a></li> <li><a href="/k8s/prepare/kubectl-setup.html">kubectl 설치</a></li></ul> <h2 id="minikube"><a href="#minikube" class="header-anchor">#</a> minikube</h2> <p>minikube는 쿠버네티스의 모든 기능을 테스트할 순 없지만 쿠버네티스의 기본적인 기능을 익히고 친해지는데 가장 좋은 도구입니다. 대부분의 환경에서 사용할 수 있고 간편하며, 무료(!)입니다.</p> <p>실습하는 동안 minikube를 켜고 실습이 완료되면 종료합니다. 내 CPU, 메모리는 소중하니까요.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># minikube 상태확인</span>
+minikube status
+
+<span class="token comment"># minikube 실행</span>
+minikube start
+
+<span class="token comment"># 특정 k8s 버전 실행</span>
+minikube start --kubernetes-version<span class="token operator">=</span>v1.20.0
+
+<span class="token comment"># 특정 driver 실행</span>
+minikube start --driver<span class="token operator">=</span>virtualbox --kubernetes-version<span class="token operator">=</span>v1.20.0
+
+<span class="token comment"># minikube ip 확인 (접속테스트시 필요)</span>
+minikube <span class="token function">ip</span>
+
+<span class="token comment"># minikube 종료</span>
+minikube stop
+
+<span class="token comment"># minikube 제거</span>
+minikube delete
+</code></pre></div><h2 id="워드프레스-배포"><a href="#워드프레스-배포" class="header-anchor">#</a> 워드프레스 배포</h2> <p>실습의 1차 목표는 PHP와 MySQL로 구성된 워드프레스를 쿠버네티스로 배포하기입니다. 쿠버네티스 세계에서 웹 애플리케이션 배포는 가장 흔한 작업입니다. 도커에 익숙한 분들을 위하여 도커 컴포즈<sup>docker-compose</sup>를 이용한 배포와 차이점을 확인해보겠습니다.</p> <p><img src="/k8s/assets/img/wordpress-docker.92b3c859.png" alt="wordpress(docker)"></p> <p>도커 컴포즈를 이용한 배포는 다음과 같습니다.</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">wordpress</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> wordpress<span class="token punctuation">:</span>5.5.3<span class="token punctuation">-</span>apache
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">WORDPRESS_DB_HOST</span><span class="token punctuation">:</span> mysql
+      <span class="token key atrule">WORDPRESS_DB_PASSWORD</span><span class="token punctuation">:</span> password
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;30000:80&quot;</span>
+
+  <span class="token key atrule">mysql</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">5.6</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> password
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/index/docker-compose.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/index/docker-compose.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p>워드프레스 컨테이너 하나, MySQL 컨테이너 하나, 그리고 각각 포트와 환경변수 설정을 하면 끝입니다. 간단하죠?</p> <p><code>localhost:30000</code>으로 접속하여 테스트합니다.</p> <div class="custom-block tip"><p class="custom-block-title">실습하기</p> <p>YAML 코드 하단에 표시된 링크(<code>guide/index/docker-compose.yml</code>)를 누르면 raw 설정파일을 다운받을 수 있습니다. 가급적 동일한 폴더를 만들어 실습합니다.</p></div> <p>이제, 쿠버네티스로 배포합니다. 쿠버네티스는 조금 <s>많이</s> 더 다양한 컴포넌트로 구성됩니다.</p> <p><img src="/k8s/assets/img/wordpress-k8s.26407f2b.png" alt="wordpress(k8s)"></p> <p>Service, Pod, ReplicaSet, Deployment, ... 정확하게 뭐가 뭔지 모르겠지만 👀 <code>아.. 이게 쿠버네티스의 철학이구나!</code>라고 이해하고 일단 무작정 설정파일<sup>spec</sup>를 작성해봅니다.</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> wordpress<span class="token punctuation">-</span>mysql
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+      <span class="token key atrule">tier</span><span class="token punctuation">:</span> mysql
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+        <span class="token key atrule">tier</span><span class="token punctuation">:</span> mysql
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">5.6</span>
+          <span class="token key atrule">name</span><span class="token punctuation">:</span> mysql
+          <span class="token key atrule">env</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> MYSQL_ROOT_PASSWORD
+              <span class="token key atrule">value</span><span class="token punctuation">:</span> password
+          <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">3306</span>
+              <span class="token key atrule">name</span><span class="token punctuation">:</span> mysql
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> wordpress<span class="token punctuation">-</span>mysql
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3306</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+    <span class="token key atrule">tier</span><span class="token punctuation">:</span> mysql
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> wordpress
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+      <span class="token key atrule">tier</span><span class="token punctuation">:</span> frontend
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+        <span class="token key atrule">tier</span><span class="token punctuation">:</span> frontend
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> wordpress<span class="token punctuation">:</span>5.5.3<span class="token punctuation">-</span>apache
+          <span class="token key atrule">name</span><span class="token punctuation">:</span> wordpress
+          <span class="token key atrule">env</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> WORDPRESS_DB_HOST
+              <span class="token key atrule">value</span><span class="token punctuation">:</span> wordpress<span class="token punctuation">-</span>mysql
+            <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> WORDPRESS_DB_PASSWORD
+              <span class="token key atrule">value</span><span class="token punctuation">:</span> password
+          <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+              <span class="token key atrule">name</span><span class="token punctuation">:</span> wordpress
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> wordpress
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> wordpress
+    <span class="token key atrule">tier</span><span class="token punctuation">:</span> frontend
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/index/wordpress-k8s.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/index/wordpress-k8s.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p>위 소스를 <code>wordpress-k8s.yml</code> 파일로 저장하고 다음과 같은 명령어를 실행합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># wordpress-k8s.yml 설정 적용</span>
+kubectl apply -f wordpress-k8s.yml
+</code></pre></div><p>배포 상태를 확인합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 현재 상태 확인</span>
+kubectl get all
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br></div><pre class="language-text"><code>NAME                                  READY   STATUS    RESTARTS   AGE
+pod/wordpress-5f59577d4d-8t2dg        1/1     Running   0          103s
+pod/wordpress-mysql-545d9c6dc-dwnjp   1/1     Running   0          103s
+
+NAME                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes        ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        7m17s
+service/wordpress         NodePort    10.107.20.190   &lt;none&gt;        80:31400/TCP   103s
+service/wordpress-mysql   ClusterIP   10.106.50.61    &lt;none&gt;        3306/TCP       103s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         1/1     1            1           103s
+deployment.apps/wordpress-mysql   1/1     1            1           103s
+
+NAME                                        DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5f59577d4d        1         1         1       103s
+replicaset.apps/wordpress-mysql-545d9c6dc   1         1         1       103s
+</code></pre></div><p><code>wordpress-5f59577d4d-8t2dg</code>와 <code>pod/wordpress-mysql-545d9c6dc-dwnjp</code>의 상태<sup>Status</sup>가 <code>Running</code>인지 확인하고 <code>service/wordpress</code>의 포트가 몇번인지 (여기선 <code>31400</code>) 확인합니다.</p> <p>그리고 <code>minikube ip</code> 명령어로 얻은 주소로 접속합니다.</p> <p><img src="/k8s/assets/img/wordpress.a9147167.png" alt="wordpress"></p> <p>🎉 축하합니다! 첫번째 쿠버네티스 배포에 성공했습니다.</p> <h2 id="마무리"><a href="#마무리" class="header-anchor">#</a> 마무리</h2> <p>워드프레스 리소스를 제거합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl delete -f wordpress-k8s.yml
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/k8s/edit/master/src/guide/README.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2020-12-15</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/k8s/guide/kubectl.html">
+        기본 명령어
+      </a>
+      →
+    </span></p></div> <div class="fb-comment-wrapper"><div class="fb-comment-inner"><div data-href="https://subicura.com/k8s/guide/README.html" data-num-posts="5" data-order-by="social" data-width="100%" class="fb-comments"></div></div></div> <div id="fb-root"></div> <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&amp;version=v9.0&amp;appId=1611862309129685&amp;autoLogAppEvents=1" nonce="0khzBnEU"></script></main></div><div class="global-ui"><!----></div></div>
+    <script src="/k8s/assets/js/app.2df3b1d3.js" defer></script><script src="/k8s/assets/js/8.b1485824.js" defer></script><script src="/k8s/assets/js/2.62b225b8.js" defer></script><script src="/k8s/assets/js/1.b20a9cf3.js" defer></script><script src="/k8s/assets/js/17.c7f9b883.js" defer></script><script src="/k8s/assets/js/15.b27509d5.js" defer></script>
+  </body>
+</html>

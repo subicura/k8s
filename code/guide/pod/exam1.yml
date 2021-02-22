@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongodb
+  labels:
+    app: mongo
+spec:
+  containers:
+    - name: mongodb
+      image: mongo:4
