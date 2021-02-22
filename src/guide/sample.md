@@ -60,7 +60,7 @@ Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리�
 
 | 키                | 값                          |
 | ----------------- | --------------------------- |
-| `컨테이너 이미지` | postgress:9.4               |
+| `컨테이너 이미지` | postgres:9.4                |
 | `포트`            | 5432                        |
 | `환경변수`        | POSTGRES_USER: postgres     |
 | `환경변수`        | POSTGRES_PASSWORD: postgres |
