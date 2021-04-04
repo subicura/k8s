@@ -24,7 +24,7 @@ Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리�
 | 키                | 값                            |
 | ----------------- | ----------------------------- |
 | `컨테이너 이미지` | mysql:5.6                     |
-| `MySQL 포트`      | 3306                          |
+| `포트`            | 3306                          |
 | `환경변수`        | MYSQL_ROOT_PASSWORD: password |
 
 **Wordpress**
@@ -32,7 +32,7 @@ Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리�
 | 키                | 값                                  |
 | ----------------- | ----------------------------------- |
 | `컨테이너 이미지` | wordpress:5.5.3-apache              |
-| `MySQL 포트`      | 80                                  |
+| `포트`            | 80                                  |
 | `환경변수`        | WORDPRESS_DB_HOST: [wordpress host] |
 | `환경변수`        | WORDPRESS_DB_PASSWORD: password     |
 
