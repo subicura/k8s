@@ -127,10 +127,10 @@ module.exports = {
         text: "🕶 Archive",
         link: "/archive/",
       },
-      {
-        text: "🏖 Q&A",
-        link: "https://k8sforum.subicura.com/",
-      },
+      // {
+      //   text: "🏖 Q&A",
+      //   link: "https://k8sforum.subicura.com/",
+      // },
       // {
       //   text: "영상강의",
       //   link: "https://bit.ly/inflearn-k8s-link",
