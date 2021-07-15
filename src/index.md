@@ -4,7 +4,7 @@ heroImage: /imgs/hero.png
 tagline: 설치부터 배포까지 <실습편>
 actionText: 시작하기 →
 actionLink: /guide/
-footer: ⓒ 2020 by subicura
+footer: ⓒ 2021 by subicura
 
 description: 쿠버네티스 안내서 - 실습편
 image: /imgs/share.png
