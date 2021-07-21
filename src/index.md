@@ -37,19 +37,19 @@ image: /imgs/share.png
   </div>
   <div class="feature" style="text-align: center">
     <a href="https://subicura.com/2021/06/27/study-guide.html">
-      <img src="/imgs/web_hero.png" />
+      <img :src="$withBase('/imgs/web_hero.png')" />
       <p style="margin-top: 0">웹 개발자 학습 안내서</p>
     </a>
   </div>
   <div class="feature" style="text-align: center">
     <a href="https://subicura.com/git/">
-      <img src="/imgs/git_hero.png" />
+      <img :src="$withBase('/imgs/git_hero.png')" />
       <p style="margin-top: 0">Git/GitHub 안내서</p>
     </a>
   </div>
   <div class="feature" style="text-align: center">
     <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html">
-      <img src="/imgs/docker_hero.png" />
+      <img :src="$withBase('/imgs/docker_hero.png')" />
       <p style="margin-top: 0">도커 안내서</p>
     </a>
   </div>
