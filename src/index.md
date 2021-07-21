@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /imgs/hero.png
+heroImage: /imgs/k8s_hero.png
 tagline: 설치부터 배포까지 <실습편>
 actionText: 시작하기 →
 actionLink: /guide/
@@ -28,5 +28,29 @@ image: /imgs/share.png
   <div class="feature">
     <h2>💌 문의하기</h2>
     <p>subicura(at)subicura(dot)com으로 연락주세요.</p>
+  </div>
+</div>
+
+<div class="features features-4" style="align-items: center">
+  <div class="feature">
+    <h2>👉 Read This Next</h2>
+  </div>
+  <div class="feature" style="text-align: center">
+    <a href="https://subicura.com/2021/06/27/study-guide.html">
+      <img src="/imgs/web_hero.png" />
+      <p style="margin-top: 0">웹 개발자 학습 안내서</p>
+    </a>
+  </div>
+  <div class="feature" style="text-align: center">
+    <a href="https://subicura.com/git/">
+      <img src="/imgs/git_hero.png" />
+      <p style="margin-top: 0">Git/GitHub 안내서</p>
+    </a>
+  </div>
+  <div class="feature" style="text-align: center">
+    <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html">
+      <img src="/imgs/docker_hero.png" />
+      <p style="margin-top: 0">도커 안내서</p>
+    </a>
   </div>
 </div>
