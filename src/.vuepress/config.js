@@ -15,6 +15,13 @@ const autometa_options = {
 };
 
 module.exports = {
+  locales: {
+    "/": {
+      lang: "ko-KR",
+      title: "쿠버네티스 안내서",
+      description: "쿠버네티스 안내서 - 설치부터 배포까지",
+    },
+  },
   dest: "dist/k8s",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -114,52 +121,56 @@ module.exports = {
       apiKey: "6b02d4c7b823f2f9dd607f57d047175e",
       indexName: "subicura",
     },
-    nav: [
-      {
-        text: "📔 가이드",
-        link: "/guide/",
-      },
-      {
-        text: "👨‍💻 준비하기",
-        link: "/prepare/",
-      },
-      {
-        text: "🕶 Archive",
-        link: "/archive/",
-      },
-      // {
-      //   text: "🏖 Q&A",
-      //   link: "https://k8sforum.subicura.com/",
-      // },
-      // {
-      //   text: "영상강의",
-      //   link: "https://bit.ly/inflearn-k8s-link",
-      // },
-    ],
-    sidebar: {
-      "/guide/": getGuideSidebar("기본 가이드", "고급 가이드"),
-      "/advanced/": [
-        {
-          title: "고급편",
-          collapsable: false,
-          children: [""],
-        },
-      ],
-      "/prepare/": [
-        {
-          title: "준비하기",
-          collapsable: false,
-          children: [
-            "",
-            "yaml",
-            "for-windows",
-            "kubernetes-setup",
-            "minikube",
-            "kubectl-setup",
-            "etc",
+    locales: {
+      "/": {
+        nav: [
+          {
+            text: "📔 가이드",
+            link: "/guide/",
+          },
+          {
+            text: "👨‍💻 준비하기",
+            link: "/prepare/",
+          },
+          {
+            text: "🕶 Archive",
+            link: "/archive/",
+          },
+          // {
+          //   text: "🏖 Q&A",
+          //   link: "https://k8sforum.subicura.com/",
+          // },
+          // {
+          //   text: "영상강의",
+          //   link: "https://bit.ly/inflearn-k8s-link",
+          // },
+        ],
+        sidebar: {
+          "/guide/": getGuideSidebar("기본 가이드", "고급 가이드"),
+          "/advanced/": [
+            {
+              title: "고급편",
+              collapsable: false,
+              children: [""],
+            },
+          ],
+          "/prepare/": [
+            {
+              title: "준비하기",
+              collapsable: false,
+              children: [
+                "",
+                "yaml",
+                "for-windows",
+                "kubernetes-setup",
+                "minikube",
+                "kubectl-setup",
+                "etc",
+              ],
+            },
           ],
         },
-      ],
+      },
     },
     yuu: {
       disableThemeIgnore: true,
