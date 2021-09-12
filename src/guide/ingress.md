@@ -77,6 +77,20 @@ Content-Length: 0
 Connection: keep-alive
 ```
 
+::: warning minikube v1.23 오류
+minikube v1.23에서 Ingress 실습 중 오류가 발생한다면 다음과 같이 수정해주세요.
+
+```
+kubectl -n ingress-nginx edit role/ingress-nginx
+
+# ingress-controller-leader-nginx -> ingress-controller-leader 로 수정
+
+kubectl -n ingress-nginx edit deploy/ingress-nginx-controller
+
+# args 하단에 - --watch-ingress-without-class=true 추가
+```
+:::
+
 ### echo 웹 애플리케이션 배포
 
 Nginx Ingress Controller 설치가 완료되면 echo 웹 애플리케이션을 배포합니다. v1, v2 2가지를 배포합니다.
