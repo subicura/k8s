@@ -124,6 +124,10 @@ replicaset.apps/wordpress-mysql-545d9c6dc   1         1         1       103s
 
 그리고 `minikube ip` 명령어로 얻은 주소로 접속합니다.
 
+::: warning Docker
+Docker driver를 사용중이라면 `minikube service wordpress` 명령어를 이용하여 접속하세요.
+:::
+
 ![wordpress](./imgs/guide/index/wordpress.png)
 
 🎉 축하합니다! 첫번째 쿠버네티스 배포에 성공했습니다.

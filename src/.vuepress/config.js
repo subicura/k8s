@@ -146,7 +146,7 @@ module.exports = {
           // },
         ],
         sidebar: {
-          "/guide/": getGuideSidebar("기본 가이드", "고급 가이드"),
+          "/guide/": getGuideSidebar("기본 가이드", "고급 가이드", "업데이트"),
           "/advanced/": [
             {
               title: "고급편",
@@ -274,7 +274,7 @@ module.exports = {
   ],
 };
 
-function getGuideSidebar(groupA, groupB) {
+function getGuideSidebar(groupA, groupB, groupC) {
   return [
     {
       title: groupA,
@@ -298,6 +298,11 @@ function getGuideSidebar(groupA, groupB) {
       title: groupB,
       collapsable: false,
       children: ["advanced"],
+    },
+    {
+      title: groupC,
+      collapsable: false,
+      children: ["update"],
     },
   ];
 }
