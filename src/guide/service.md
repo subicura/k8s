@@ -70,7 +70,7 @@ redis Deployment와 Service가 생성된 것을 볼 수 있습니다.
 
 같은 클러스터에서 생성된 Pod이라면 `redis`라는 도메인으로 redis Pod에 접근 할 수 있습니다. (`redis.default.svc.cluster.local`로도 접근가능 합니다. 서로 다른 namespace와 cluster를 구분할 수 있습니다.)
 
-CluterIP 서비스의 설정을 살펴봅니다.
+ClusterIP 서비스의 설정을 살펴봅니다.
 
 | 정의                    | 설명                                           |
 | ----------------------- | ---------------------------------------------- |
