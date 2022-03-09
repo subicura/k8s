@@ -94,7 +94,6 @@ kubectl apply -f counter-app.yml
 kubectl get po
 kubectl exec -it counter-<xxxxx> -- sh
 
-# apk add curl busybox-extras # install telnet
 # curl localhost:3000
 # curl localhost:3000
 # telnet redis 6379
@@ -221,6 +220,10 @@ redis        ClusterIP   10.103.50.102    <none>        6379/TCP         30m
 curl 192.168.64.4:31000 # 또는 브라우저에서 접근
 ```
 
+::: warning Docker
+Docker driver를 사용중이라면 `minikube service counter-np` 명령어를 이용하여 접속하세요.
+:::
+
 <div style="text-align: center">
   <img src="./imgs/guide/service/nodeport.png" alt="NodePort" style="width: 350px; max-width: 100%" />
 </div>
@@ -274,7 +277,21 @@ Load Balancer를 사용할 수 없는 환경에서 가상 환경을 만들어 �
 minikube addons enable metallb
 ```
 
-그리고 `minikube ip`명령어로 확인한 ip를 ConfigMap으로 지정해야 합니다.
+그리고 `minikube ip`명령어로 확인한 IP를 ConfigMap으로 지정해야 합니다.
+
+minikube를 이용하여 손쉽게 metallb 설정을 할 수 있습니다.
+
+```sh
+minikube addons configure metallb
+
+-- Enter Load Balancer Start IP: # minikube ip 결과값 입력
+-- Enter Load Balancer End IP: # minikube ip 결과값 입력
+    ▪ Using image metallb/speaker:v0.9.6
+    ▪ Using image metallb/controller:v0.9.6
+✅  metallb was successfully configured
+```
+
+minikube를 사용하지 않고 직접 ConfigMap을 작성할 수도 있습니다.
 
 <<< @/src/.vuepress/public/code/guide/service/metallb-cm.yml{12}
 <code-link link="guide/service/metallb-cm.yml"/>
@@ -297,6 +314,10 @@ redis        ClusterIP      10.103.50.102    <none>        6379/TCP          66m
 ```
 
 이제 `192.168.64.4:30000`으로 접근해봅니다.
+
+::: warning Docker
+Docker driver를 사용중이라면 `minikube service counter-lb` 명령어를 이용하여 접속하세요.
+:::
 
 ::: tip LoadBalancer와 NodePort
 LoadBalancer는 NodePort의 기능을 기본으로 포함합니다.

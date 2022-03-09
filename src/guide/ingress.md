@@ -42,23 +42,16 @@ nginx를 제외한 대표적인 컨트롤러로 haproxy, traefik, alb등이 있�
 minikube addons enable ingress
 
 # ingress 컨트롤러 확인
-kubectl -n kube-system get pod
+kubectl -n ingress-nginx get pod
 ```
 
 **실행 결과**
 
-```{4-6}
+```{2-4}
 NAME                                        READY   STATUS      RESTARTS   AGE
-coredns-f9fd979d6-26cqh                     1/1     Running     2          4d3h
-etcd-minikube                               1/1     Running     2          4d3h
-ingress-nginx-admission-create-wgfxt        0/1     Completed   0          17m
-ingress-nginx-admission-patch-d57wz         0/1     Completed   0          17m
-ingress-nginx-controller-558664778f-tpqdr   1/1     Running     0          17m
-kube-apiserver-minikube                     1/1     Running     2          4d3h
-kube-controller-manager-minikube            1/1     Running     2          4d3h
-kube-proxy-ps7gw                            1/1     Running     2          4d3h
-kube-scheduler-minikube                     1/1     Running     2          4d3h
-storage-provisioner                         1/1     Running     5          4d3h
+ingress-nginx-admission-create-n2684        0/1     Completed   0          96s
+ingress-nginx-admission-patch-thq42         0/1     Completed   1          96s
+ingress-nginx-controller-6d5f55986b-jkcfs   1/1     Running     0          96s
 ```
 
 잘 설정 되었는지 확인합니다.
@@ -66,6 +59,24 @@ storage-provisioner                         1/1     Running     5          4d3h
 ```sh
 curl -I http://192.168.64.5/healthz # minikube ip를 입력
 ```
+
+::: warning Docker
+Docker driver를 사용중이라면 `minikube service ingress-nginx-controller -n ingress-nginx --url` 명령어를 이용하여 접속 주소를 확인합니다.
+
+```sh
+🏃  Starting tunnel for service ingress-nginx-controller.
+|---------------|--------------------------|-------------|------------------------|
+|   NAMESPACE   |           NAME           | TARGET PORT |          URL           |
+|---------------|--------------------------|-------------|------------------------|
+| ingress-nginx | ingress-nginx-controller |             | http://127.0.0.1:51728 |
+|               |                          |             | http://127.0.0.1:51729 |
+|---------------|--------------------------|-------------|------------------------|
+http://127.0.0.1:51728
+http://127.0.0.1:51729
+```
+
+다음과 같이 출력된다면 첫번째 항목을 테스트 주소로 사용합니다. `curl -I http://127.0.0.1:51728/healthz`
+:::
 
 **실행 결과**
 
@@ -77,25 +88,15 @@ Content-Length: 0
 Connection: keep-alive
 ```
 
-::: warning minikube v1.23 오류
-minikube v1.23에서 Ingress 실습 중 오류가 발생한다면 다음과 같이 수정해주세요.
-
-```
-kubectl -n ingress-nginx edit role/ingress-nginx
-
-# ingress-controller-leader-nginx -> ingress-controller-leader 로 수정
-
-kubectl -n ingress-nginx edit deploy/ingress-nginx-controller
-
-# args 하단에 - --watch-ingress-without-class=true 추가
-```
-:::
-
 ### echo 웹 애플리케이션 배포
 
 Nginx Ingress Controller 설치가 완료되면 echo 웹 애플리케이션을 배포합니다. v1, v2 2가지를 배포합니다.
 
 Ingress Spec중에 `rules.host`부분을 `minikube ip`로 변경해야 합니다.
+
+::: warning Docker
+Docker driver를 사용중이라면 `rules.host`부분에 `127.0.0.1`을 사용합니다. `v1.echo.127.0.0.1.sslip.io`
+:::
 
 <<< @/src/.vuepress/public/code/guide/ingress/echo-v1.yml{7}
 <code-link link="guide/ingress/echo-v1.yml"/>
@@ -133,6 +134,10 @@ echo-v2   <none>   v2.echo.192.168.64.5.sslip.io   192.168.64.5   80      48s
 ```
 
 `v1.echo.192.168.64.5.sslip.io`과 `v2.echo.192.168.64.5.sslip.io`로 접속 테스트합니다.
+
+::: warning Docker
+Docker driver를 사용중이라면 `v1.echo.127.0.0.1.sslip.io:PORT`로 테스트합니다. `PORT`는 `ingress-nginx-controller` 서비스의 첫번째 항목입니다.
+:::
 
 ## Ingress 생성 흐름
 
