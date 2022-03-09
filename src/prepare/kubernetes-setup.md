@@ -155,8 +155,10 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 # 버전확인
 minikube version
 
-# 가상머신 시작
+# 가상머신 시작 (x86 추천)
 minikube start --driver=hyperkit
+# 가상머신 시작 (M1 추천 - 도커 데스크탑 설치 필요)
+minikube start --driver=docker
 # driver 에러가 발생한다면 virtual box를 사용
 minikube start --driver=virtualbox
 # 특정 k8s 버전 실행
