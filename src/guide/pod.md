@@ -200,8 +200,8 @@ kubectl delete -f echo-pod.yml
 **상태 확인**
 
 ```{2}
-NAME      READY   STATUS             RESTARTS   AGE
-echo-lp   0/1     CrashLoopBackOff   3          65s
+NAME      READY   STATUS             RESTARTS      AGE
+echo-lp   0/1     CrashLoopBackOff   4 (15s ago)   60s
 ```
 
 정상적으로 응답하지 않았기 때문에 Pod이 여러 번 재시작되고 `CrashLoopBackOff` 상태로 변경되었습니다.
@@ -276,7 +276,6 @@ kubectl logs counter db
 
 # Pod의 app컨테이너 접속
 kubectl exec -it counter -c app -- sh
-# apk add curl busybox-extras # install curl, telnet
 # curl localhost:3000
 # curl localhost:3000
 # telnet localhost 6379
@@ -321,10 +320,10 @@ kubectl과 YAML에 익숙해졌다면 남은 실습을 하고 다음 장으로 �
 
 | 키                   | 값                          |
 | -------------------- | --------------------------- |
-| `Pod 이름`           | mysql                       |
-| `Pod Label`          | app: mysql                  |
-| `Container 이름`     | mysql                       |
-| `Container 이미지`   | mysql:5.7                   |
+| `Pod 이름`           | mariadb                     |
+| `Pod Label`          | app: mariadb                |
+| `Container 이름`     | mariadb                     |
+| `Container 이미지`   | mariadb:10.7                |
 | `Container 환경변수` | MYSQL_ROOT_PASSWORD: 123456 |
 
 ::: details 정답
