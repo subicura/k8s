@@ -10,7 +10,6 @@ yarn build
 cd dist/k8s
 
 git init
-git branch -m main
 git add -A
 git commit -m 'deploy'
 
