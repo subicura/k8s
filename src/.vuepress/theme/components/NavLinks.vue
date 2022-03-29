@@ -38,7 +38,18 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      영상강의
+      📺 강의
+      <OutboundLink />
+    </a>
+
+    <a
+      href="https://subicura.com"
+      class="inflearn-out-link"
+      style="cursor: pointer"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      👨‍💻 블로그
       <OutboundLink />
     </a>
   </nav>

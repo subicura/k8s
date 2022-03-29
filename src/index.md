@@ -4,7 +4,7 @@ heroImage: /imgs/k8s_hero.png
 tagline: 설치부터 배포까지 <실습편>
 actionText: 시작하기 →
 actionLink: /guide/
-footer: ⓒ 2021 by subicura
+footer: ⓒ 2022 by subicura
 
 description: 쿠버네티스 안내서 - 실습편
 image: /imgs/share.png
@@ -32,8 +32,11 @@ image: /imgs/share.png
 </div>
 
 <div class="features features-4" style="align-items: center">
-  <div class="feature">
-    <h2>👉 Read This Next</h2>
+  <div class="feature" style="text-align: center">
+    <a href="https://subicura.com/devops">
+      <img :src="$withBase('/imgs/devops_hero.png')" />
+      <p style="margin-top: 0">DevOps 안내서</p>
+    </a>
   </div>
   <div class="feature" style="text-align: center">
     <a href="https://subicura.com/2021/06/27/study-guide.html">
