@@ -33,25 +33,25 @@ image: /imgs/share.png
 
 <div class="features features-4" style="align-items: center">
   <div class="feature" style="text-align: center">
-    <a href="https://subicura.com/devops">
+    <a href="https://subicura.com/devops?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s">
       <img :src="$withBase('/imgs/devops_hero.png')" />
       <p style="margin-top: 0">DevOps 안내서</p>
     </a>
   </div>
   <div class="feature" style="text-align: center">
-    <a href="https://subicura.com/2021/06/27/study-guide.html">
+    <a href="https://subicura.com/2021/06/27/study-guide.html?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s">
       <img :src="$withBase('/imgs/web_hero.png')" />
       <p style="margin-top: 0">웹 개발자 학습 안내서</p>
     </a>
   </div>
   <div class="feature" style="text-align: center">
-    <a href="https://subicura.com/git/">
+    <a href="https://subicura.com/git/?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s">
       <img :src="$withBase('/imgs/git_hero.png')" />
       <p style="margin-top: 0">Git/GitHub 안내서</p>
     </a>
   </div>
   <div class="feature" style="text-align: center">
-    <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html">
+    <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s">
       <img :src="$withBase('/imgs/docker_hero.png')" />
       <p style="margin-top: 0">도커 안내서</p>
     </a>
