@@ -2,7 +2,7 @@
   <picture>
     <source :srcset="$withBase(webp)" type="image/webp">
     <source :srcset="$withBase(original)" :type="imageType">
-    <img :src="$withBase(original)" :alt="altText"></picture>
+    <img :src="$withBase(original)" :alt="altText" loading="lazy"></picture>
 </template>
 
 <script>
