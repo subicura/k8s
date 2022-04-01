@@ -61,7 +61,7 @@ minikube delete
 
 실습의 1차 목표는 PHP와 MySQL로 구성된 워드프레스를 쿠버네티스로 배포하기입니다. 쿠버네티스 세계에서 웹 애플리케이션 배포는 가장 흔한 작업입니다. 도커에 익숙한 분들을 위하여 도커 컴포즈<sup>docker-compose</sup>를 이용한 배포와 차이점을 확인해보겠습니다.
 
-![wordpress(docker)](./imgs/guide/index/wordpress-docker.png)
+<custom-image src="/imgs/guide/index/wordpress-docker.png" alt="wordpress(docker)" />
 
 도커 컴포즈를 이용한 배포는 다음과 같습니다.
 
@@ -78,7 +78,7 @@ YAML 코드 하단에 표시된 링크(`guide/index/docker-compose.yml`)를 누�
 
 이제, 쿠버네티스로 배포합니다. 쿠버네티스는 조금 ~~많이~~ 더 다양한 컴포넌트로 구성됩니다.
 
-![wordpress(k8s)](./imgs/guide/index/wordpress-k8s.png)
+<custom-image src="/imgs/guide/index/wordpress-k8s.png" alt="wordpress(k8s)" />
 
 Service, Pod, ReplicaSet, Deployment, ... 정확하게 뭐가 뭔지 모르겠지만 👀 `아.. 이게 쿠버네티스의 철학이구나!`라고 이해하고 일단 무작정 설정파일<sup>spec</sup>를 작성해봅니다.
 
@@ -128,7 +128,7 @@ replicaset.apps/wordpress-mysql-545d9c6dc   1         1         1       103s
 Docker driver를 사용중이라면 `minikube service wordpress` 명령어를 이용하여 접속하세요.
 :::
 
-![wordpress](./imgs/guide/index/wordpress.png)
+<custom-image src="/imgs/guide/index/wordpress.png" alt="wordpress" />
 
 🎉 축하합니다! 첫번째 쿠버네티스 배포에 성공했습니다.
 

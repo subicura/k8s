@@ -182,7 +182,12 @@ module.exports = {
    */
   plugins: [
     "@vuepress/back-to-top",
-    "@vuepress/medium-zoom",
+    [
+      "@vuepress/medium-zoom",
+      {
+        selector: ".theme-default-content :not(a, a > picture) > img",
+      },
+    ],
     [
       "@vuepress/blog",
       {

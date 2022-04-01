@@ -11,8 +11,8 @@ Service(서비스)를 이용하여 Pod을 노출하고 클러스터 외부에서
 
 Pod은 자체 IP를 가지고 다른 Pod과 통신할 수 있지만, 쉽게 사라지고 생성되는 특징 때문에 직접 통신하는 방법은 권장하지 않습니다. 쿠버네티스는 Pod과 직접 통신하는 방법 대신, 별도의 고정된 IP를 가진 서비스를 만들고 그 서비스를 통해 Pod에 접근하는 방식을 사용합니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/service/pod-service.png" alt="Service" style="width: 420px; max-width: 100%" />
+<div style="text-align: center; width: 420px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/service/pod-service.png" alt="Service" />
 </div>
 
 이러한 개념은 ~~도커에 익숙할수록~~ 처음 접하면 참 어렵습니다. 개념도 생소한데 노출 범위에 따라 CluterIP, NodePort, LoadBalancer 타입으로 나누어져 더욱 헷갈립니다. 하나씩 차근차근 알아봅시다.
@@ -64,8 +64,8 @@ replicaset.apps/redis-57d787df44   1         1         1       10s
 
 redis Deployment와 Service가 생성된 것을 볼 수 있습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/service/clusterip.png" alt="ClusterIp" style="width: 170px; max-width: 100%" />
+<div style="text-align: center; width: 170px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/service/clusterip.png" alt="ClusterIp" />
 </div>
 
 같은 클러스터에서 생성된 Pod이라면 `redis`라는 도메인으로 redis Pod에 접근 할 수 있습니다. (`redis.default.svc.cluster.local`로도 접근가능 합니다. 서로 다른 namespace와 cluster를 구분할 수 있습니다.)
@@ -224,14 +224,14 @@ curl 192.168.64.4:31000 # 또는 브라우저에서 접근
 Docker driver를 사용중이라면 `minikube service counter-np` 명령어를 이용하여 접속하세요.
 :::
 
-<div style="text-align: center">
-  <img src="./imgs/guide/service/nodeport.png" alt="NodePort" style="width: 350px; max-width: 100%" />
+<div style="text-align: center; width: 350px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/service/nodeport.png" alt="NodePort" />
 </div>
 
 NodePort는 클러스터의 모든 노드에 포트를 오픈합니다. 지금은 테스트라서 하나의 노드밖에 없지만 여러 개의 노드가 있다면 아무 노드로 접근해도 지정한 Pod으로 쏘옥 접근할 수 있습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/service/nodeport-multi.png" alt="NodePort" style="width: 550px; max-width: 100%" />
+<div style="text-align: center; width: 550px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/service/nodeport-multi.png" alt="NodePort" />
 </div>
 
 ::: tip NodePort와 ClusterIP
@@ -242,8 +242,8 @@ NodePort는 CluterIP의 기능을 기본으로 포함합니다.
 
 NodePort의 단점은 노드가 사라졌을 때 자동으로 다른 노드를 통해 접근이 불가능하다는 점입니다. 예를 들어, 3개의 노드가 있다면 3개 중에 아무 노드로 접근해도 NodePort로 연결할 수 있지만 어떤 노드가 살아 있는지는 알 수가 없습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/service/lb.png" alt="Load Balancer" style="width: 460px; max-width: 100%" />
+<div style="text-align: center; width: 460px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/service/lb.png" alt="Load Balancer" />
 </div>
 
 자동으로 살아 있는 노드에 접근하기 위해 모든 노드를 바라보는 `Load Balancer`가 필요합니다. 브라우저는 NodePort에 직접 요청을 보내는 것이 아니라 Load Balancer에 요청하고 Load Balancer가 알아서 살아 있는 노드에 접근하면 NodePort의 단점을 없앨 수 있습니다.

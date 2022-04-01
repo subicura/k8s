@@ -25,13 +25,13 @@ CMD로 kubectl을 사용할 수 있지만 실습 편의상 쉘을 통일합니�
 
 [git](https://git-scm.com/)을 설치하면 같이 설치되는 GitBash를 이용하여 실습을 진행합니다.
 
-![GitBash](./imgs/prepare/for-windows/gitbash.png)
+<custom-image src="/imgs/prepare/for-windows/gitbash.png" alt="GitBash" />
 
 ### Cmder
 
 [Cmder](https://cmder.net/)를 다운받아 \*nix 스타일 쉘을 이용할 수 있습니다.
 
-![Cmder](./imgs/prepare/for-windows/cmder.png)
+<custom-image src="/imgs/prepare/for-windows/cmder.png" alt="Cmder" />
 
 ## 테스트
 

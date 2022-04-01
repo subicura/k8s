@@ -29,8 +29,8 @@ Pod 안에 속한 컨테이너 간 디렉토리를 공유하는 방법을 알아
 
 보통 사이드카<sup>sidecar</sup>라는 패턴에서 사용합니다. 예를 들면, 특정 컨테이너에서 생성되는 로그 파일을 별도의 컨테이너(사이드카)가 수집 할 수 있습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/volume/empty-dir.png" alt="empty-dir" style="width: 280px; max-width: 100%" />
+<div style="text-align: center; width: 280px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/volume/empty-dir.png" alt="empty-dir" />
 </div>
 
 `app` 컨테이너는 `/var/log/example.log`에 로그 파일을 만들고 `sidecar` 컨테이너는 해당 로그 파일을 처리하도록 합니다.
@@ -53,8 +53,8 @@ kubectl logs -f sidecar -c sidecar
 
 호스트 디렉토리를 컨테이너 디렉토리에 연결하는 방법을 알아봅니다. 여기서는 호스트의 `/var/log` 디렉토리를 연결하여 내용을 확인해 보겠습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/volume/hostpath.png" alt="hostpath" style="width: 420px; max-width: 100%" />
+<div style="text-align: center; width: 420px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/volume/hostpath.png" alt="hostpath" />
 </div>
 
 호스트의 `/var/log`를 컨테이너의 `/host/var/log` 디렉토리로 마운트합니다.

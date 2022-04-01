@@ -9,6 +9,7 @@
   },
   "repository": "https://github.com/subicura/k8s",
   "scripts": {
+    "convert": "node script/convert.mjs",
     "dev": "vuepress dev src",
     "build": "NODE_ENV=production vuepress build src"
   },
@@ -29,5 +30,11 @@
     "vuepress": "^1.9.7",
     "vuepress-plugin-mermaidjs": "1.8.1",
     "vuepress-plugin-sitemap": "^2.3.1"
+  },
+  "devDependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0"
   }
 }

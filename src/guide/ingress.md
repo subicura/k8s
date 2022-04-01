@@ -11,7 +11,7 @@ image: /imgs/share.png
 
 하나의 클러스터에서 여러 가지 서비스를 운영한다면 외부 연결을 어떻게 할까요? NodePort를 이용하면 서비스 개수만큼 포트를 오픈하고 사용자에게 어떤 포트인지 알려줘야 합니다. 그럴순 없죠!
 
-![ingress](./imgs/guide/ingress/ingress.png)
+<custom-image src="/imgs/guide/ingress/ingress.png" alt="ingress" />
 
 위 샘플은 `example.com`, `subicura.com/blog`, `subicura.com/help` 주소로 서로 다른 서비스에 접근하는 모습입니다. `80(http)` 또는 `443(https)` 포트로 여러 개의 서비스를 연결해야 하는데 이럴 때 `Ingress`를 사용합니다.
 

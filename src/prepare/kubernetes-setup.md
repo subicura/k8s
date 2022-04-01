@@ -15,13 +15,13 @@ image: /imgs/share.png
 
 쿠버네티스를 운영환경에 설치하기 위해선 최소 3대의 마스터 서버와 컨테이너 배포를 위한 n개의 노드 서버가 필요합니다.
 
-![운영환경 아키텍처](./imgs/prepare/kubernetes-setup/prod-arch.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/prod-arch.png" alt="운영환경 아키텍처" />
 
 이러한 설치는 과정이 복잡하고 배포 환경(AWS, Google Cloud, Azure, Bare Metal, ...)에 따라 방법이 다르기 때문에 처음 공부할 때 바로 구축하기는 적합하지 않습니다.
 
 여기선 개발 환경을 위해 마스터와 노드를 하나의 서버에 설치하여 손쉽게 관리하는 방법을 사용합니다.
 
-![운영환경 아키텍처](./imgs/prepare/kubernetes-setup/dev-arch.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/dev-arch.png" alt="개발환경 아키텍처" />
 
 대표적인 개발 환경 구축 방법으로 [minikube](./kubernetes-setup.md#minikube), [k3s](./kubernetes-setup.md#k3s), [docker for desktop](./kubernetes-setup.md#docker-for-desktop), [kind](./kubernetes-setup.md#kind)가 있습니다.
 
@@ -267,7 +267,7 @@ minikube ip
 
 OS에서 지원하는 가상화 기능을 사용할 수 없는 경우 `VirtualBox`를 설치합니다.
 
-![virtualbox.org](./imgs/prepare/kubernetes-setup/virtualbox.png)
+<a href="https://virtualbox.org" target="_blank"><custom-image src="/imgs/prepare/kubernetes-setup/virtualbox.png" alt="virtualbox.org" /></a>
 
 `Download`버튼을 눌러서 설치합니다.
 
@@ -284,15 +284,15 @@ minikube를 사용할 수 없거나 네트워크등 여러가지 이슈로 실�
 
 1. AWS 로그인 후, Lightsail 메뉴를 선택
 
-![lightsail menu](./imgs/prepare/kubernetes-setup/aws-lightsail.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/aws-lightsail.png" alt="lightsail menu" />
 
 2. 새로운 인스턴스 생성 - Create instance 선택
 
-![Create instance](./imgs/prepare/kubernetes-setup/create-instance.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/create-instance.png" alt="Create instance" />
 
 3. Linux / Ubuntu 20.04 선택
 
-![Pick instance](./imgs/prepare/kubernetes-setup/pick-instance.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/pick-instance.png" alt="Pick instance" />
 
 4. Add launch script를 선택 후 다음 명령어 입력
 
@@ -312,23 +312,23 @@ systemctl enable wetty
 
 5. 2 vCPUs / 4 GB 또는 더 나은 사양 선택
 
-![Choose plan](./imgs/prepare/kubernetes-setup/choose-plan.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/choose-plan.png" alt="Choose plan" />
 
 6. 가상 서버 생성이 완료되면 이름 선택
 
-![Instance detail](./imgs/prepare/kubernetes-setup/instance-detail.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/instance-detail.png" alt="Instance detail" />
 
 7. Networking 탭 선택후 방화벽 허용 (4000-65000) **SSH(22)는 반드시 제거**
 
-![Firewall](./imgs/prepare/kubernetes-setup/firewall.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/firewall.png" alt="Firewall" />
 
 8. 방화벽 설정 결과
 
-![Firewall 결과](./imgs/prepare/kubernetes-setup/firewall-result.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/firewall-result.png" alt="Firewall 결과" />
 
 9. Public IP 주소와 4200 port로 접속 (아이디/패스워드 - ubuntu/1q2w3e4r!!)
 
-![wetty](./imgs/prepare/kubernetes-setup/wetty.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/wetty.png" alt="wetty" />
 
 10. k3s 설치
 
@@ -349,7 +349,7 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 
 docker for desktop에서 쿠버네티스 클러스터를 활성화할 수 있습니다.
 
-![Docker for desktop](./imgs/prepare/kubernetes-setup/docker-for-desktop.png)
+<custom-image src="/imgs/prepare/kubernetes-setup/docker-for-desktop.png" alt="Docker for desktop" />
 
 docker for desktop은 리소스(CPU, 메모리)를 많이 차지하기 때문에 가급적 실습할 때 껐다 켜기 쉬운 minikube를 추천합니다.
 

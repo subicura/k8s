@@ -17,7 +17,7 @@ Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리�
 
 [준비하기](/guide/#워드프레스-배포)에서 배포했던 워드프레스를 직접 배포합니다.
 
-![wordpress](./imgs/guide/index/wordpress-docker.png)
+<custom-image src="/imgs/guide/index/wordpress-docker.png" alt="wordpress" />
 
 **MySQL**
 
@@ -48,8 +48,8 @@ Pod, ReplicaSet, Deployment, Service를 이용하여 기본적인 웹 애플리�
 
 조금 더 복잡한 형태의 앱을 배포합니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/sample/vote.png" alt="vote" style="width: 580px; max-width: 100%" />
+<div style="text-align: center; width: 580px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/sample/vote.png" alt="vote" />
 </div>
 
 **Redis**

@@ -78,8 +78,8 @@ Events:
 
 Pod은 다음과 같이 구성되어있습니다. minikube 클러스터 안에 Pod이 있고 Pod 안에 컨테이너가 있습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/pod/pod-single.png" alt="Pod(단일 컨테이너)" style="width: 300px; max-width: 100%" />
+<div style="text-align: center; width: 300px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/pod/pod-single.png" alt="Pod(단일 컨테이너)" />
 </div>
 
 `kubectl run`을 실행하고 Pod이 생성되는 과정을 살펴봅니다.
@@ -182,7 +182,7 @@ kubectl delete -f echo-pod.yml
 
 `컨테이너 생성`과 실제 `서비스 준비`는 약간의 차이가 있습니다. 서버를 실행하면 바로 접속할 수 없고 짧게는 수초, 길게는 수분~~Java ㅂㄷㅂㄷ~~의 초기화 시간이 필요한데 실제로 접속이 가능할 때 `서비스가 준비되었다`고 말할 수 있습니다.
 
-![Pod Monitoring](./imgs/guide/pod/pod-monitoring.png)
+<custom-image src="/imgs/guide/pod/pod-monitoring.png" alt="Pod(단일 컨테이너)" />
 
 쿠버네티스는 컨테이너가 생성되고 서비스가 준비되었다는 것을 체크하는 옵션을 제공하여 초기화하는 동안 서비스되는 것을 막을 수 있습니다.
 
@@ -254,8 +254,8 @@ READY상태가 `0/1`인 것을 확인할 수 있습니다.
 
 다중 컨테이너를 포함한 Pod은 다음과 같습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/pod/pod-multi.png" alt="Pod(다중 컨테이너)" style="width: 380px; max-width: 100%" />
+<div style="text-align: center; width: 380px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/pod/pod-multi.png" alt="Pod(다중 컨테이너)" />
 </div>
 
 같은 Pod에 컨테이너가 생성되었기 때문에 counter앱은 redis를 `localhost`로 접근할 수 있습니다.

@@ -88,23 +88,23 @@ Pod이 모두 새로운 버전으로 업데이트되었습니다.
 
 Deployment는 새로운 이미지로 업데이트하기 위해 ReplicaSet을 이용합니다. 버전을 업데이트하면 새로운 ReplicaSet을 생성하고 해당 ReplicaSet이 새로운 버전의 Pod을 생성합니다.
 
-![Deploy 1](./imgs/guide/deployment/deploy-1.png)
+<custom-image src="/imgs/guide/deployment/deploy-1.png" alt="Deploy 1" />
 
 새로운 ReplicaSet을 0 -> 1개로 조정하고 정상적으로 Pod이 동작하면 기존 ReplicaSet을 4 -> 3개로 조정합니다.
 
-![Deploy 2](./imgs/guide/deployment/deploy-2.png)
+<custom-image src="/imgs/guide/deployment/deploy-2.png" alt="Deploy 2" />
 
 새로운 ReplicaSet을 1 -> 2개로 조정하고 정상적으로 Pod이 동작하면 기존 ReplicaSet을 3 -> 2개로 조정합니다.
 
-![Deploy 3](./imgs/guide/deployment/deploy-3.png)
+<custom-image src="/imgs/guide/deployment/deploy-3.png" alt="Deploy 3" />
 
 새로운 ReplicaSet을 2 -> 3개로 조정하고 정상적으로 Pod이 동작하면 기존 ReplicaSet을 2 -> 1개로 조정합니다.
 
-![Deploy 4](./imgs/guide/deployment/deploy-4.png)
+<custom-image src="/imgs/guide/deployment/deploy-4.png" alt="Deploy 4" />
 
 최종적으로 새로운 ReplicaSet을 4개로 조정하고 정상적으로 Pod이 동작하면 기존 ReplicaSet을 0개로 조정합니다. 🎉 업데이트 완료!
 
-![Deploy 5](./imgs/guide/deployment/deploy-5.png)
+<custom-image src="/imgs/guide/deployment/deploy-5.png" alt="Deploy 5" />
 
 생성한 Deployment의 상세 상태를 보면 더 자세히 알 수 있습니다.
 

@@ -10,12 +10,12 @@ YAML 문법에 대해 전반적으로 알아봅니다.
 이미 익숙하더라도 한 번 더 체크해보세요!
 :::
 
-![https://speakerdeck.com/rjw1/are-we-all-yaml-engineers-now](./imgs/prepare/yaml/yaml-dev.jpg)
+<a href="https://speakerdeck.com/rjw1/are-we-all-yaml-engineers-now" target="_blank"><custom-image src="/imgs/prepare/yaml/yaml-dev.jpg" alt="wordpress" /></a>
 
 쿠버네티스 실습에서 중요한 건 아키텍처, 그다음이 **YAML**입니다. ~~앞으로 YAML파일을 수십 개 만들 겁니다~~ :dizzy_face:
 
-<div style="text-align: center">
-  <img src="./imgs/prepare/yaml/req.png" alt="배포요청" style="width: 500px; max-width: 100%" />
+<div style="text-align: center; width: 500px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/prepare/yaml/req.png" alt="배포요청" />
 </div>
 
 "블로그를 만들 건데, APP서버는 3개 띄워주시고 DB서버는 1대, 도메인은 blog.subicura.com으로 연결해주세요"를 쿠버네티스에 요청하려면 1. 어떤 오브젝트를 사용할지 정하고 2. 상세 설정을 **YAML형식**으로 정의해야 합니다.
@@ -278,12 +278,14 @@ windows_drive: 'c:'
 
 JSON에 익숙하신 분들을 위한 YAML 변환 사이트입니다.
 
-![json2yaml.com](./imgs/prepare/yaml/json2yaml.png)
+<a href="https://json2yaml.com" target="_blank"><custom-image src="/imgs/prepare/yaml/json2yaml.png" /></a>
+
 [https://www.json2yaml.com/](https://www.json2yaml.com/)
 
 ### yamllint
 
 YAML 문법을 체크하고 어떻게 해석하는지 결과를 알려줍니다.
 
-![yamllint.com](./imgs/prepare/yaml/yamllint.png)
+<a href="https://yamllint.com" target="_blank"><custom-image src="/imgs/prepare/yaml/yamllint.png" /></a>
+
 [http://www.yamllint.com/](http://www.yamllint.com/)

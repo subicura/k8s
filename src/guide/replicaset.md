@@ -42,8 +42,8 @@ replicaset.apps/echo-rs   1         1         1       61s
 
 ReplicaSet과 Pod이 같이 생성된 것을 볼 수 있습니다.
 
-<div style="text-align: center">
-  <img src="./imgs/guide/replicaset/rs.png" alt="ReplicaSet" style="width: 400px; max-width: 100%" />
+<div style="text-align: center; width: 400px; max-width: 100%; margin: 0 auto">
+  <custom-image src="/imgs/guide/replicaset/rs.png" alt="ReplicaSet" />
 </div>
 
 ReplicaSet은 `label을 체크`해서 `원하는 수`의 Pod이 없으면 `새로운 Pod`을 생성합니다. 이를 설정으로 표현하면 다음과 같습니다.
