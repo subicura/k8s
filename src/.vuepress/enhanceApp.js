@@ -16,8 +16,10 @@ export default ({
       window.__HAS_HISTORY_STATE = true;
     }
   });
-  // Google analytics integration
+
   var GA_ID = "UA-43194822-1";
+  var GA4_ID = "G-98XCF746ZC";
+  // Google analytics integration
   if (
     process.env.NODE_ENV === "production" &&
     GA_ID &&
@@ -50,6 +52,30 @@ export default ({
     router.afterEach(function(to) {
       ga("set", "page", router.app.$withBase(to.fullPath));
       ga("send", "pageview");
+    });
+  }
+
+  // Google analytics 4 integration
+  if (
+    process.env.NODE_ENV === "production" &&
+    GA4_ID &&
+    typeof window !== "undefined"
+  ) {
+    var js = document.createElement("script");
+    js.async = 1;
+    js.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
+    document.body.appendChild(js);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", GA4_ID);
+
+    router.afterEach(function(to) {
+      gtag("set", "page_path", router.app.$withBase(to.fullPath));
+      gtag("event", "page_view");
     });
   }
 };
