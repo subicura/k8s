@@ -4,8 +4,6 @@
  * ref：https://v1.vuepress.vuejs.org/config/#index-styl
  */
 
- @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
 .home .features-4 .feature
   flex-basis 25%
   
@@ -21,7 +19,7 @@
   font-weight bold
 
 body
-  font-family "Spoqa Han Sans Neo", "Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-family "Apple SD Neo Gothic", -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은고딕", Dotum, "돋움", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
   font-weight 400
   letter-spacing -0.02em
 
@@ -53,7 +51,7 @@ strong
     @media (max-width: $MQMobileNarrow)
       padding 0 0.5rem
   code, kbd, .line-number
-    font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", "Spoqa Han Sans Neo", monospace
+    font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
   .sidebar .nav-links .repo-link, .navbar a.repo-link
     display none
   img
@@ -62,7 +60,7 @@ strong
     border-radius 0
 
 .usage-msg
-  font-family Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', "Spoqa Han Sans Neo", monospace
+  font-family Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace
   padding .5rem 1.0rem
   border 1px solid #ddd
   border-radius 4px
@@ -93,3 +91,6 @@ pre.mermaid-container, pre[class*="language-"].mermaid-container
     background-color #e74c3c
     color #ffffff
     line-height: 1.2rem;
+
+/* icon */
+.gg-calendar-dates{box-sizing:border-box;position:relative;display:block;transform:scale(var(--ggs,1));width:18px;height:18px;border:2px solid;border-radius:3px}.gg-calendar-dates::after,.gg-calendar-dates::before{content:"";display:block;box-sizing:border-box;position:absolute;border-radius:3px;height:2px;left:2px}.gg-calendar-dates::before{background:currentColor;width:2px;box-shadow:4px 0 0,8px 0 0,0 4px 0,4px 4px 0,8px 4px 0;top:6px}.gg-calendar-dates::after{width:10px;top:-4px;box-shadow:0 6px 0 0}.gg-folder{transform:scale(var(--ggs,1))}.gg-folder,.gg-folder::after{box-sizing:border-box;position:relative;display:block;width:22px;height:16px;border:2px solid;border-radius:3px}.gg-folder::after{content:"";position:absolute;width:10px;height:4px;border-bottom:0;border-top-left-radius:2px;border-top-right-radius:4px;border-bottom-left-radius:0;border-bottom-right-radius:0;top:-5px}.gg-tag,.gg-tag::before{display:block;border:2px solid}.gg-tag{border-right:0;border-top-left-radius:3px;border-bottom-left-radius:3px;box-sizing:border-box;transform:scale(var(--ggs,1));position:relative;width:19px;height:14px}.gg-tag::before{content:"";position:absolute;width:2px;height:2px;box-sizing:content-box;border-radius:100px;right:0;top:2px}.gg-tag::after{content:"";display:block;box-sizing:border-box;position:absolute;width:10px;height:10px;border-bottom:2px solid;border-right:2px solid;border-bottom-right-radius:4px;transform:rotate(-45deg);top:0;right:-5px}

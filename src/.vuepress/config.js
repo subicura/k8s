@@ -73,13 +73,6 @@ module.exports = {
         color: "#5bbad5",
       },
     ],
-    [
-      "link",
-      {
-        href: "https://css.gg/css?=|calendar-dates|folder|tag",
-        rel: "stylesheet",
-      },
-    ],
     ["meta", { name: "theme-color", content: "#3eaf7c" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
@@ -94,13 +87,15 @@ module.exports = {
       },
     ],
     ["meta", { name: "msapplication-TileColor", content: "#000000" }],
-    // [
-    //   "script",
-    //   {
-    //     async: "true",
-    //     src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-    //   },
-    // ],
+    [
+      "script",
+      {
+        src: "https://cdn.usefathom.com/script.js",
+        "data-site": "TQIMVZSN",
+        "data-spa": "auto",
+        defer: "",
+      },
+    ],
     ["meta", { property: "fb:app_id", content: "1611862309129685" }],
   ],
 
@@ -265,13 +260,13 @@ module.exports = {
         sequence: {
           mirrorActors: false,
           actorFontFamily:
-            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, 'Spoqa Han Sans Neo'",
+            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
           actorFontWeight: "bold",
           noteFontFamily:
-            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace, 'Spoqa Han Sans Neo'",
+            "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
           noteFontWeight: "normal",
           messageFontFamily:
-            '"Spoqa Han Sans Neo", "Apple SD Neo Gothic", "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+            '"Apple SD Neo Gothic", -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
           messageFontWeight: "normal",
         },
       },
