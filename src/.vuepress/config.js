@@ -266,7 +266,7 @@ module.exports = {
             "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
           noteFontWeight: "normal",
           messageFontFamily:
-            '"Apple SD Neo Gothic", -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은고딕", Dotum, "돋움", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+            '"Apple SD Neo Gothic", -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은고딕", Dotum, "돋움", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
           messageFontWeight: "normal",
         },
       },
