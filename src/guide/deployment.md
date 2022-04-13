@@ -243,7 +243,7 @@ Deployment는 가장 흔하게 사용하는 배포방식입니다. 이외에 Sta
 
 ## 참고
 
-[Deployment v1 apps](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#deployment-v1-apps)
+[Deployment v1 apps](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#deployment-v1-apps)
 
 ## 문제
 

@@ -61,4 +61,4 @@ Secret은 아직 완전히 믿고 사용할 수는 없습니다. 따라서, 정�
 
 ## 참고
 
-[Secret v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#secret-v1-core)
+[Secret v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#secret-v1-core)

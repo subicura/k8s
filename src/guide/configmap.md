@@ -110,4 +110,4 @@ ConfigMap은 쿠버네티스에서 각종 설정을 관리하는 가장 좋은 �
 
 ## 참고
 
-[ConfigMap v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#configmap-v1-core)
+[ConfigMap v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#configmap-v1-core)

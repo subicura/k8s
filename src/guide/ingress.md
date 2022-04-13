@@ -176,7 +176,7 @@ Ingress를 사용하면 YAML 설정만으로 도메인, 경로 설정을 손쉽�
 
 ## 참고
 
-[Ingress v1 networking.k8s.io](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#ingress-v1-networking-k8s-io)
+[Ingress v1 networking.k8s.io](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#ingress-v1-networking-k8s-io)
 
 ## 문제
 

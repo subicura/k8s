@@ -298,7 +298,7 @@ kubectl과 YAML에 익숙해졌다면 남은 실습을 하고 다음 장으로 �
 
 ## 참고
 
-[PodSpec v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#podspec-v1-core)
+[PodSpec v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#podspec-v1-core)
 
 ## 실습
 

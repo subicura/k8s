@@ -83,7 +83,7 @@ minikube start --driver=hyperv
 # driver 에러가 발생한다면 virtual box를 사용
 minikube start --driver=virtualbox
 # 특정 k8s 버전 실행
-minikube start --kubernetes-version=v1.20.0
+minikube start --kubernetes-version=v1.23.1
 
 # 상태확인
 minikube status
@@ -162,7 +162,7 @@ minikube start --driver=docker
 # driver 에러가 발생한다면 virtual box를 사용
 minikube start --driver=virtualbox
 # 특정 k8s 버전 실행
-minikube start --kubernetes-version=v1.20.0
+minikube start --kubernetes-version=v1.23.1
 
 # 상태확인
 minikube status
@@ -245,7 +245,7 @@ minikube start --driver=docker
 # driver 에러가 발생한다면 virtual box를 사용
 minikube start --driver=virtualbox
 # 특정 k8s 버전 실행
-minikube start --kubernetes-version=v1.20.0
+minikube start --kubernetes-version=v1.23.1
 
 # 상태확인
 minikube status

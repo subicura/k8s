@@ -331,7 +331,7 @@ LoadBalancer는 NodePort의 기능을 기본으로 포함합니다.
 
 ## 참고
 
-[Service v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#service-v1-core)
+[Service v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#service-v1-core)
 [네트워크 통신 시각화](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-networking-guide-beginners.html)
 
 ## 문제

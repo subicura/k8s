@@ -15,12 +15,12 @@ image: /imgs/share.png
 
 ## 설치하기
 
-kubectl `v1.20` 버전을 설치합니다.
+kubectl `v1.23` 버전을 설치합니다.
 
 ### windows
 
 ```sh
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.20.0/bin/windows/amd64/kubectl.exe
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.5/bin/windows/amd64/kubectl.exe
 ```
 
 ### macOS
@@ -30,7 +30,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.20.0/bin/w
 brew install kubectl
 
 # homebrew를 사용하지 않는다면, 직접 binary 다운로드
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.20.0/bin/darwin/amd64/kubectl \
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.5/bin/darwin/amd64/kubectl \
   && chmod +x kubectl
 ```
 

@@ -18,7 +18,7 @@ image: /imgs/share.png
 본 가이드는 꼭 알아야 할 최소한의 기능을 배우고 동작 원리를 이해하는 것에 초점을 맞춰 자연스럽게 고급 기능을 익히고 나머지 설정을 찾아볼 수 있도록 구성하였습니다.
 
 ::: warning 주의
-실습은 쿠버네티스 `v1.20`에서 진행하였습니다. 특정 버전(하위 버전)에서 실습할 때 오류가 발생할 수 있습니다.
+실습은 쿠버네티스 `v1.23`에서 진행하였습니다. 특정 버전(하위 버전)에서 실습할 때 오류가 발생할 수 있습니다.
 :::
 
 ## 준비
@@ -42,10 +42,10 @@ minikube status
 minikube start
 
 # 특정 k8s 버전 실행
-minikube start --kubernetes-version=v1.20.0
+minikube start --kubernetes-version=v1.23.1
 
 # 특정 driver 실행
-minikube start --driver=virtualbox --kubernetes-version=v1.20.0
+minikube start --driver=virtualbox --kubernetes-version=v1.23.1
 
 # minikube ip 확인 (접속테스트시 필요)
 minikube ip

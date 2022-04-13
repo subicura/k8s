@@ -78,4 +78,4 @@ ls -al /host/var/log
 
 ## 참고
 
-[Volume v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core)
+[Volume v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#volume-v1-core)

@@ -196,7 +196,7 @@ ReplicaSet은 원하는 개수의 Pod을 유지하는 역할을 담당합니다.
 
 ## 참고
 
-[ReplicaSet v1 apps](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#replicaset-v1-apps)
+[ReplicaSet v1 apps](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#replicaset-v1-apps)
 
 ## 문제
 
