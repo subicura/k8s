@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  wordpress:
+    image: wordpress:5.9.1-php8.1-apache
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    ports:
+      - "30000:80"
+
+  mysql:
+    image: mariadb:10.7
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password

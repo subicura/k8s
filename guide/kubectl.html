@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>기본 명령어 | 쿠버네티스 안내서</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" type="image/png" sizes="32x32" href="/k8s/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/k8s/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/k8s/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/k8s/manifest.json">
+    <link rel="mask-icon" href="/k8s/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <script src="https://duke-unwavering.subicura.dev/script.js" data-site="TQIMVZSN" data-spa="auto" defer=""></script>
+    <meta name="description" content="kubectl의 기본적인 사용법을 익힙니다.">
+    <meta name="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:title" content="기본 명령어">
+    <meta name="twitter:description" content="kubectl의 기본적인 사용법을 익힙니다.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/k8s/guide/kubectl.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="기본 명령어">
+    <meta property="og:description" content="kubectl의 기본적인 사용법을 익힙니다.">
+    <meta property="og:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/k8s/guide/kubectl.html">
+    <meta property="og:site_name" content="쿠버네티스 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="기본 명령어">
+    <meta itemprop="description" content="kubectl의 기본적인 사용법을 익힙니다.">
+    <meta itemprop="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/k8s/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/k8s/assets/css/0.styles.b17048fe.css" as="style"><link rel="preload" href="/k8s/assets/js/app.d529488f.js" as="script"><link rel="preload" href="/k8s/assets/js/8.88024d18.js" as="script"><link rel="preload" href="/k8s/assets/js/2.804e2f1d.js" as="script"><link rel="preload" href="/k8s/assets/js/1.695e6cff.js" as="script"><link rel="preload" href="/k8s/assets/js/43.597eba4b.js" as="script"><link rel="preload" href="/k8s/assets/js/21.6969edd2.js" as="script"><link rel="prefetch" href="/k8s/assets/js/10.853c0129.js"><link rel="prefetch" href="/k8s/assets/js/11.744bccee.js"><link rel="prefetch" href="/k8s/assets/js/12.99b5491d.js"><link rel="prefetch" href="/k8s/assets/js/13.34eb229d.js"><link rel="prefetch" href="/k8s/assets/js/14.35c5b17d.js"><link rel="prefetch" href="/k8s/assets/js/15.c682d064.js"><link rel="prefetch" href="/k8s/assets/js/16.901131bd.js"><link rel="prefetch" href="/k8s/assets/js/17.2092cb3d.js"><link rel="prefetch" href="/k8s/assets/js/18.b375c476.js"><link rel="prefetch" href="/k8s/assets/js/19.59cdb7c0.js"><link rel="prefetch" href="/k8s/assets/js/20.f4d090a8.js"><link rel="prefetch" href="/k8s/assets/js/22.313ba44a.js"><link rel="prefetch" href="/k8s/assets/js/23.c6e70d93.js"><link rel="prefetch" href="/k8s/assets/js/24.4d59b419.js"><link rel="prefetch" href="/k8s/assets/js/25.aa664697.js"><link rel="prefetch" href="/k8s/assets/js/26.01a27f05.js"><link rel="prefetch" href="/k8s/assets/js/27.cc7827b2.js"><link rel="prefetch" href="/k8s/assets/js/28.a5840178.js"><link rel="prefetch" href="/k8s/assets/js/29.d59f4400.js"><link rel="prefetch" href="/k8s/assets/js/30.7bf1774f.js"><link rel="prefetch" href="/k8s/assets/js/31.330aef2b.js"><link rel="prefetch" href="/k8s/assets/js/32.632931ef.js"><link rel="prefetch" href="/k8s/assets/js/33.6fa7491a.js"><link rel="prefetch" href="/k8s/assets/js/34.4b71dd12.js"><link rel="prefetch" href="/k8s/assets/js/35.7c3b0301.js"><link rel="prefetch" href="/k8s/assets/js/36.be94321e.js"><link rel="prefetch" href="/k8s/assets/js/37.361cf84d.js"><link rel="prefetch" href="/k8s/assets/js/38.3e4aad9c.js"><link rel="prefetch" href="/k8s/assets/js/39.d481908f.js"><link rel="prefetch" href="/k8s/assets/js/40.5cf15bca.js"><link rel="prefetch" href="/k8s/assets/js/41.b4beb11c.js"><link rel="prefetch" href="/k8s/assets/js/42.ac5f9887.js"><link rel="prefetch" href="/k8s/assets/js/44.d7932038.js"><link rel="prefetch" href="/k8s/assets/js/45.b55259da.js"><link rel="prefetch" href="/k8s/assets/js/46.d3addd9f.js"><link rel="prefetch" href="/k8s/assets/js/47.15f1b220.js"><link rel="prefetch" href="/k8s/assets/js/48.30ffe500.js"><link rel="prefetch" href="/k8s/assets/js/49.dbce5d04.js"><link rel="prefetch" href="/k8s/assets/js/5.f4204d61.js"><link rel="prefetch" href="/k8s/assets/js/50.1dc5d7a4.js"><link rel="prefetch" href="/k8s/assets/js/51.9101b5bc.js"><link rel="prefetch" href="/k8s/assets/js/52.e94b0805.js"><link rel="prefetch" href="/k8s/assets/js/53.1bcf8241.js"><link rel="prefetch" href="/k8s/assets/js/54.d95aa2d5.js"><link rel="prefetch" href="/k8s/assets/js/55.8765afc9.js"><link rel="prefetch" href="/k8s/assets/js/56.b272dd22.js"><link rel="prefetch" href="/k8s/assets/js/57.fd1fa89f.js"><link rel="prefetch" href="/k8s/assets/js/58.99deaccb.js"><link rel="prefetch" href="/k8s/assets/js/59.6898852c.js"><link rel="prefetch" href="/k8s/assets/js/6.69618441.js"><link rel="prefetch" href="/k8s/assets/js/60.59512365.js"><link rel="prefetch" href="/k8s/assets/js/7.d8220d70.js"><link rel="prefetch" href="/k8s/assets/js/9.d7942b61.js"><link rel="prefetch" href="/k8s/assets/js/vendors~docsearch.a2ffca6b.js">
+    <link rel="stylesheet" href="/k8s/assets/css/0.styles.b17048fe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/k8s/" class="home-link router-link-active"><!----> <span class="site-name">쿠버네티스 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-53a5133a><input type="checkbox" id="themeSwitch" data-v-53a5133a><label for="themeSwitch" class="toggle" data-v-53a5133a><span class="toggle__handler" data-v-53a5133a><span class="crater crater--1" data-v-53a5133a></span><span class="crater crater--2" data-v-53a5133a></span><span class="crater crater--3" data-v-53a5133a></span></span><span class="star star--1" data-v-53a5133a></span><span class="star star--2" data-v-53a5133a></span><span class="star star--3" data-v-53a5133a></span><span class="star star--4" data-v-53a5133a></span><span class="star star--5" data-v-53a5133a></span><span class="star star--6" data-v-53a5133a></span></label></div></div> <!----> <!----></div></div></div> <!----> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/k8s/guide/" class="nav-link router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    📺 강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://subicura.com?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    👨‍💻 블로그
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/k8s/guide/" class="nav-link router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    📺 강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://subicura.com?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    👨‍💻 블로그
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>기본 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/" aria-current="page" class="sidebar-link">시작하기</a></li><li><a href="/k8s/guide/kubectl.html" aria-current="page" class="active sidebar-link">기본 명령어</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#kubectl-명령어" class="sidebar-link">kubectl 명령어</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#상태-설정하기-apply" class="sidebar-link">상태 설정하기 (apply)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#리소스-목록보기-get" class="sidebar-link">리소스 목록보기 (get)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#리소스-상세-상태보기-describe" class="sidebar-link">리소스 상세 상태보기 (describe)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#리소스-제거-delete" class="sidebar-link">리소스 제거 (delete)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#컨테이너-로그-조회-logs" class="sidebar-link">컨테이너 로그 조회 (logs)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#컨테이너-명령어-전달-exec" class="sidebar-link">컨테이너 명령어 전달 (exec)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#설정-관리-config" class="sidebar-link">설정 관리 (config)</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#그외" class="sidebar-link">그외</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/kubectl.html#마무리" class="sidebar-link">마무리</a></li></ul></li><li><a href="/k8s/guide/pod.html" class="sidebar-link">Pod</a></li><li><a href="/k8s/guide/replicaset.html" class="sidebar-link">ReplicaSet</a></li><li><a href="/k8s/guide/deployment.html" class="sidebar-link">Deployment</a></li><li><a href="/k8s/guide/service.html" class="sidebar-link">Service</a></li><li><a href="/k8s/guide/sample.html" class="sidebar-link">웹 애플리케이션 배포</a></li><li><a href="/k8s/guide/ingress.html" class="sidebar-link">Ingress</a></li><li><a href="/k8s/guide/local-volume.html" class="sidebar-link">Volume (local)</a></li><li><a href="/k8s/guide/configmap.html" class="sidebar-link">ConfigMap</a></li><li><a href="/k8s/guide/secret.html" class="sidebar-link">Secret</a></li><li><a href="/k8s/guide/next.html" class="sidebar-link">앞으로</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>고급 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/advanced.html" class="sidebar-link">고급 가이드</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>업데이트</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/update.html" class="sidebar-link">가이드 수정 이력</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="기본-명령어"><a href="#기본-명령어" class="header-anchor">#</a> 기본 명령어</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>kubectl의 기본적인 사용법을 익힙니다.</p></div> <p><code>🙋‍♂️쿠버네티스는 GUI가 없나요?</code> 있습니다. 그래도 처음 공부할 땐 kubectl로 한 땀 한 땀 입력하는 것을 추천합니다.</p> <p>kubectl의 역할은 쿠버네티스의 상태를 확인하고 원하는 상태를 요청하는 것입니다. 추가로 컨테이너 로그도 확인하고 원격으로 접속할 수 있습니다.</p> <p>kubectl의 명령어를 익히고 앞으로 실습할 각종 오브젝트(Pod, ReplicaSet, Deployment, Service, ...)의 사용법을 알면 사실상 쿠버네티스의 동작 원리는 다 이해했다고 볼 수 있습니다. <s>👨‍🎨 참 쉽죠?!</s></p> <p></p><div class="table-of-contents"><ul><li><a href="#kubectl-명령어">kubectl 명령어</a></li><li><a href="#상태-설정하기-apply">상태 설정하기 (apply)</a></li><li><a href="#리소스-목록보기-get">리소스 목록보기 (get)</a></li><li><a href="#리소스-상세-상태보기-describe">리소스 상세 상태보기 (describe)</a></li><li><a href="#리소스-제거-delete">리소스 제거 (delete)</a></li><li><a href="#컨테이너-로그-조회-logs">컨테이너 로그 조회 (logs)</a></li><li><a href="#컨테이너-명령어-전달-exec">컨테이너 명령어 전달 (exec)</a></li><li><a href="#설정-관리-config">설정 관리 (config)</a></li><li><a href="#그외">그외</a></li><li><a href="#마무리">마무리</a></li></ul></div><p></p> <h2 id="kubectl-명령어"><a href="#kubectl-명령어" class="header-anchor">#</a> kubectl 명령어</h2> <table><thead><tr><th>명령어</th> <th>설명</th></tr></thead> <tbody><tr><td><code>apply</code></td> <td>원하는 상태를 적용합니다. 보통 <code>-f</code> 옵션으로 파일과 함께 사용합니다.</td></tr> <tr><td><code>get</code></td> <td>리소스 목록을 보여줍니다.</td></tr> <tr><td><code>describe</code></td> <td>리소스의 상태를 자세하게 보여줍니다.</td></tr> <tr><td><code>delete</code></td> <td>리소스를 제거합니다.</td></tr> <tr><td><code>logs</code></td> <td>컨테이너의 로그를 봅니다.</td></tr> <tr><td><code>exec</code></td> <td>컨테이너에 명령어를 전달합니다. 컨테이너에 접근할 때 주로 사용합니다.</td></tr> <tr><td><code>config</code></td> <td>kubectl 설정을 관리합니다.</td></tr></tbody></table> <div class="custom-block tip"><p class="custom-block-title">alias로 편하게</p> <p><code>kubectl</code>명령어가 은근 오타가 잘나기 때문에 <code>k</code>로 줄여쓰면 편합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># alias 설정</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">k</span><span class="token operator">=</span><span class="token string">'kubectl'</span>
+
+<span class="token comment"># shell 설정 추가</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;alias k='kubectl'&quot;</span> <span class="token operator">&gt;&gt;</span> ~/.bashrc
+<span class="token builtin class-name">source</span> ~/.bashrc
+</code></pre></div></div> <h2 id="상태-설정하기-apply"><a href="#상태-설정하기-apply" class="header-anchor">#</a> 상태 설정하기 (apply)</h2> <p><a href="/k8s/guide/#워드프레스-배포">준비하기#워드프레스 배포</a>에서 사용한 명령어입니다. 원하는 리소스의 상태를 YAML로 작성하고 apply 명령어로 선언합니다.</p> <p class="usage-msg">
+  kubectl apply -f [파일명 또는 URL]
+</p> <p>특이한 점은 파일명뿐 아니라 URL도 입력이 가능하다는 것입니다. 실제로 많은 예제가 URL을 제공하고 있습니다.</p> <p>여기서는 워드프레스를 다시 배포하겠습니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 다시 한번 워드프레스 배포하기 (URL로!)</span>
+kubectl apply -f https://subicura.com/k8s/code/guide/index/wordpress-k8s.yml
+</code></pre></div><h2 id="리소스-목록보기-get"><a href="#리소스-목록보기-get" class="header-anchor">#</a> 리소스 목록보기 (get)</h2> <p>쿠버네티스에 선언된 리소스를 확인하는 명령어는 다음과 같습니다.</p> <p class="usage-msg">
+  kubectl get [TYPE]
+</p> <p>다양한 옵션들이 있는데 여기서는 출력 형태를 변경할 수 있는 <code>-o</code>와 레이블을 확인할 수 있는 <code>--show-labels</code>를 알아봅니다.</p> <p>이전에 생성한 워드프레스와 MySQL 목록을 확인해봅니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 조회</span>
+kubectl get pod
+
+<span class="token comment"># 줄임말(Shortname)과 복수형 사용가능</span>
+kubectl get pods
+kubectl get po
+
+<span class="token comment"># 여러 TYPE 입력</span>
+kubectl get pod,service
+<span class="token comment">#</span>
+kubectl get po,svc
+
+<span class="token comment"># Pod, ReplicaSet, Deployment, Service, Job 조회 =&gt; all</span>
+kubectl get all
+
+<span class="token comment"># 결과 포멧 변경</span>
+kubectl get pod -o wide
+kubectl get pod -o yaml
+kubectl get pod -o json
+
+<span class="token comment"># Label 조회</span>
+kubectl get pod --show-labels
+</code></pre></div><h2 id="리소스-상세-상태보기-describe"><a href="#리소스-상세-상태보기-describe" class="header-anchor">#</a> 리소스 상세 상태보기 (describe)</h2> <p>쿠버네티스에 선언된 리소스의 상세한 상태를 확인하는 명령어는 다음과 같습니다.</p> <p class="usage-msg">
+  kubectl describe [TYPE]/[NAME] 또는 [TYPE] [NAME]
+</p> <p>특정 리소스의 상태가 궁금하거나 생성이 실패한 이유를 확인할 때 주로 사용합니다. 워드프레스 Pod이 언제 생성되었고 어떤 상태인지 상세하게 알아봅니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 조회로 이름 검색</span>
+kubectl get pod
+
+<span class="token comment"># 조회한 이름으로 상세 확인</span>
+kubectl describe pod/wordpress-5f59577d4d-8t2dg <span class="token comment"># 환경마다 이름이 다릅니다</span>
+</code></pre></div><h2 id="리소스-제거-delete"><a href="#리소스-제거-delete" class="header-anchor">#</a> 리소스 제거 (delete)</h2> <p>쿠버네티스에 선언된 리소스를 제거하는 명령어는 다음과 같습니다.</p> <p class="usage-msg">
+  kubectl delete [TYPE]/[NAME] 또는 [TYPE] [NAME]
+</p> <p>워드프레스 Pod을 제거해보겠습니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 조회로 이름 검색</span>
+kubectl get pod
+
+<span class="token comment"># 조회한 Pod 제거</span>
+kubectl delete pod/wordpress-5f59577d4d-8t2dg
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">Pod을 제거해도 자꾸 살아납니다</p> <p>정상적인 결과입니다. 잠시 후 배울 ReplicaSet이 Pod의 개수를 유지해줍니다.</p></div> <h2 id="컨테이너-로그-조회-logs"><a href="#컨테이너-로그-조회-logs" class="header-anchor">#</a> 컨테이너 로그 조회 (logs)</h2> <p>컨테이너의 로그를 확인하는 명령어는 다음과 같습니다.</p> <p class="usage-msg">
+  kubectl logs [POD_NAME]
+</p> <p>실시간 로그를 보고 싶다면 <code>-f</code> 옵션을 이용하고 하나의 Pod에 여러 개의 컨테이너가 있는 경우는 <code>-c</code> 옵션으로 컨테이너를 지정해야 합니다. 워드프레스 로그를 확인해보겠습니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 조회로 이름 검색</span>
+kubectl get pod
+
+<span class="token comment"># 조회한 Pod 로그조회</span>
+kubectl logs wordpress-5f59577d4d-8t2dg
+
+<span class="token comment"># 실시간 로그 보기</span>
+kubectl logs -f wordpress-5f59577d4d-8t2dg
+</code></pre></div><h2 id="컨테이너-명령어-전달-exec"><a href="#컨테이너-명령어-전달-exec" class="header-anchor">#</a> 컨테이너 명령어 전달 (exec)</h2> <p>컨테이너에 접속하는 명령어는 다음과 같습니다.</p> <p class="usage-msg">
+  kubectl exec [-it] [POD_NAME] -- [COMMAND]
+</p> <p>쉘로 접속하여 컨테이너 상태를 확인하는 경우에 <code>-it</code> 옵션을 사용하고 여러 개의 컨테이너가 있는 경우엔 <code>-c</code> 옵션으로 컨테이너를 지정합니다. 워드프레스 컨테이너에 접속해봅니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 조회로 이름 검색</span>
+kubectl get pod
+
+<span class="token comment"># 조회한 Pod의 컨테이너에 접속</span>
+kubectl <span class="token builtin class-name">exec</span> -it wordpress-5f59577d4d-8t2dg -- <span class="token function">bash</span>
+</code></pre></div><h2 id="설정-관리-config"><a href="#설정-관리-config" class="header-anchor">#</a> 설정 관리 (config)</h2> <p>kubectl은 여러 개의 쿠버네티스 클러스터를 컨텍스트<sup>context</sup>로 설정하고 필요에 따라 선택할 수 있습니다. 현재 어떤 컨텍스트로 설정되어 있는지 확인하고 원하는 컨텍스트를 지정합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 현재 컨텍스트 확인</span>
+kubectl config current-context
+
+<span class="token comment"># 컨텍스트 설정</span>
+kubectl config use-context minikube
+</code></pre></div><h2 id="그외"><a href="#그외" class="header-anchor">#</a> 그외</h2> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 전체 오브젝트 종류 확인</span>
+kubectl api-resources
+
+<span class="token comment"># 특정 오브젝트 설명 보기</span>
+kubectl explain pod
+</code></pre></div><h2 id="마무리"><a href="#마무리" class="header-anchor">#</a> 마무리</h2> <p>지금까지 배운 명령어는 그야말로 아주 기본이 되는 명령어입니다. kubectl은 더 많은 명령어와 옵션을 가지고 있는데, 필요에 따라 하나씩 익혀나가면 됩니다.</p> <p>워드프레스 리소스를 제거합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl delete -f https://subicura.com/k8s/code/guide/index/wordpress-k8s.yml
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/k8s/edit/master/src/guide/kubectl.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2020-12-31</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/k8s/guide/" class="prev router-link-active">
+        시작하기
+      </a></span> <span class="next"><a href="/k8s/guide/pod.html">
+        Pod
+      </a>
+      →
+    </span></p></div> <div class="fb-comment-wrapper"><div class="fb-comment-inner"><div data-href="https://subicura.com/k8s/guide/kubectl.html" data-num-posts="5" data-order-by="social" data-width="100%" class="fb-comments"></div></div></div> <div id="fb-root"></div> <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&amp;version=v9.0&amp;appId=1611862309129685&amp;autoLogAppEvents=1" nonce="0khzBnEU"></script></main></div><div class="global-ui"><!----></div></div>
+    <script src="/k8s/assets/js/app.d529488f.js" defer></script><script src="/k8s/assets/js/8.88024d18.js" defer></script><script src="/k8s/assets/js/2.804e2f1d.js" defer></script><script src="/k8s/assets/js/1.695e6cff.js" defer></script><script src="/k8s/assets/js/43.597eba4b.js" defer></script><script src="/k8s/assets/js/21.6969edd2.js" defer></script>
+  </body>
+</html>

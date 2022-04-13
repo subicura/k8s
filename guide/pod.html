@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pod | 쿠버네티스 안내서</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" type="image/png" sizes="32x32" href="/k8s/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/k8s/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/k8s/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/k8s/manifest.json">
+    <link rel="mask-icon" href="/k8s/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <script src="https://duke-unwavering.subicura.dev/script.js" data-site="TQIMVZSN" data-spa="auto" defer=""></script>
+    <meta name="description" content="Pod이 무엇인지 알아보고 기본적인 사용법을 익힙니다. YAML을 이용하여 설정파일을 작성합니다.">
+    <meta name="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:title" content="Pod">
+    <meta name="twitter:description" content="Pod이 무엇인지 알아보고 기본적인 사용법을 익힙니다. YAML을 이용하여 설정파일을 작성합니다.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/k8s/guide/pod.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pod">
+    <meta property="og:description" content="Pod이 무엇인지 알아보고 기본적인 사용법을 익힙니다. YAML을 이용하여 설정파일을 작성합니다.">
+    <meta property="og:image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/k8s/guide/pod.html">
+    <meta property="og:site_name" content="쿠버네티스 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="Pod">
+    <meta itemprop="description" content="Pod이 무엇인지 알아보고 기본적인 사용법을 익힙니다. YAML을 이용하여 설정파일을 작성합니다.">
+    <meta itemprop="image" content="https://subicura.com/k8s/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/k8s/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/k8s/assets/css/0.styles.b17048fe.css" as="style"><link rel="preload" href="/k8s/assets/js/app.d529488f.js" as="script"><link rel="preload" href="/k8s/assets/js/8.88024d18.js" as="script"><link rel="preload" href="/k8s/assets/js/2.804e2f1d.js" as="script"><link rel="preload" href="/k8s/assets/js/1.695e6cff.js" as="script"><link rel="preload" href="/k8s/assets/js/46.d3addd9f.js" as="script"><link rel="preload" href="/k8s/assets/js/19.59cdb7c0.js" as="script"><link rel="preload" href="/k8s/assets/js/11.744bccee.js" as="script"><link rel="prefetch" href="/k8s/assets/js/10.853c0129.js"><link rel="prefetch" href="/k8s/assets/js/12.99b5491d.js"><link rel="prefetch" href="/k8s/assets/js/13.34eb229d.js"><link rel="prefetch" href="/k8s/assets/js/14.35c5b17d.js"><link rel="prefetch" href="/k8s/assets/js/15.c682d064.js"><link rel="prefetch" href="/k8s/assets/js/16.901131bd.js"><link rel="prefetch" href="/k8s/assets/js/17.2092cb3d.js"><link rel="prefetch" href="/k8s/assets/js/18.b375c476.js"><link rel="prefetch" href="/k8s/assets/js/20.f4d090a8.js"><link rel="prefetch" href="/k8s/assets/js/21.6969edd2.js"><link rel="prefetch" href="/k8s/assets/js/22.313ba44a.js"><link rel="prefetch" href="/k8s/assets/js/23.c6e70d93.js"><link rel="prefetch" href="/k8s/assets/js/24.4d59b419.js"><link rel="prefetch" href="/k8s/assets/js/25.aa664697.js"><link rel="prefetch" href="/k8s/assets/js/26.01a27f05.js"><link rel="prefetch" href="/k8s/assets/js/27.cc7827b2.js"><link rel="prefetch" href="/k8s/assets/js/28.a5840178.js"><link rel="prefetch" href="/k8s/assets/js/29.d59f4400.js"><link rel="prefetch" href="/k8s/assets/js/30.7bf1774f.js"><link rel="prefetch" href="/k8s/assets/js/31.330aef2b.js"><link rel="prefetch" href="/k8s/assets/js/32.632931ef.js"><link rel="prefetch" href="/k8s/assets/js/33.6fa7491a.js"><link rel="prefetch" href="/k8s/assets/js/34.4b71dd12.js"><link rel="prefetch" href="/k8s/assets/js/35.7c3b0301.js"><link rel="prefetch" href="/k8s/assets/js/36.be94321e.js"><link rel="prefetch" href="/k8s/assets/js/37.361cf84d.js"><link rel="prefetch" href="/k8s/assets/js/38.3e4aad9c.js"><link rel="prefetch" href="/k8s/assets/js/39.d481908f.js"><link rel="prefetch" href="/k8s/assets/js/40.5cf15bca.js"><link rel="prefetch" href="/k8s/assets/js/41.b4beb11c.js"><link rel="prefetch" href="/k8s/assets/js/42.ac5f9887.js"><link rel="prefetch" href="/k8s/assets/js/43.597eba4b.js"><link rel="prefetch" href="/k8s/assets/js/44.d7932038.js"><link rel="prefetch" href="/k8s/assets/js/45.b55259da.js"><link rel="prefetch" href="/k8s/assets/js/47.15f1b220.js"><link rel="prefetch" href="/k8s/assets/js/48.30ffe500.js"><link rel="prefetch" href="/k8s/assets/js/49.dbce5d04.js"><link rel="prefetch" href="/k8s/assets/js/5.f4204d61.js"><link rel="prefetch" href="/k8s/assets/js/50.1dc5d7a4.js"><link rel="prefetch" href="/k8s/assets/js/51.9101b5bc.js"><link rel="prefetch" href="/k8s/assets/js/52.e94b0805.js"><link rel="prefetch" href="/k8s/assets/js/53.1bcf8241.js"><link rel="prefetch" href="/k8s/assets/js/54.d95aa2d5.js"><link rel="prefetch" href="/k8s/assets/js/55.8765afc9.js"><link rel="prefetch" href="/k8s/assets/js/56.b272dd22.js"><link rel="prefetch" href="/k8s/assets/js/57.fd1fa89f.js"><link rel="prefetch" href="/k8s/assets/js/58.99deaccb.js"><link rel="prefetch" href="/k8s/assets/js/59.6898852c.js"><link rel="prefetch" href="/k8s/assets/js/6.69618441.js"><link rel="prefetch" href="/k8s/assets/js/60.59512365.js"><link rel="prefetch" href="/k8s/assets/js/7.d8220d70.js"><link rel="prefetch" href="/k8s/assets/js/9.d7942b61.js"><link rel="prefetch" href="/k8s/assets/js/vendors~docsearch.a2ffca6b.js">
+    <link rel="stylesheet" href="/k8s/assets/css/0.styles.b17048fe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/k8s/" class="home-link router-link-active"><!----> <span class="site-name">쿠버네티스 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-53a5133a><input type="checkbox" id="themeSwitch" data-v-53a5133a><label for="themeSwitch" class="toggle" data-v-53a5133a><span class="toggle__handler" data-v-53a5133a><span class="crater crater--1" data-v-53a5133a></span><span class="crater crater--2" data-v-53a5133a></span><span class="crater crater--3" data-v-53a5133a></span></span><span class="star star--1" data-v-53a5133a></span><span class="star star--2" data-v-53a5133a></span><span class="star star--3" data-v-53a5133a></span><span class="star star--4" data-v-53a5133a></span><span class="star star--5" data-v-53a5133a></span><span class="star star--6" data-v-53a5133a></span></label></div></div> <!----> <!----></div></div></div> <!----> <form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/k8s/guide/" class="nav-link router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    📺 강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://subicura.com?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    👨‍💻 블로그
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/k8s/guide/" class="nav-link router-link-active">
+  📔 가이드
+</a></div><div class="nav-item"><a href="/k8s/prepare/" class="nav-link">
+  👨‍💻 준비하기
+</a></div><div class="nav-item"><a href="/k8s/archive/" class="nav-link">
+  🕶 Archive
+</a></div> <a href="https://github.com/subicura/k8s" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://bit.ly/inflearn-k8s-link" target="_blank" rel="noopener noreferrer" class="inflearn-out-link">
+    📺 강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://subicura.com?utm_source=subicura.com&utm_medium=referral&utm_campaign=k8s" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    👨‍💻 블로그
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>기본 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/" aria-current="page" class="sidebar-link">시작하기</a></li><li><a href="/k8s/guide/kubectl.html" class="sidebar-link">기본 명령어</a></li><li><a href="/k8s/guide/pod.html" aria-current="page" class="active sidebar-link">Pod</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#빠르게-pod-만들기" class="sidebar-link">빠르게 Pod 만들기</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#yaml로-설정파일spec-작성하기" class="sidebar-link">YAML로 설정파일 작성하기</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#컨테이너-상태-모니터링" class="sidebar-link">컨테이너 상태 모니터링</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#다중-컨테이너" class="sidebar-link">다중 컨테이너</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#마무리" class="sidebar-link">마무리</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#참고" class="sidebar-link">참고</a></li><li class="sidebar-sub-header"><a href="/k8s/guide/pod.html#실습" class="sidebar-link">실습</a></li></ul></li><li><a href="/k8s/guide/replicaset.html" class="sidebar-link">ReplicaSet</a></li><li><a href="/k8s/guide/deployment.html" class="sidebar-link">Deployment</a></li><li><a href="/k8s/guide/service.html" class="sidebar-link">Service</a></li><li><a href="/k8s/guide/sample.html" class="sidebar-link">웹 애플리케이션 배포</a></li><li><a href="/k8s/guide/ingress.html" class="sidebar-link">Ingress</a></li><li><a href="/k8s/guide/local-volume.html" class="sidebar-link">Volume (local)</a></li><li><a href="/k8s/guide/configmap.html" class="sidebar-link">ConfigMap</a></li><li><a href="/k8s/guide/secret.html" class="sidebar-link">Secret</a></li><li><a href="/k8s/guide/next.html" class="sidebar-link">앞으로</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>고급 가이드</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/advanced.html" class="sidebar-link">고급 가이드</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>업데이트</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/k8s/guide/update.html" class="sidebar-link">가이드 수정 이력</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="pod"><a href="#pod" class="header-anchor">#</a> Pod</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>Pod이 무엇인지 알아보고 기본적인 사용법을 익힙니다. YAML을 이용하여 설정파일을 작성합니다.</p></div> <p>Pod은 쿠버네티스에서 관리하는 가장 작은 배포 단위입니다.</p> <p>쿠버네티스와 도커의 차이점은 도커는 컨테이너를 만들지만, 쿠버네티스는 컨테이너 대신 Pod을 만듭니다. Pod은 한 개 또는 여러 개의 컨테이너를 포함합니다.</p> <p>컨테이너가 아니라 Pod을 사용하고 여러개의 컨테이너를 포함할 수 있다고...? 🤔 무슨말인지 확인해봅시다.</p> <p></p><div class="table-of-contents"><ul><li><a href="#빠르게-pod-만들기">빠르게 Pod 만들기</a><ul><li><a href="#pod-생성-분석">Pod 생성 분석</a></li></ul></li><li><a href="#yaml로-설정파일-sup-spec-sup-작성하기">YAML로 설정파일<sup>Spec</sup> 작성하기</a></li><li><a href="#컨테이너-상태-모니터링">컨테이너 상태 모니터링</a><ul><li><a href="#livenessprobe">livenessProbe</a></li><li><a href="#readinessprobe">readinessProbe</a></li><li><a href="#livenessprobe-readinessprobe">livenessProbe + readinessProbe</a></li></ul></li><li><a href="#다중-컨테이너">다중 컨테이너</a></li><li><a href="#마무리">마무리</a></li><li><a href="#참고">참고</a></li><li><a href="#실습">실습</a></li></ul></div><p></p> <h2 id="빠르게-pod-만들기"><a href="#빠르게-pod-만들기" class="header-anchor">#</a> 빠르게 Pod 만들기</h2> <p><code>docker run</code>에 익숙한 분들을 위해 <code>kubectl run</code> 명령어를 소개합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl run <span class="token builtin class-name">echo</span> --image ghcr.io/subicura/echo:v1
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">주의</p> <p>kubernetes v1.18 이상은 <code>run</code>명령어가 Pod을 만들지만 v1.17 이하는 Deployment를 만듭니다.</p></div> <p><code>echo</code>라는 이름의 Pod이 잘 생성되었는지 확인합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 목록 조회</span>
+kubectl get pod
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-text"><code>NAME   READY   STATUS              RESTARTS   AGE
+echo   0/1     ContainerCreating   0          10s
+</code></pre></div><p>생성된 Pod의 상태를 간략하게 확인할 수 있습니다. 상태<sup>STATUS</sup>는 컨테이너가 정상적으로 생성되면 <code>Running</code>으로 바뀌고 오류가 있다면 에러 상태를 표시합니다.</p> <p>그럼 더 상세하게 Pod의 상태를 확인해봅니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 단일 Pod 상세 확인</span>
+kubectl describe pod/echo
+</code></pre></div><p><strong>실행 결과</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-text"><code>Name:         echo
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.64.5
+
+...(생략)...
+
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  68s   default-scheduler  Successfully assigned default/echo to minikube
+  Normal  Pulling    68s   kubelet            Pulling image &quot;ghcr.io/subicura/echo:v1&quot;
+  Normal  Pulled     35s   kubelet            Successfully pulled image &quot;ghcr.io/subicura/echo:v1&quot; in 33.176019499s
+  Normal  Created    35s   kubelet            Created container echo
+  Normal  Started    35s   kubelet            Started container echo
+</code></pre></div><p><code>describe</code> 명령어는 해당 리소스의 상세한 정보를 알려줍니다. 쿠버네티스를 운영하면서 가장 많이 확인하는 부분은 <code>Events</code>입니다. 현재 Pod의 상태를 이벤트별로 확인할 수 있습니다.</p> <h3 id="pod-생성-분석"><a href="#pod-생성-분석" class="header-anchor">#</a> Pod 생성 분석</h3> <p>Pod은 다음과 같이 구성되어있습니다. minikube 클러스터 안에 Pod이 있고 Pod 안에 컨테이너가 있습니다.</p> <div style="text-align:center;width:300px;max-width:100%;margin:0 auto;"><picture><source srcset="/k8s/build/imgs/guide/pod/pod-single.webp" type="image/webp"> <source srcset="/k8s/build/imgs/guide/pod/pod-single.png" type="image/png"> <img src="/k8s/build/imgs/guide/pod/pod-single.png" alt="Pod(단일 컨테이너)" loading="lazy"></picture></div> <p><code>kubectl run</code>을 실행하고 Pod이 생성되는 과정을 살펴봅니다.</p> <pre class="mermaid-container"><code><div class="spinner" style="background:rgb(66, 185, 131);" data-v-1bbcb91a></div></code></pre><ol><li><code>Scheduler</code>는 API서버를 감시하면서 할당되지 않은<sup>unassigned</sup> <code>Pod</code>이 있는지 체크</li> <li><code>Scheduler</code>는 할당되지 않은 <code>Pod</code>을 감지하고 적절한 <code>노드</code><sup>node</sup>에 할당 (minikube는 단일 노드)</li> <li>노드에 설치된 <code>kubelet</code>은 자신의 노드에 할당된 <code>Pod</code>이 있는지 체크</li> <li><code>kubelet</code>은 <code>Scheduler</code>에 의해 자신에게 할당된 <code>Pod</code>의 정보를 확인하고 컨테이너 생성</li> <li><code>kubelet</code>은 자신에게 할당된 <code>Pod</code>의 상태를 <code>API 서버</code>에 전달</li></ol> <p>잘 디자인된 모듈이 각자 역할을 충실하게 수행하고 있는 모습입니다. 현재 테스트는 단일 노드지만 노드가 수십, 수백 개가 되어도 <code>Scheduler</code>만 열심히 일하면 문제없는 구조입니다. <s>갓 구글!</s></p> <p><strong>Pod 제거</strong></p> <p>다음 실습을 진행하기 전에 이전에 생성한 Pod을 제거합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>kubectl delete pod/echo
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">리소스 제거</p> <p>실습이 끝나면 <code>delete</code> 명령어로 리소스를 제거해주세요.</p></div> <h2 id="yaml로-설정파일spec-작성하기"><a href="#yaml로-설정파일spec-작성하기" class="header-anchor">#</a> YAML로 설정파일<sup>Spec</sup> 작성하기</h2> <p><code>kubectl run</code> 명령어는 실전에선 거의 사용하지 않습니다. 훨씬 더 복잡하고 다양한 설정이 필요한데 이를 <code>kubectl</code> 명령어로 표현하면 금방 복잡해지고 관리가 어렵습니다. 원하는 리소스를 YAML 파일로 작성하면 복잡한 내용을 표현하기 좋고 변경된 내용을 버전 관리할 수 있습니다.</p> <p>그럼 위에서 만든 Pod을 YAML 파일로 정의합니다.</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> echo
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> app
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/echo<span class="token punctuation">:</span>v1
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/echo-pod.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/echo-pod.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p><code>run</code> 명령어로 생성할 때와 차이점은 <code>label</code>이 추가되었습니다. 쿠버네티스는 리소스를 관리할 때 <code>name</code>과 <code>label</code>을 이용합니다.</p> <p><strong>필수 요소</strong></p> <table><thead><tr><th>정의</th> <th>설명</th> <th>예</th></tr></thead> <tbody><tr><td><code>version</code></td> <td>오브젝트 버전</td> <td>v1, app/v1, networking.k8s.io/v1, ...</td></tr> <tr><td><code>kind</code></td> <td>종류</td> <td>Pod, ReplicaSet, Deployment, Service, ...</td></tr> <tr><td><code>metadata</code></td> <td>메타데이터</td> <td>name과 label, annotation(주석)으로 구성</td></tr> <tr><td><code>spec</code></td> <td>상세명세</td> <td>리소스 종류마다 다름</td></tr></tbody></table> <p><code>version</code>, <code>kind</code>, <code>metadata</code>, <code>spec</code>는 리소스를 정의할 때 반드시 필요한 요소입니다.</p> <div class="custom-block tip"><p class="custom-block-title">version</p> <p><code>Alpha(v1alpha1, ...)</code> &gt; <code>Beta(v1beta1, ...)</code> &gt; <code>Stable(v1)</code>의 과정을 거치며 쿠버네티스 버전에 따라 지원하는 리소스의 버전이 달라 실습할 때 주의해야 합니다. (쿠버네티스 이전 버전에서 최신 샘플을 배포하면 버전 오류가 발생할 수 있습니다.)</p></div> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 생성</span>
+kubectl apply -f echo-pod.yml
+
+<span class="token comment"># Pod 목록 조회</span>
+kubectl get pod
+
+<span class="token comment"># Pod 로그 확인</span>
+kubectl logs <span class="token builtin class-name">echo</span>
+kubectl logs -f <span class="token builtin class-name">echo</span>
+
+<span class="token comment"># Pod 컨테이너 접속</span>
+kubectl <span class="token builtin class-name">exec</span> -it <span class="token builtin class-name">echo</span> -- <span class="token function">sh</span>
+<span class="token comment"># ls</span>
+<span class="token comment"># ps</span>
+<span class="token comment"># exit</span>
+
+<span class="token comment"># Pod 제거</span>
+kubectl delete -f echo-pod.yml
+</code></pre></div><h2 id="컨테이너-상태-모니터링"><a href="#컨테이너-상태-모니터링" class="header-anchor">#</a> 컨테이너 상태 모니터링</h2> <p><code>컨테이너 생성</code>과 실제 <code>서비스 준비</code>는 약간의 차이가 있습니다. 서버를 실행하면 바로 접속할 수 없고 짧게는 수초, 길게는 수분<s>Java ㅂㄷㅂㄷ</s>의 초기화 시간이 필요한데 실제로 접속이 가능할 때 <code>서비스가 준비되었다</code>고 말할 수 있습니다.</p> <picture><source srcset="/k8s/build/imgs/guide/pod/pod-monitoring.webp" type="image/webp"> <source srcset="/k8s/build/imgs/guide/pod/pod-monitoring.png" type="image/png"> <img src="/k8s/build/imgs/guide/pod/pod-monitoring.png" alt="Pod(단일 컨테이너)" loading="lazy"></picture> <p>쿠버네티스는 컨테이너가 생성되고 서비스가 준비되었다는 것을 체크하는 옵션을 제공하여 초기화하는 동안 서비스되는 것을 막을 수 있습니다.</p> <h3 id="livenessprobe"><a href="#livenessprobe" class="header-anchor">#</a> livenessProbe</h3> <p>컨테이너가 정상적으로 동작하는지 체크하고 정상적으로 동작하지 않는다면 <strong>컨테이너를 재시작</strong>하여 문제를 해결합니다.</p> <p><code>정상</code>이라는 것은 여러 가지 방식으로 체크할 수 있는데 여기서는 <code>http get</code> 요청을 보내 확인하는 방법을 사용합니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> echo<span class="token punctuation">-</span>lp
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> app
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/echo<span class="token punctuation">:</span>v1
+      <span class="token key atrule">livenessProbe</span><span class="token punctuation">:</span>
+        <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> /not/exist
+          <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+        <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">5</span>
+        <span class="token key atrule">timeoutSeconds</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token comment"># Default 1</span>
+        <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">5</span> <span class="token comment"># Defaults 10</span>
+        <span class="token key atrule">failureThreshold</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># Defaults 3</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/echo-lp.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/echo-lp.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p>일부러 존재하지 않는 path(/not/exist)와 port(8080)를 입력하였습니다.</p> <p><strong>상태 확인</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-text"><code>NAME      READY   STATUS             RESTARTS      AGE
+echo-lp   0/1     CrashLoopBackOff   4 (15s ago)   60s
+</code></pre></div><p>정상적으로 응답하지 않았기 때문에 Pod이 여러 번 재시작되고 <code>CrashLoopBackOff</code> 상태로 변경되었습니다.</p> <div class="custom-block tip"><p class="custom-block-title">상태체크</p> <p>httpGet 외에 <code>tcpSocket</code>, <code>exec</code> 방법으로 체크할 수 있습니다.</p></div> <h3 id="readinessprobe"><a href="#readinessprobe" class="header-anchor">#</a> readinessProbe</h3> <p>컨테이너가 준비되었는지 체크하고 정상적으로 준비되지 않았다면 <strong>Pod으로 들어오는 요청을 제외</strong>합니다.</p> <p>livenessProbe와 차이점은 문제가 있어도 Pod을 재시작하지 않고 요청만 제외한다는 점입니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> echo<span class="token punctuation">-</span>rp
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> app
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/echo<span class="token punctuation">:</span>v1
+      <span class="token key atrule">readinessProbe</span><span class="token punctuation">:</span>
+        <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> /not/exist
+          <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+        <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">5</span>
+        <span class="token key atrule">timeoutSeconds</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token comment"># Default 1</span>
+        <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">5</span> <span class="token comment"># Defaults 10</span>
+        <span class="token key atrule">failureThreshold</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># Defaults 3</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/echo-rp.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/echo-rp.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p><strong>상태 확인</strong></p> <div class="language- extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-text"><code>NAME      READY   STATUS    RESTARTS   AGE
+echo-rp   0/1     Running   0          14s
+</code></pre></div><p>READY상태가 <code>0/1</code>인 것을 확인할 수 있습니다.</p> <h3 id="livenessprobe-readinessprobe"><a href="#livenessprobe-readinessprobe" class="header-anchor">#</a> livenessProbe + readinessProbe</h3> <p>보통 <code>livenessProbe</code>와 <code>readinessProbe</code>를 같이 적용합니다. 상세한 설정은 애플리케이션 환경에 따라 적절하게 조정합니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> echo<span class="token punctuation">-</span>health
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> echo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> app
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/echo<span class="token punctuation">:</span>v1
+      <span class="token key atrule">livenessProbe</span><span class="token punctuation">:</span>
+        <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> /
+          <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3000</span>
+      <span class="token key atrule">readinessProbe</span><span class="token punctuation">:</span>
+        <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> /
+          <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3000</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/echo-pod-health.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/echo-pod-health.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p><code>3000</code>번 포트와 <code>/</code> 경로는 정상적이기 때문에 Pod이 오류없이 생성된 것을 확인할 수 있습니다.</p> <h2 id="다중-컨테이너"><a href="#다중-컨테이너" class="header-anchor">#</a> 다중 컨테이너</h2> <p>대부분 <code>1 Pod = 1 컨테이너</code>지만 여러 개의 컨테이너를 가진 경우도 꽤 흔합니다.</p> <p>하나의 Pod에 속한 컨테이너는 서로 네트워크를 <strong>localhost로 공유하고 동일한 디렉토리를 공유</strong>할 수 있습니다.</p> <div class="language-yml extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> counter
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> counter
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> app
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/subicura/counter<span class="token punctuation">:</span>latest
+      <span class="token key atrule">env</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> REDIS_HOST
+          <span class="token key atrule">value</span><span class="token punctuation">:</span> <span class="token string">&quot;localhost&quot;</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> db
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/counter-pod-redis.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/counter-pod-redis.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <p>요청횟수를 redis에 저장하는 간단한 웹 애플리케이션을 다중 컨테이너로 생성합니다.</p> <div class="custom-block tip"><p class="custom-block-title">환경변수 설정</p> <p>이번 예제에서는 환경변수(env) 정의가 추가되었습니다. env는 <code>name</code>과 <code>value</code>를 별도로 정의합니다.</p></div> <p>다중 컨테이너를 포함한 Pod은 다음과 같습니다.</p> <div style="text-align:center;width:380px;max-width:100%;margin:0 auto;"><picture><source srcset="/k8s/build/imgs/guide/pod/pod-multi.webp" type="image/webp"> <source srcset="/k8s/build/imgs/guide/pod/pod-multi.png" type="image/png"> <img src="/k8s/build/imgs/guide/pod/pod-multi.png" alt="Pod(다중 컨테이너)" loading="lazy"></picture></div> <p>같은 Pod에 컨테이너가 생성되었기 때문에 counter앱은 redis를 <code>localhost</code>로 접근할 수 있습니다.</p> <p>아직 <code>Service</code>를 배우지 않아 브라우저 테스트는 어려우니 직접 컨테이너에 접속해서 테스트해보겠습니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Pod 생성</span>
+kubectl apply -f counter-pod-redis.yml
+
+<span class="token comment"># Pod 목록 조회</span>
+kubectl get pod
+
+<span class="token comment"># Pod 로그 확인</span>
+kubectl logs counter <span class="token comment"># 오류 발생 (컨테이너 지정 필요)</span>
+kubectl logs counter app
+kubectl logs counter db
+
+<span class="token comment"># Pod의 app컨테이너 접속</span>
+kubectl <span class="token builtin class-name">exec</span> -it counter -c app -- <span class="token function">sh</span>
+<span class="token comment"># curl localhost:3000</span>
+<span class="token comment"># curl localhost:3000</span>
+<span class="token comment"># telnet localhost 6379</span>
+  dbsize
+  KEYS *
+  GET count
+  quit
+
+<span class="token comment"># Pod 제거</span>
+kubectl delete -f counter-pod-redis.yml
+</code></pre></div><p>멀티 컨테이너는 도커에선 볼 수 없던 개념입니다. 쿠버네티스는 멀티 컨테이너를 이용한 다양한 패턴이 존재합니다. 로그를 수집하는 별도의 컨테이너를 같은 Pod으로 배포한다던가, 서버가 실행되기 전 데이터베이스를 마이그레이션 하는 초기화 컨테이너를 만들 수도 있습니다.</p> <h2 id="마무리"><a href="#마무리" class="header-anchor">#</a> 마무리</h2> <p>Pod은 쿠버네티스에서 굉장히 중요한 요소이지만 단독으로 사용하는 경우는 거의 없습니다. Pod이 컨테이너를 관리하듯이 다른 컨트롤러가 Pod을 관리합니다.</p> <p>kubectl과 YAML에 익숙해졌다면 남은 실습을 하고 다음 장으로 넘어갑니다.</p> <h2 id="참고"><a href="#참고" class="header-anchor">#</a> 참고</h2> <p><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#podspec-v1-core" target="_blank" rel="noopener noreferrer">PodSpec v1 core<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="실습"><a href="#실습" class="header-anchor">#</a> 실습</h2> <p><strong>실습1. 다음 조건을 만족하는 Pod을 만드세요.</strong></p> <table><thead><tr><th>키</th> <th>값</th></tr></thead> <tbody><tr><td><code>Pod 이름</code></td> <td>mongodb</td></tr> <tr><td><code>Pod Label</code></td> <td>app: mongo</td></tr> <tr><td><code>Container 이름</code></td> <td>mongodb</td></tr> <tr><td><code>Container 이미지</code></td> <td>mongo:4</td></tr></tbody></table> <details class="custom-block details"><summary>정답</summary> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> mongodb
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> mongo
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> mongodb
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> mongo<span class="token punctuation">:</span><span class="token number">4</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/exam1.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/exam1.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div></details> <p><strong>실습2. 다음 조건을 만족하는 Pod을 만드세요.</strong></p> <table><thead><tr><th>키</th> <th>값</th></tr></thead> <tbody><tr><td><code>Pod 이름</code></td> <td>mariadb</td></tr> <tr><td><code>Pod Label</code></td> <td>app: mariadb</td></tr> <tr><td><code>Container 이름</code></td> <td>mariadb</td></tr> <tr><td><code>Container 이미지</code></td> <td>mariadb:10.7</td></tr> <tr><td><code>Container 환경변수</code></td> <td>MYSQL_ROOT_PASSWORD: 123456</td></tr></tbody></table> <details class="custom-block details"><summary>정답</summary> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> mariadb
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> mariadb
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> mariadb
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> mariadb<span class="token punctuation">:</span><span class="token number">10.7</span>
+      <span class="token key atrule">env</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> MYSQL_ROOT_PASSWORD
+          <span class="token key atrule">value</span><span class="token punctuation">:</span> <span class="token string">&quot;123456&quot;</span>
+</code></pre></div><div style="text-align:center;"><a href="/k8s/code/guide/pod/exam2.yml" target="_blank" rel="noopener noreferrer" class="external code-link">
+    guide/pod/exam2.yml
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div></details></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/k8s/edit/master/src/guide/pod.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2022-04-13</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/k8s/guide/kubectl.html" class="prev">
+        기본 명령어
+      </a></span> <span class="next"><a href="/k8s/guide/replicaset.html">
+        ReplicaSet
+      </a>
+      →
+    </span></p></div> <div class="fb-comment-wrapper"><div class="fb-comment-inner"><div data-href="https://subicura.com/k8s/guide/pod.html" data-num-posts="5" data-order-by="social" data-width="100%" class="fb-comments"></div></div></div> <div id="fb-root"></div> <script async="async" defer="defer" crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&amp;version=v9.0&amp;appId=1611862309129685&amp;autoLogAppEvents=1" nonce="0khzBnEU"></script></main></div><div class="global-ui"><!----></div></div>
+    <script src="/k8s/assets/js/app.d529488f.js" defer></script><script src="/k8s/assets/js/8.88024d18.js" defer></script><script src="/k8s/assets/js/2.804e2f1d.js" defer></script><script src="/k8s/assets/js/1.695e6cff.js" defer></script><script src="/k8s/assets/js/46.d3addd9f.js" defer></script><script src="/k8s/assets/js/19.59cdb7c0.js" defer></script><script src="/k8s/assets/js/11.744bccee.js" defer></script>
+  </body>
+</html>

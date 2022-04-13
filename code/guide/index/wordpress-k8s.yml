@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: mysql
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: mysql
+    spec:
+      containers:
+        - image: mariadb:10.7
+          name: mysql
+          env:
+            - name: MYSQL_DATABASE
+              value: wordpress
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: wordpress
+    tier: mysql
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: frontend
+    spec:
+      containers:
+        - image: wordpress:5.9.1-php8.1-apache
+          name: wordpress
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: wordpress-mysql
+            - name: WORDPRESS_DB_NAME
+              value: wordpress
+            - name: WORDPRESS_DB_USER
+              value: root
+            - name: WORDPRESS_DB_PASSWORD
+              value: password
+          ports:
+            - containerPort: 80
+              name: wordpress
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+  selector:
+    app: wordpress
+    tier: frontend

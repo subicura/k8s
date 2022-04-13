@@ -1,0 +1,57 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echo-v2
+spec:
+  rules:
+    - host: v2.echo.192.168.64.5.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: echo-v2
+                port:
+                  number: 3000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: echo
+        tier: app
+        version: v2
+    spec:
+      containers:
+        - name: echo
+          image: ghcr.io/subicura/echo:v2
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-v2
+spec:
+  ports:
+    - port: 3000
+      protocol: TCP
+  selector:
+    app: echo
+    tier: app
+    version: v2
