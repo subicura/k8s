@@ -90,7 +90,7 @@ module.exports = {
     [
       "script",
       {
-        src: "https://cdn.usefathom.com/script.js",
+        src: "https://duke-unwavering.subicura.dev/script.js",
         "data-site": "TQIMVZSN",
         "data-spa": "auto",
         defer: "",
