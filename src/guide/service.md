@@ -15,7 +15,7 @@ Pod은 자체 IP를 가지고 다른 Pod과 통신할 수 있지만, 쉽게 사�
   <custom-image src="/imgs/guide/service/pod-service.png" alt="Service" />
 </div>
 
-이러한 개념은 ~~도커에 익숙할수록~~ 처음 접하면 참 어렵습니다. 개념도 생소한데 노출 범위에 따라 CluterIP, NodePort, LoadBalancer 타입으로 나누어져 더욱 헷갈립니다. 하나씩 차근차근 알아봅시다.
+이러한 개념은 ~~도커에 익숙할수록~~ 처음 접하면 참 어렵습니다. 개념도 생소한데 노출 범위에 따라 ClusterIP, NodePort, LoadBalancer 타입으로 나누어져 더욱 헷갈립니다. 하나씩 차근차근 알아봅시다.
 
 [[toc]]
 
@@ -70,7 +70,7 @@ redis Deployment와 Service가 생성된 것을 볼 수 있습니다.
 
 같은 클러스터에서 생성된 Pod이라면 `redis`라는 도메인으로 redis Pod에 접근 할 수 있습니다. (`redis.default.svc.cluster.local`로도 접근가능 합니다. 서로 다른 namespace와 cluster를 구분할 수 있습니다.)
 
-CluterIP 서비스의 설정을 살펴봅니다.
+ClusterIP 서비스의 설정을 살펴봅니다.
 
 | 정의                    | 설명                                           |
 | ----------------------- | ---------------------------------------------- |
@@ -187,7 +187,7 @@ Endpoint Addresses 정보에 Redis Pod의 IP가 보입니다. (Replicas가 여�
 
 ## Service(NodePort) 만들기
 
-CluterIP는 클러스터 내부에서만 접근할 수 있습니다. 클러스터 외부(노드)에서 접근할 수 있도록 NodePort 서비스를 만들어봅니다.
+ClusterIP는 클러스터 내부에서만 접근할 수 있습니다. 클러스터 외부(노드)에서 접근할 수 있도록 NodePort 서비스를 만들어봅니다.
 
 <<< @/src/.vuepress/public/code/guide/service/counter-nodeport.yml{6-10}
 <code-link link="guide/service/counter-nodeport.yml"/>
@@ -235,7 +235,7 @@ NodePort는 클러스터의 모든 노드에 포트를 오픈합니다. 지금�
 </div>
 
 ::: tip NodePort와 ClusterIP
-NodePort는 CluterIP의 기능을 기본으로 포함합니다.
+NodePort는 ClusterIP의 기능을 기본으로 포함합니다.
 :::
 
 ## Service(LoadBalancer) 만들기
